@@ -3,11 +3,10 @@ import OrderItem from '../../../../components/order/OrderItem';
 
 const OrderCancelledStack = ({ navigation }) => {
   return (
-    <View className='px-4'>
+    <ScrollView className='px-4'>
       <View className='mt-6'>
         <Text className='text-gray-500 text-f14'>2.207 đơn hàng</Text>
-
-        <ScrollView className='mt-4'>
+        <View className='mt-4'>
           <OrderItem />
           <OrderItem />
           <OrderItem />
@@ -18,9 +17,9 @@ const OrderCancelledStack = ({ navigation }) => {
           <OrderItem />
           <OrderItem />
           <OrderItem />
-        </ScrollView>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
