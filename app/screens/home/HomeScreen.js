@@ -3,7 +3,6 @@ import { useCallback, useRef, useState } from 'react';
 import { Dimensions, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { BellIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
-import PieSalesChart from '../../../components/charts/PieSalesChart';
 import SalesPieChart from '../../../components/charts/SalesPieChart';
 import { ActionItem, BottomSheetActions, OrderNavigation } from '../../../components/home';
 
@@ -64,7 +63,7 @@ const HomeScreen = () => {
                         <SalesPieChart />
                     )}
                     {index === 2 && (
-                        <PieSalesChart />
+                        <SalesPieChart />
                     )}
                 </View>
                 <View className='px-4'>
