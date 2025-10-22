@@ -2,9 +2,9 @@ import { useCallback, useRef } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
-import BottomOrderFilterSheet from './BottomOrderFilterSheet';
+// import BottomOrderFilterSheet from './BottomOrderFilterSheet';
 
-const HeaderOrderCancelled = ({ title, navigation, route }) => {
+const HeaderProduct = ({ title, navigation, route }) => {
 
   const bottomSheetRef = useRef(null);
 
@@ -48,17 +48,16 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
         </TouchableOpacity>
         <View className='flex-row items-center'>
           <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full' onPress={() => alert('Tìm kiếm')}>
-            <HeroOutline.Squares2X2Icon size={20} color={'#333'} />
+            <HeroOutline.Squares2X2Icon size={25} color={'#333'} />
           </TouchableOpacity>
           <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full ml-2' onPress={() => alert('Tìm kiếm')}>
-            <HeroSolid.EllipsisVerticalIcon size={23} color={'#333'} />
+            <HeroSolid.EllipsisVerticalIcon size={25} color={'#333'} />
           </TouchableOpacity>
         </View>
       </View>
 
       {/* Phần tiêu đề */}
       <Text
-        className='font-nunito-extrabold'
         style={{
           textAlign: 'center',
           fontSize: 18,
@@ -76,7 +75,7 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
           <TextInput
             placeholderTextColor="#6b7280"
             className='pl-2 py-1 text-gray-500 text-f14'
-            placeholder='Tìm kiếm theo id, mã đơn hàng'
+            placeholder='Tìm kiếm tên, mã...'
           />
         </View>
       </View>
@@ -91,11 +90,11 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
         </TouchableOpacity>
       </View>
 
-      <BottomOrderFilterSheet ref={bottomSheetRef} onClose={closeSheet} />
+      {/* <BottomOrderFilterSheet ref={bottomSheetRef} onClose={closeSheet} /> */}
 
     </View>
 
   );
 }
 
-export default HeaderOrderCancelled
+export default HeaderProduct

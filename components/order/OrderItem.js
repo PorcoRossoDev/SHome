@@ -1,5 +1,4 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, Button, ScrollView, Dimensions, Platform, StyleSheet, FlatList } from 'react-native';
+import { Text, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
 
 const OrderItem = ({ props }) => {
@@ -21,47 +20,49 @@ const OrderItem = ({ props }) => {
             <View className="flex-row justify-between items-start">
                 {/* Bên trái */}
                 <View>
-                    <Text className="text-f17 font-bold text-blue-700">240619-122</Text>
-                    <Text className="text-f17 font-bold mt-1">3.199.200 đ</Text>
+                    <Text className="text-f20 font-nunito-extrabold text-blue-700">240619-122</Text>
+                    <Text className="text-f20 font-nunito-extrabold mt-1">3.199.200 đ</Text>
                 </View>
 
                 {/* Bên phải */}
                 <View className="items-end">
                     <View className="bg-red-500 px-3 py-1 rounded-lg">
-                        <Text className="text-white text-f13 font-bold">Xuất kho</Text>
+                        <Text className="text-white font-nunito-bold text-f14 font-bold">Xuất kho</Text>
                     </View>
-                    <Text className="text-f11 text-right mt-2 text-gray-400">13:39 24/09/2025</Text>
-                    <Text className="text-right font-bold mt-1">Tuấn Anh</Text>
+                    <Text className="text-f13 font-nunito text-right mt-2 text-gray-400">13:39 24/09/2025</Text>
+                    <Text className="text-right text-f16 font-nunito-bold mt-1">Tuấn Anh</Text>
                 </View>
             </View>
             <View className='flex-row items-center'>
-                <HeroSolid.UserCircleIcon size={17} color={'#CECECE'} />
-                <View className='flex-row ml-3'>
-                    <Text className='text-f14'>Anh Việt - </Text>
-                    <Text className='font-medium underline text-f14'>098765637</Text>
+                <HeroSolid.UserCircleIcon size={19} color={'#CECECE'} />
+                <View className='ml-3'>
+                    <Text className='text-f16 font-nunito'>
+                        Anh Việt - {' '}
+                        <Text className='font-medium underline ml-6' styles={{paddingLeft: 3}}>098765637</Text>
+                    </Text>
                 </View>
             </View>
             <View className='flex-row items-center my-2.5'>
                 <HeroSolid.MapPinIcon size={17} color={'#CECECE'} />
-                <View className='flex-row ml-3'>
-                    <Text className='text-f14'>361A Lê Văn Sỹ</Text>
+                <View className='ml-3'>
+                    <Text className='text-f16 font-nunito'>361A Lê Văn Sỹ</Text>
                 </View>
             </View>
             <View className='flex-row items-start'>
                 <HeroSolid.PencilSquareIcon size={17} color={'#CECECE'} />
-                <Text className="ml-3">
-                    <Text className="font-bold text-f14">Ghi chú: </Text>
+                <Text className="ml-3 text-f16 leading-7 font-nunito">
+                    <Text className="font-bold text-f16 font-nunito-bold">Ghi chú: </Text>
                     *** Khách Viết Chênh VAT số tiền: 9.969.100đ
                 </Text>
             </View>
             <View className='flex-row flex-wrap mt-3'>
                 <View className='flex-row flex-wrap items-center w-1/2'>
-                    <Text className='text-f15'>Thanh toán</Text>
-                    <Text className='w-2 h-2 bg-black rounded-full ml-5'></Text>
+                    <Text className='text-f16 font-nunito'>Thanh toán</Text>
+                    <Text className='w-3 h-3 bg-black rounded-full ml-5'></Text>
                 </View>
                 <View className='flex-row flex-wrap items-center w-1/2'>
-                    <Text className='text-f15'>VAT</Text>
-                    <Text className='w-2 h-2 bg-red-600 rounded-full ml-5'></Text>
+                    <Text className='text-f16 font-nunito'>VAT</Text>
+                    <Text className='w-3 h-3 bg-red-600 rounded-full ml-5'></Text>
                 </View>
             </View>
             <View className='mt-3 pt-3 border-t border-gray-100 flex-row flex-wrap'>

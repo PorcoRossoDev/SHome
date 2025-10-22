@@ -48,7 +48,7 @@ const UserOverviewStack = ({ navigation }) => {
                 </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('OrderCancelledStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
+          <TouchableOpacity onPress={() => navigation.navigate('UserOverDueStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.UserCircleIcon size={30} color={'#9ca3af'} />
               <Text className='pl-3'>Khách hàng quá hạn</Text>

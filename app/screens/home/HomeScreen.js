@@ -3,7 +3,6 @@ import { useCallback, useRef, useState } from 'react';
 import { Dimensions, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { BellIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
-// import { FolderIcon, PlusIcon, ShoppingCartIcon, UserGroupIcon, ClipboardIcon, FolderPlus } from "react-native-heroicons/solid";
 import { ActionItem, BottomSheetActions, OrderNavigation } from '../../../components/home';
 
 const HomeScreen = () => {
@@ -46,7 +45,7 @@ const HomeScreen = () => {
     /*=== END: Modal - Thao tác nhanh ===*/
 
     return (
-        <View className='flex-1 relative bg-white'>
+        <View className='flex-1 relative bg-white mb-4'>
             <View className='bg-primary py-6 px-5 flex flex-row justify-between'>
                 <Text className='text-white font-bold text-xl'>Scent Home</Text>
                 <TouchableOpacity className='relative'>
@@ -111,7 +110,7 @@ const HomeScreen = () => {
                 {/* Thao tác nhanh */}
                 <View className='px-4'>
                     <View className='flex flex-row justify-between mt-6'>
-                        <Text className='uppercase font-medium text-f15'>Thao tác nhanh</Text>
+                        <Text className='uppercase font-nunito-bold text-f15'>Thao tác nhanh</Text>
                         <TouchableOpacity onPress={openSheet}>
                             <Text className='text-blue-600 text-f15 font-medium'>Tuỳ chỉnh</Text>
                         </TouchableOpacity>

@@ -1,7 +1,6 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import * as HeroSolid from "react-native-heroicons/solid";
+import { Text, TouchableOpacity, View } from "react-native";
 import * as HeroOutline from "react-native-heroicons/outline";
+import * as HeroSolid from "react-native-heroicons/solid";
 
 const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', close = false, plus = false}) => {
   const sets = { solid: HeroSolid, outline: HeroOutline };
@@ -34,7 +33,7 @@ const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'soli
             ) : (<></>)
         }
       </View>
-      <Text className="text-center min-h-10 px-3 text-f13">{name}</Text>
+      <Text className="text-center font-nunito min-h-10 px-3 text-f15">{name}</Text>
     </TouchableOpacity>
   );
 };

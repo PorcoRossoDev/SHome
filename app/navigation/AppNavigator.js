@@ -1,12 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { Platform, Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 import {
-    HomeIcon,
-    UserGroupIcon,
     CubeIcon,
+    HomeIcon,
     ListBulletIcon,
-    ShoppingBagIcon
+    ShoppingBagIcon,
+    UserGroupIcon
 } from 'react-native-heroicons/solid';
 import { HomeScreen, OrderScreen, OrtherScreen, ProductScreen, UserScreen } from '../screens';
 
@@ -20,7 +19,6 @@ const tabs = [
     { name: 'Product', component: ProductScreen, icon: CubeIcon, label: 'Sản phẩm' },
     { name: 'Orther', component: OrtherScreen, icon: ListBulletIcon, label: 'Thêm' },
 ];
-
 
 const AppNavigation = () => {
     return (
@@ -59,7 +57,7 @@ const AppNavigation = () => {
                             <Icon color={color} width={24} height={24} />
                         ),
                         tabBarLabel: ({ color }) => (
-                            <Text className='font-medium text-sm text-center mt-1' style={{color:color}}>
+                            <Text className='font-nunito text-f14 text-center mt-1' style={{color:color}}>
                                 {label}
                             </Text>
                         ),

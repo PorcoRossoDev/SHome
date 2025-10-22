@@ -41,10 +41,10 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('OrderPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentListIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3'>Đơn hàng cần xử ý</Text>
+              <Text className='pl-3 font-nunito text-f15'>Đơn hàng cần xử ý</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f12'>219</Text>
+                <Text className='text-f14'>219</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
@@ -53,10 +53,10 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('OrderCancelledStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentCheckIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3'>Đơn hàng huỷ</Text>
+              <Text className='pl-3 font-nunito text-f15'>Đơn hàng huỷ</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f12'>0</Text>
+                <Text className='text-f14'>0</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
@@ -65,10 +65,10 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ReceiptRefundIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3'>Phiếu trả hàng</Text>
+              <Text className='pl-3 font-nunito text-f15'>Phiếu trả hàng</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f12'>50</Text>
+                <Text className='text-f14'>50</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
