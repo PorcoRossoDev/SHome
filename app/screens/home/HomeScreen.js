@@ -3,6 +3,8 @@ import { useCallback, useRef, useState } from 'react';
 import { Dimensions, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { BellIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
+import PieSalesChart from '../../../components/charts/PieSalesChart';
+import SalesPieChart from '../../../components/charts/SalesPieChart';
 import { ActionItem, BottomSheetActions, OrderNavigation } from '../../../components/home';
 
 const HomeScreen = () => {
@@ -55,15 +57,15 @@ const HomeScreen = () => {
             </View>
             <ScrollView className=''>
                 <View className="flex-1 m-4">
-                    {/* {index === 0 && (
-                        <BarSalesChart />
+                    {index === 0 && (
+                        <SalesPieChart />
                     )}
                     {index === 1 && (
                         <SalesPieChart />
                     )}
                     {index === 2 && (
                         <PieSalesChart />
-                    )} */}
+                    )}
                 </View>
                 <View className='px-4'>
                     {Platform.OS === 'ios' ? (

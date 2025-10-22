@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import { BarChart } from "react-native-gifted-charts";
-import React, { useState } from "react";
+
+import { useState } from "react";
 
 const BarSalesChart = () => {
   const barData = [
@@ -23,19 +24,19 @@ const BarSalesChart = () => {
       // }}
     >
       <View
-        className="py-5 bg-white rounded-xl"
-        style={{
-          backgroundColor: "white",
-          borderRadius: 16,
-          paddingVertical: 16,
-          // Shadow cho iOS
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.2,
-          shadowRadius: 6,
-          // Shadow cho Android
-          elevation: 6,
-        }}
+        className="py-5 bg-white rounded-lg border border-gray-300"
+        // style={{
+        //   backgroundColor: "white",
+        //   borderRadius: 16,
+        //   paddingVertical: 16,
+        //   // Shadow cho iOS
+        //   shadowColor: "#000",
+        //   shadowOffset: { width: 0, height: 4 },
+        //   shadowOpacity: 0.2,
+        //   shadowRadius: 6,
+        //   // Shadow cho Android
+        //   elevation: 6,
+        // }}
       >
         <Text className="px-5 font-medium text-f14 mb-3 uppercase">
           Doanh thu bán hàng chi tiết trong năm 1
@@ -51,7 +52,7 @@ const BarSalesChart = () => {
             width={290}
             minHeight={3}
             barBorderRadius={3}
-            showGradient
+            // showGradient
             // frontColor={transactionType === "Expense" ? "#dc2626" : "#4f46e5"}
             // gradientColor={transactionType === "Expense" ? "#ea580c" : "#7c3aed"}
             spacing={35}

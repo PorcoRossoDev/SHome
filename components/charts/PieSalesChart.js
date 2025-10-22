@@ -51,7 +51,7 @@ const PieSalesChart = () => {
             width={290}
             minHeight={3}
             barBorderRadius={3}
-            showGradient
+            // showGradient
             // frontColor={transactionType === "Expense" ? "#dc2626" : "#4f46e5"}
             // gradientColor={transactionType === "Expense" ? "#ea580c" : "#7c3aed"}
             spacing={35}
@@ -66,7 +66,7 @@ const PieSalesChart = () => {
             // rulesColor={"#00000020"}
             // backgroundColor={"white"}
             // showGradient
-            gradientColor={"blue"}
+            // gradientColor={"blue"}
           // barInnerComponent={() => (
           //   <View style={{ backgroundColor: "pink", height: "100%" }} />
           // )}
