@@ -33,7 +33,7 @@ const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'soli
             ) : (<></>)
         }
       </View>
-      <Text className="text-center font-nunito min-h-10 px-3 text-f15">{name}</Text>
+      <Text className="text-center font-sfregular min-h-10 px-3 text-f13">{name}</Text>
     </TouchableOpacity>
   );
 };

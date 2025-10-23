@@ -5,7 +5,7 @@ const ProgressBar = ({ progress, color }) => {
         <View className="mt-2">
             <View className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                 <View
-                className="h-3 rounded-lg"
+                className="h-2 rounded-md"
                 style={{ width: `${progress}%`, backgroundColor: color }}
                 />
             </View>

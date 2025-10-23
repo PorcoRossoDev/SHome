@@ -1,25 +1,25 @@
 import { useNavigation } from "@react-navigation/native";
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Platform, Text, TouchableOpacity, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
 
 const OrderNavigation = () => {
     const navigation = useNavigation();
     const boxShadow = {
         backgroundColor: "white",
-        borderRadius: 10,
-        // paddingVertical: 16,
+        borderRadius: 20,
+        paddingVertical: Platform.OS == 'ios' ?  10 : 6,
         // Shadow cho iOS
         shadowColor: "#000",
-        shadowOffset: { width: 0, height: 4 },
+        shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 6,
         // Shadow cho Android
-        elevation: 6,
+        elevation: 5,
     }
     return (
         <View className='mt-4'>
-            <Text className='uppercase font-medium text-f15 font-nunito-bold px-4'>Danh sách đơn hàng</Text>
-            <View className='mt-3 px-3 pt-4'>
+            <Text className='uppercase font-medium text-f15 font-sfregular-bold'>Danh sách đơn hàng</Text>
+            <View className='mt-3 pt-2'>
                 <TouchableOpacity 
                     onPress={() =>
                         navigation.navigate('Order', {
@@ -31,10 +31,10 @@ const OrderNavigation = () => {
                     >
                     <View className='flex-row flex-wrap items-center justify-center' >
                         <View className='rounded-xl w-11 h-11 justify-center items-center'>
-                            <HeroSolid.ShoppingCartIcon size={20} color={'#60a5fa'} />
+                            <HeroSolid.ShoppingCartIcon size={25} color={'#60a5fa'} />
                         </View>
-                        <View className='pl-3'>
-                            <Text className='font-nunito text-f16'>Tổng đơn hàng</Text>
+                        <View className='pl-2'>
+                            <Text className='font-sfregular text-f16'>Tổng đơn hàng</Text>
                             <Text className='text-blue-600 text-f14 mt-1'>586.727.343</Text>
                         </View>
                     </View>
@@ -56,10 +56,10 @@ const OrderNavigation = () => {
                     >
                     <View className='flex-row flex-wrap'>
                         <View className=' rounded-xl w-12 h-12 justify-center items-center'>
-                            <HeroSolid.CheckCircleIcon size={18} color={'#4ade80'} />
+                            <HeroSolid.CheckCircleIcon size={25} color={'#4ade80'} />
                         </View>
-                        <View className='pl-3'>
-                            <Text className='font-nunito text-f16'>Hoàn thành</Text>
+                        <View className='pl-2'>
+                            <Text className='font-sfregular text-f16'>Hoàn thành</Text>
                             <Text className='text-green-600 text-f14 mt-1'>586.727.343</Text>
                         </View>
                     </View>
@@ -81,10 +81,10 @@ const OrderNavigation = () => {
                     >
                     <View className='flex-row flex-wrap'>
                         <View className=' rounded-xl w-12 h-12 justify-center items-center'>
-                            <HeroSolid.CreditCardIcon size={18} color={'#c084fc'} />
+                            <HeroSolid.CreditCardIcon size={25} color={'#c084fc'} />
                         </View>
-                        <View className='pl-3'>
-                            <Text className='font-nunito text-f16'>Đã Thanh toán</Text>
+                        <View className='pl-2'>
+                            <Text className='font-sfregular text-f16'>Đã Thanh toán</Text>
                             <Text className='text-purple-600 text-f14 mt-1'>586.727.343</Text>
                         </View>
                     </View>
@@ -106,10 +106,10 @@ const OrderNavigation = () => {
                     >
                     <View className='flex-row flex-wrap'>
                         <View className=' rounded-xl w-12 h-12 justify-center items-center'>
-                            <HeroSolid.ClockIcon size={18} color={'#fb923c'} />
+                            <HeroSolid.ClockIcon size={25} color={'#fb923c'} />
                         </View>
-                        <View className='pl-3'>
-                            <Text className='font-nunito text-f16'>Chưa Thanh toán</Text>
+                        <View className='pl-2'>
+                            <Text className='font-sfregular text-f16'>Chưa Thanh toán</Text>
                             <Text className='text-orange-600 text-f14 mt-1'>586.727.343</Text>
                         </View>
                     </View>
@@ -125,10 +125,10 @@ const OrderNavigation = () => {
                     className='mb-4 p-2 flex-row flex-wrap justify-between w-full items-center border-b border-gray-200'>
                     <View className='flex-row flex-wrap'>
                         <View className=' rounded-xl w-12 h-12 justify-center items-center'>
-                            <HeroSolid.TruckIcon size={18} color={'#f472b6'} />
+                            <HeroSolid.TruckIcon size={25} color={'#f472b6'} />
                         </View>
-                        <View className='pl-3'>
-                            <Text className='font-nunito text-f16'>Hẹn giao</Text>
+                        <View className='pl-2'>
+                            <Text className='font-sfregular text-f16'>Hẹn giao</Text>
                             <Text className='text-pink-600 text-f14 mt-1'>0</Text>
                         </View>
                     </View>
@@ -144,10 +144,10 @@ const OrderNavigation = () => {
                     className='pb-2 flex-row flex-wrap justify-between w-full items-center border-b border-gray-200'>
                     <View className='flex-row flex-wrap'>
                         <View className=' rounded-xl w-12 h-12 justify-center items-center'>
-                            <HeroSolid.ArrowDownTrayIcon size={18} color={'#f87171'} />
+                            <HeroSolid.ArrowDownTrayIcon size={25} color={'#f87171'} />
                         </View>
-                        <View className='pl-3'>
-                            <Text className='font-nunito text-f16'>Công nợ</Text>
+                        <View className='pl-2'>
+                            <Text className='font-sfregular text-f16'>Công nợ</Text>
                             <Text className='text-red-600 text-f14 mt-1'>225.435.678</Text>
                         </View>
                     </View>
