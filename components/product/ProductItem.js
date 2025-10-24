@@ -9,12 +9,12 @@ const ProductItem = ({navigation}) => {
         <TouchableOpacity>
              <View className='mb-5 pb-5 border-b flex-row justify-between items-start border-gray-200'>
                 <View className='flex-col justify-between'>
-                    <Text className='font-nunitoBold font-bold text-f16'>Tinh dầu Ocean Hotel 100ml</Text>
-                    <Text className='text-gray-400 my-2'>TINH DẦU 100 ml</Text>
-                    <Text className='text-gray-400'>23:00 28/08/2025</Text>
+                    <Text className='font-sfbold text-f16'>Tinh dầu Ocean Hotel 100ml</Text>
+                    <Text className='text-gray-400 font-sfregular my-2'>TINH DẦU 100 ml</Text>
+                    <Text className='text-gray-400 font-sfregular'>23:00 28/08/2025</Text>
                 </View>
                 <View className='flex-col justify-end items-end'>
-                    <Text className='font-nunitoBold font-medium text-f15'>1.399.000 đ</Text>
+                    <Text className='font-sfbold font-medium text-f15'>1.399.000 đ</Text>
                     <View>
                         <Switch
                             className='mt-1 scale-75'

@@ -9,7 +9,7 @@ const ProductOverviewStack = () => {
     <View className='flex-1 bg-white'>
       <ScrollView className='px-4 bg-white flex-1 relative'>
         <View className='mt-6'>
-          <Text className='text-gray-500 text-f15 font-nunito'>2.207 sản phẩm</Text>
+          <Text className='text-gray-500 text-f15 font-sfregular'>2.207 sản phẩm</Text>
           <View className='mt-4'>
               <ProductItem />
               <ProductItem />

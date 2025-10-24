@@ -4,23 +4,25 @@ import OrderItem from '../../../../components/order/OrderItem';
 
 const OrderListStack = ({ navigation }) => {
   return (
-    <View className='px-4'>
-      <View className='mt-6'>
-        <Text className='text-gray-500 text-f15 font-nunito'>2.207 đơn hàng</Text>
-        <ScrollView className='mt-4'>
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-          <OrderItem />
-        </ScrollView>
+    <ScrollView>
+      <View className='px-4'>
+        <View className='mt-6'>
+          <Text className='text-gray-500 text-f15 font-sfregular'>2.207 đơn hàng</Text>
+          <View className='mt-4'>
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+            <OrderItem />
+          </View>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

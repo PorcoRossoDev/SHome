@@ -20,7 +20,7 @@ const UserOverviewStack = ({ navigation }) => {
                 <HeroSolid.PlusIcon size={25} color={'white'} />
               </View>
             </View>
-            <Text className='text-f16 mt-4 font-medium'>Tạo khách hàng</Text>
+            <Text className='text-f16 mt-4 font-sfregular'>Tạo khách hàng</Text>
           </TouchableOpacity>
         </View>
 
@@ -39,10 +39,10 @@ const UserOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('UserPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.UserCircleIcon size={30} color={'#9ca3af'} />
-              <Text className='pl-3'>Khách hàng cần xử lý</Text>
+              <Text className='pl-3 font-sfregular text-f15'>Khách hàng cần xử lý</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f12'>219</Text>
+                <Text className='text-f12 font-sfregular '>219</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
@@ -51,7 +51,7 @@ const UserOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('UserOverDueStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.UserCircleIcon size={30} color={'#9ca3af'} />
-              <Text className='pl-3'>Khách hàng quá hạn</Text>
+              <Text className='pl-3 font-sfregular text-f15'>Khách hàng quá hạn</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
                 <Text className='text-f12'>0</Text>

@@ -1,11 +1,11 @@
-import React, { forwardRef, useMemo, useCallback } from 'react';
-import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
-import { ActionItem } from '../home/index'
 import {
+  BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetView,
-  BottomSheetBackdrop,
 } from '@gorhom/bottom-sheet';
+import { forwardRef, useCallback } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActionItem } from '../home/index';
 
 // forwardRef cho phép parent gọi ref.present()
 const BottomSheetActions = forwardRef((props, ref) => {
@@ -51,7 +51,7 @@ const BottomSheetActions = forwardRef((props, ref) => {
           <View className="flex-row flex-wrap mt-6">
               {actionListActive.map((item, index) => (
                   <View key={index} className="w-1/4">
-                      <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} close={true} />
+                      <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} close={true} />
                   </View>
               ))}
           </View>
@@ -61,7 +61,7 @@ const BottomSheetActions = forwardRef((props, ref) => {
           <View className="flex-row flex-wrap mt-6">
               {actionListNotActive.map((item, index) => (
                   <View key={index} className="w-1/4">
-                      <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} plus={true} />
+                      <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} plus={true} />
                   </View>
               ))}
           </View>

@@ -2,7 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 
-const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', close = false, plus = false}) => {
+const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', background = '', close = false, plus = false}) => {
   const sets = { solid: HeroSolid, outline: HeroOutline };
   const IconComponent = sets[variant]?.[icon];
 
@@ -12,7 +12,7 @@ const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'soli
 
   return (
     <TouchableOpacity className="flex-1 items-center justify-center mb-4">
-      <View className="relative bg-green-400 w-[55%] aspect-square justify-center items-center rounded-full mb-2">
+      <View className={`relative w-[55%] aspect-square justify-center items-center rounded-full mb-2`} style={{ backgroundColor: background }}>
         {IconComponent ? (
           <IconComponent size={size} color={color} />
         ) : (

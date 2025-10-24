@@ -24,6 +24,8 @@ const HomeScreen = () => {
     ];
     /*=== END: Tab - Biểu đồ ===*/
 
+
+
     /*=== START: Modal - Thao tác nhanh ===*/
     const selectedIndex = segments.findIndex(s => s.value === index);
     const bottomSheetRef = useRef(null);
@@ -35,16 +37,16 @@ const HomeScreen = () => {
     }, []);
 
     const actionList = [
-        { id: '1', name: 'Thêm sản phẩm', icon: 'FolderIcon' },
-        { id: '2', name: 'Tạo đơn hàng', icon: 'ShoppingCartIcon' },
-        { id: '3', name: 'Quản lý nhân viên', icon: 'UserGroupIcon' },
-        { id: '4', name: 'Tạo phiếu chi', icon: 'ClipboardIcon' },
-        { id: '5', name: 'Báo cáo doanh thu', icon: 'ChartPieIcon' },
-        { id: '6', name: 'Quản lý kho', icon: 'FolderIcon' },
-        { id: '7', name: 'Quản lý giao hàng', icon: 'FolderIcon' },
-        { id: '8', name: 'Tạo phiếu kiểm hàng', icon: 'FolderIcon' },
-        { id: '9', name: 'Số quỹ', icon: 'FolderIcon' },
-        { id: 'all', name: 'Xem thêm', icon: 'FolderPlusIcon' },
+        { id: '1', name: 'Thêm sản phẩm', icon: 'FolderIcon' , background: '#4ade80' },
+        { id: '2', name: 'Tạo đơn hàng', icon: 'ShoppingCartIcon' , background: '#facc15' },
+        { id: '3', name: 'Quản lý nhân viên', icon: 'UserGroupIcon' , background: '#facc15' },
+        { id: '4', name: 'Tạo phiếu chi', icon: 'ClipboardIcon' , background: '#4ade80' },
+        { id: '5', name: 'Báo cáo doanh thu', icon: 'ChartPieIcon' , background: '#2563eb' },
+        { id: '6', name: 'Quản lý kho', icon: 'FolderIcon' , background: '#4ade80' },
+        { id: '7', name: 'Quản lý giao hàng', icon: 'FolderIcon' , background: '#4ade80' },
+        { id: '8', name: 'Tạo phiếu kiểm hàng', icon: 'FolderIcon' , background: '#2563eb' },
+        { id: '9', name: 'Số quỹ', icon: 'FolderIcon' , background: '#2563eb' },
+        { id: 'all', name: 'Xem thêm', icon: 'FolderPlusIcon' , background: '#4ade80' },
     ]
     const [activeActions, setActiveActions] = useState(['1', '2', '3', '4', '5', '6', 'all']);
     const actionListActive = actionList.filter(item => activeActions.includes(item.id));
@@ -67,13 +69,13 @@ const HomeScreen = () => {
       const insets = useSafeAreaInsets();
 
     return (
-        <View className='flex-1 bg-white'>
+        <View className='flex-1 bg-gray-50'>
             <StatusBar
                 translucent
                 backgroundColor="transparent"
                 barStyle="light-content"
             />
-            <LinearGradient
+            {/* <LinearGradient
                 colors={['#245de9', '#2d65ec', '#356cef', '#3e74f2', '#467bf4']}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 0 }}
@@ -90,14 +92,28 @@ const HomeScreen = () => {
                     zIndex: 10,
                 }}
             >
+            </LinearGradient> */}
 
-            </LinearGradient>
+            <LinearGradient
+                colors={['#f85b5f', '#e74448', '#d32f2f', '#c9252b', '#a51f25']}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 0 }}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 300,
+                    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
+                    zIndex: 10,
+                }}
+                ></LinearGradient>
 
-            <View className='py-6 px-5 flex flex-row justify-between relative z-50' style={{paddingTop: paddingHeader}}>
+            <View className='py-3 px-5 flex flex-row justify-between relative z-50' style={{paddingTop: paddingHeader}}>
                 <Text className='text-white font-sfbold text-f20'>Scent Home</Text>
                 <TouchableOpacity className='relative'>
                     <BellIcon color='white' width='25' height='25' />
-                    <Text className='w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute bottom-[-5px] right-[-5px] bg-red-600'>10</Text>
+                    <Text className='w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute bottom-[-5px] right-[-5px] bg-yellow-400'>10</Text>
                 </TouchableOpacity>
             </View>
             <ScrollView className='relative z-50 mt-3'>
@@ -160,27 +176,45 @@ const HomeScreen = () => {
                         )}
                     </View>
 
-                    <View className='bg-white px-5'>
+                    <View className='bg-gray-50 px-5'>
 
                         {/* Thao tác nhanh */}
                         <View className=''>
-                            <View className='flex flex-row justify-between mt-6'>
+                            <View className='flex flex-row justify-between mt-4'>
                                 <Text className='uppercase font-sfmedium text-f15'>Thao tác nhanh</Text>
                                 <TouchableOpacity onPress={openSheet}>
                                     <Text className='text-blue-600 text-f15 font-sfmedium'>Tuỳ chỉnh</Text>
                                 </TouchableOpacity>
                             </View>
-                            <View className="flex-row flex-wrap mt-6">
-                                {actionListActive.map((item, index) => (
-                                    <View key={index} className="w-1/4">
-                                        <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} />
-                                    </View>
-                                ))}
+                            <View 
+                                className='mt-5'
+                                style={{
+                                    backgroundColor: "white",
+                                    borderRadius: 10,
+                                    // paddingVertical: 16,
+                                    // Shadow cho iOS
+                                    shadowColor: "#000",
+                                    shadowOffset: { width: 0, height: 4 },
+                                    shadowOpacity: 0.1,
+                                    shadowRadius: 6,
+                                    // Shadow cho Android
+                                    elevation: 6,
+                                }}
+                            >
+                                <View className="flex-row flex-wrap mt-6">
+                                    {actionListActive.map((item, index) => (
+                                        <View key={index} className="w-1/4">
+                                            <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} />
+                                        </View>
+                                    ))}
+                                </View>
                             </View>
                         </View>
 
                         {/* Danh sách đơn hàng */}
-                        <OrderNavigation />
+                        <View className='mt-7 mb-5'>
+                            <OrderNavigation />
+                        </View>
                     </View>
 
                 </View>

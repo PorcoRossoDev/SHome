@@ -53,33 +53,33 @@ const ProductAddStack = () => {
           </View>
           <View className=''>
             <View className='mt-6 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-bold'>Tên sản phẩm</Text>
+              <Text className='text-f16 font-sfbold'>Tên sản phẩm</Text>
               <TextInput 
-                className='border-b h-10 border-gray-200'
+                className='border-b h-10 font-sfregular text-f14 border-gray-200'
                 placeholder='Nhập tên sản phẩm'
                 placeholderTextColor={'#ddd'}
               />
             </View>
 
             <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-bold'>Danh mục</Text>
+              <Text className='text-f16 font-sfbold'>Danh mục</Text>
               <TextInput 
-                className='border-b h-10 border-gray-200'
+                className='border-b h-10 border-gray-200 font-sfregular text-f14'
                 placeholder='Tìm kiếm hoặc thêm mới danh mục'
                 placeholderTextColor={'#ddd'}
               />
             </View>
             <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-bold'>Giá bán lẻ</Text>
+              <Text className='text-f16 font-sfbold'>Giá bán lẻ</Text>
               <TextInput 
-                className='border-b h-10 border-gray-200'
+                className='border-b h-10 border-gray-200 font-sfregular text-f14'
                 placeholder='0'
                 placeholderTextColor={'#ddd'}
               />
             </View>
 
             <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-bold'>Mô tả</Text>
+              <Text className='text-f16 font-sfbold'>Mô tả</Text>
               <TextInput 
                 className='border-b h-20 border-gray-200'
                 placeholder=''
@@ -92,12 +92,12 @@ const ProductAddStack = () => {
           <TouchableOpacity 
             onPress={() => navigation.navigate('ProductOverviewStack')}
             className='w-[40%] justify-center h-12 rounded-lg items-center bg-white'>
-            <Text className='text-f16'>Huỷ</Text>
+            <Text className='text-f16 font-sfregular'>Huỷ</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             onPress={() => navigation.navigate('ProductOverviewStack')}
             className='flex-1 justify-center items-center h-12 rounded-lg bg-blue-500'>
-            <Text className='text-white text-f16'>Tạo sản phẩm</Text>
+            <Text className='text-white text-f16 font-sfregular'>Tạo sản phẩm</Text>
           </TouchableOpacity>
       </View>
     </View>

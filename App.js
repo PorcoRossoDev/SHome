@@ -13,7 +13,7 @@ import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import AppNavigation from './app/navigation/AppNavigator';
+import RootNavigator from './app/navigation/RootNavigator';
 import './global.css';
 
 export default function App() {
@@ -59,7 +59,7 @@ export default function App() {
                   setCurrentRoute(routeName);
                 }}
               >
-                <AppNavigation />
+                <RootNavigator />
               </NavigationContainer>
             </SafeAreaView>
           </SafeAreaProvider>

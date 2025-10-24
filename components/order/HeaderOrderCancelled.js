@@ -57,15 +57,7 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
       </View>
 
       {/* Phần tiêu đề */}
-      <Text
-        className='font-nunito-extrabold'
-        style={{
-          textAlign: 'center',
-          fontSize: 18,
-          fontWeight: '700',
-          color: '#333',
-        }}
-      >
+      <Text className='font-sfbold text-f20 text-center'>
         {title}
       </Text>
 
@@ -75,7 +67,7 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
           <HeroOutline.MagnifyingGlassIcon className='relative top-[10px]' size={18} color={'#6b7280'} />
           <TextInput
             placeholderTextColor="#6b7280"
-            className='pl-2 py-1 text-gray-500 text-f14'
+            className='pl-2 py-1 font-sfregular text-gray-500 text-f15'
             placeholder='Tìm kiếm theo id, mã đơn hàng'
           />
         </View>
@@ -83,7 +75,7 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
 
       {/* Lọc */}
       <View className='px-4 mt-3 flex-row justify-between'>
-        <Text className='pb-4 text-blue-600 text-f15 font-medium px-3 border-b-2 border-blue-600'>Tất cả</Text>
+        <Text className='pb-4 text-blue-600 text-f15 font-sfmedium px-3 border-b-2 border-blue-600'>Tất cả</Text>
         <TouchableOpacity
           onPress={openSheet}
         >

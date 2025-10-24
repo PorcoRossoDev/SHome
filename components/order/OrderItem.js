@@ -6,37 +6,37 @@ const OrderItem = ({ props }) => {
         <View className='bg-white p-4 mb-4'
             style={{
                 backgroundColor: "white",
-                borderRadius: 5,
-                //paddingVertical: 16,
+                borderRadius: 10,
+                // paddingVertical: 16,
                 // Shadow cho iOS
                 shadowColor: "#000",
                 shadowOffset: { width: 0, height: 4 },
                 shadowOpacity: 0.1,
-                shadowRadius: 2,
+                shadowRadius: 6,
                 // Shadow cho Android
-                elevation: 2,
+                elevation: 6,
             }}
         >
             <View className="flex-row justify-between items-start">
                 {/* Bên trái */}
                 <View>
-                    <Text className="text-f20 font-nunito-extrabold text-blue-700">240619-122</Text>
-                    <Text className="text-f20 font-nunito-extrabold mt-1">3.199.200 đ</Text>
+                    <Text className="text-f20 font-sfbold text-blue-700" style={{includeFontPadding: false,}}>240619-122</Text>
+                    <Text className="text-f20 font-sfbold" style={{includeFontPadding: false,}}>3.199.200 đ</Text>
                 </View>
 
                 {/* Bên phải */}
                 <View className="items-end">
                     <View className="bg-red-500 px-3 py-1 rounded-lg">
-                        <Text className="text-white font-nunito-bold text-f14 font-bold">Xuất kho</Text>
+                        <Text className="text-white font-sfbold text-f14 font-bold" style={{includeFontPadding: false,}}>Xuất kho</Text>
                     </View>
-                    <Text className="text-f13 font-nunito text-right mt-2 text-gray-400">13:39 24/09/2025</Text>
-                    <Text className="text-right text-f16 font-nunito-bold mt-1">Tuấn Anh</Text>
+                    <Text className="text-f13 font-sfregular text-right mt-2 text-gray-400">13:39 24/09/2025</Text>
+                    <Text className="text-right text-f16 font-sfbold mt-1" style={{includeFontPadding: false,}}>Tuấn Anh</Text>
                 </View>
             </View>
             <View className='flex-row items-center'>
                 <HeroSolid.UserCircleIcon size={19} color={'#CECECE'} />
                 <View className='ml-3'>
-                    <Text className='text-f16 font-nunito'>
+                    <Text className='text-f16 font-sfregular'>
                         Anh Việt - {' '}
                         <Text className='font-medium underline ml-6' styles={{paddingLeft: 3}}>098765637</Text>
                     </Text>
@@ -45,23 +45,23 @@ const OrderItem = ({ props }) => {
             <View className='flex-row items-center my-2.5'>
                 <HeroSolid.MapPinIcon size={17} color={'#CECECE'} />
                 <View className='ml-3'>
-                    <Text className='text-f16 font-nunito'>361A Lê Văn Sỹ</Text>
+                    <Text className='text-f16 font-sfregular'>361A Lê Văn Sỹ</Text>
                 </View>
             </View>
             <View className='flex-row items-start'>
                 <HeroSolid.PencilSquareIcon size={17} color={'#CECECE'} />
-                <Text className="ml-3 text-f16 leading-7 font-nunito">
-                    <Text className="font-bold text-f16 font-nunito-bold">Ghi chú: </Text>
+                <Text className="ml-3 text-f16 leading-7 font-sfregular">
+                    <Text className="font-bold text-f16 font-sfbold">Ghi chú: </Text>
                     *** Khách Viết Chênh VAT số tiền: 9.969.100đ
                 </Text>
             </View>
             <View className='flex-row flex-wrap mt-3'>
                 <View className='flex-row flex-wrap items-center w-1/2'>
-                    <Text className='text-f16 font-nunito'>Thanh toán</Text>
+                    <Text className='text-f16 font-sfregular'>Thanh toán</Text>
                     <Text className='w-3 h-3 bg-black rounded-full ml-5'></Text>
                 </View>
                 <View className='flex-row flex-wrap items-center w-1/2'>
-                    <Text className='text-f16 font-nunito'>VAT</Text>
+                    <Text className='text-f16 font-sfregular'>VAT</Text>
                     <Text className='w-3 h-3 bg-red-600 rounded-full ml-5'></Text>
                 </View>
             </View>
@@ -69,13 +69,13 @@ const OrderItem = ({ props }) => {
                 <View className='flex-row flex-wrap items-center w-1/2 justify-center'>
                     <View className='flex-row flex-wrap items-center'>
                         <HeroSolid.PrinterIcon size={26} color={'#d5d5d5'} />
-                        <Text className='text-f15 ml-2'>In đơn hàng</Text>
+                        <Text className='text-f15 ml-2 font-sfregular'>In đơn hàng</Text>
                     </View>
                 </View>
                 <View className='flex-row flex-wrap items-center w-1/2 justify-center border-l border-gray-200'>
                     <View className='flex-row flex-wrap items-center'>
                         <HeroSolid.TruckIcon size={26} color={'#d5d5d5'} />
-                        <Text className='text-f15 ml-2'>Nhận đơn giao</Text>
+                        <Text className='text-f15 ml-2 font-sfregular'>Nhận đơn giao</Text>
                     </View>
                 </View>
             </View>

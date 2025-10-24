@@ -57,7 +57,7 @@ const AppNavigation = () => {
                             <Icon color={color} width={24} height={24} />
                         ),
                         tabBarLabel: ({ color }) => (
-                            <Text className='font-nunito text-f14 text-center mt-1' style={{color:color}}>
+                            <Text className='font-sfmedium text-f14 text-center mt-1' style={{color:color}}>
                                 {label}
                             </Text>
                         ),

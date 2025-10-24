@@ -33,7 +33,9 @@ const OrderOverviewStack = ({ navigation }) => {
           </View>
 
           {/* Danh sách đơn hàng */}
-          <OrderNavigation />
+          <View className='px-4 mt-2'>
+            <OrderNavigation />
+          </View>
         </View>
 
         {/* Đơn hàng */}
@@ -41,7 +43,7 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('OrderPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentListIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3 font-nunito text-f15'>Đơn hàng cần xử ý</Text>
+              <Text className='pl-3 font-sfregular text-f16'>Đơn hàng cần xử ý</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
                 <Text className='text-f14'>219</Text>
@@ -53,7 +55,7 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('OrderCancelledStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentCheckIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3 font-nunito text-f15'>Đơn hàng huỷ</Text>
+              <Text className='pl-3 font-sfregular text-f16'>Đơn hàng huỷ</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
                 <Text className='text-f14'>0</Text>
@@ -65,7 +67,7 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ReceiptRefundIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3 font-nunito text-f15'>Phiếu trả hàng</Text>
+              <Text className='pl-3 font-sfregular text-f16'>Phiếu trả hàng</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
                 <Text className='text-f14'>50</Text>
