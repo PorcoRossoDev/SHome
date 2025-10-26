@@ -94,7 +94,7 @@ const HomeScreen = () => {
             >
             </LinearGradient> */}
 
-            <LinearGradient
+            {/* <LinearGradient
                 colors={['#f85b5f', '#e74448', '#d32f2f', '#c9252b', '#a51f25']}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 0 }}
@@ -107,20 +107,49 @@ const HomeScreen = () => {
                     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
                     zIndex: 10,
                 }}
-                ></LinearGradient>
+                ></LinearGradient> */}
+
+                <LinearGradient
+                    colors={[
+                        '#f85b5f',
+                        '#e74448',
+                        '#d32f2f',
+                        '#c9252b',
+                        'rgba(255,255,255,0.1)',
+                        'rgba(255,255,255,0.3)',
+                        'rgba(255,255,255,0.6)',
+                        'rgba(255,255,255,0.8)',
+                        '#ffffff',
+                    ]}
+                    locations={[0, 0.15, 0.25, 0.35, 0.55, 0.7, 0.8, 0.9, 1]}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: 900, // 👉 tăng chiều cao gradient để phần trắng dài hơn
+                        zIndex: 10,
+                        paddingTop:
+                        Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
+                    }}
+                    />
 
             <View className='py-3 px-5 flex flex-row justify-between relative z-50' style={{paddingTop: paddingHeader}}>
                 <Text className='text-white font-sfbold text-f20'>Scent Home</Text>
                 <TouchableOpacity className='relative'>
                     <BellIcon color='white' width='25' height='25' />
-                    <Text className='w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute bottom-[-5px] right-[-5px] bg-yellow-400'>10</Text>
+                    <Text 
+                        className={`w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute ${Platform.OS == 'ios' ? '-top-[5px]' : 'top-[-7px]'} right-[-5px] bg-yellow-400`}
+                        >10</Text>
                 </TouchableOpacity>
             </View>
             <ScrollView className='relative z-50 mt-3'>
                 <View className=''>
 
-                    <View className='hidden'>
-                        <View className='mb-4 px-5'>
+                    <View className='mb-4 px-5'>
+                        <View className='bg-gray-100 rounded-xl p-0.5'>
                             {Platform.OS === 'ios' ? (
                                 <SegmentedControl
                                     values={segments.map(s => s.label)}
@@ -181,13 +210,13 @@ const HomeScreen = () => {
                         {/* Thao tác nhanh */}
                         <View className=''>
                             <View className='flex flex-row justify-between mt-4'>
-                                <Text className='uppercase font-sfmedium text-f15'>Thao tác nhanh</Text>
+                                <Text className='uppercase font-sfmedium text-f14'>Thao tác nhanh</Text>
                                 <TouchableOpacity onPress={openSheet}>
                                     <Text className='text-blue-600 text-f15 font-sfmedium'>Tuỳ chỉnh</Text>
                                 </TouchableOpacity>
                             </View>
                             <View 
-                                className='mt-5'
+                                className='mt-3'
                                 style={{
                                     backgroundColor: "white",
                                     borderRadius: 10,

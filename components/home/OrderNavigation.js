@@ -6,7 +6,7 @@ const OrderNavigation = () => {
     const navigation = useNavigation();
     return (
         <View className=''>
-            <Text className='uppercase font-medium text-f15 font-nunito-bold'>Danh sách đơn hàng</Text>
+            <Text className='uppercase text-f14 font-sfregular'>Danh sách đơn hàng</Text>
             <View className='mt-3 px-3 pt-4' 
                 style={{
                     backgroundColor: "white",
@@ -34,7 +34,7 @@ const OrderNavigation = () => {
                             <HeroSolid.ShoppingCartIcon size={22} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfmedium text-f16'>Tổng đơn hàng</Text>
+                            <Text className='font-sfregular text-f16'>Tổng đơn hàng</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -58,7 +58,7 @@ const OrderNavigation = () => {
                             <HeroSolid.CheckCircleIcon size={22} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfmedium text-f16'>Hoàn thành</Text>
+                            <Text className='font-sfregular text-f16'>Hoàn thành</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -82,7 +82,7 @@ const OrderNavigation = () => {
                             <HeroSolid.CreditCardIcon size={22} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfmedium text-f16'>Đã Thanh toán</Text>
+                            <Text className='font-sfregular text-f16'>Đã Thanh toán</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -106,7 +106,7 @@ const OrderNavigation = () => {
                             <HeroSolid.ClockIcon size={22} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfmedium text-f16'>Chưa Thanh toán</Text>
+                            <Text className='font-sfregular text-f16'>Chưa Thanh toán</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -125,7 +125,7 @@ const OrderNavigation = () => {
                             <HeroSolid.TruckIcon size={22} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfmedium text-f16'>Hẹn giao</Text>
+                            <Text className='font-sfregular text-f16'>Hẹn giao</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -144,7 +144,7 @@ const OrderNavigation = () => {
                             <HeroSolid.ArrowDownTrayIcon size={22} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfmedium text-f16'>Công nợ</Text>
+                            <Text className='font-sfregular text-f16'>Công nợ</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>

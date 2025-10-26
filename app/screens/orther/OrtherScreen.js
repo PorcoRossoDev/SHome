@@ -1,20 +1,29 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { OrtherSettingStack } from './stack';
 
+const Stack = createNativeStackNavigator();
 const OrtherScreen = () => {
+  const navigation = useNavigation();
   return (
-    <View className="flex-1 bg-white px-4 py-6 items-center justify-center">
-      <View>
-        <Text className="text-2xl font-bold text-blue-600 mb-4 text-center">
-            Xin chào, Binh 👋
-        </Text>
-
-        <TouchableOpacity className="bg-blue-500 p-4 rounded-xl">
-            <Text className="text-white text-center font-semibold">
-                Thông tin trang Orther
-            </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <Stack.Navigator
+    screenOptions={{
+      headerTitleAlign: 'center',
+    }}
+    >
+      <Stack.Screen
+        name="OrtherSettingStack"
+        component={OrtherSettingStack}
+        options={{ title: 'Cài đặt', headerBackVisible: false, }}
+      />
+      {/* <Stack.Screen
+        name="OrderListStack"
+        component={OrderListStack}
+        options={({navigation, route}) => ({
+          header: () => <HeaderOrderCancelled title={'Danh sách đơn hàng'} navigation={navigation} />,
+        })}
+      /> */}
+    </Stack.Navigator>
   );
 }
 

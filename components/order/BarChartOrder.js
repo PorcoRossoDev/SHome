@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { Dimensions, Text, View } from "react-native";
 import { BarChart } from "react-native-gifted-charts";
 
 const BarChartOrder = () => {
@@ -41,7 +40,7 @@ const BarChartOrder = () => {
 
   return (
     <View className=''>
-      <Text className='text-f16 font-medium text-center'>Tăng trưởng đơn hàng trong tháng này</Text>
+      <Text className='text-f16 font-sfmedium text-center'>Tăng trưởng đơn hàng trong tháng này</Text>
       <View style={{ overflow: 'visible', width: '100%' }}>
         <BarChart
           initialSpacing

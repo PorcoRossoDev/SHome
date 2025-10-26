@@ -58,18 +58,18 @@ const BottomOrderFilterSheet = forwardRef((props, ref) => {
       <BottomSheetView className='py-3 flex-1'>
         <View className='flex-row justify-between items-center mb-2 flex-1 px-5 border-b border-gray-200 pb-6'>
           <TouchableOpacity onPress={onClose}>
-            <Text className="text-f17 text-blue-500 font-nunito">Huỷ</Text>
+            <Text className="text-f17 text-blue-500 font-sfregular">Huỷ</Text>
           </TouchableOpacity>
-          <Text className='font-nunito-bold text-f17 uppercase'>Bộ lọc</Text>
+          <Text className='font-sfbold text-f16 uppercase'>Bộ lọc</Text>
           <TouchableOpacity onPress={onClose}>
-            <Text className="text-f17 text-blue-500 font-nunito">Lưu</Text>
+            <Text className="text-f17 text-blue-500 font-sfregular">Lưu</Text>
           </TouchableOpacity>
         </View>
 
         <ScrollView className='px-4 flex-1' keyboardShouldPersistTaps="handled">
           <View className='mt-4 z-[1000]'>
             <View>
-              <Text className='text-f16 font-nunito'>Khách hàng</Text>
+              <Text className='text-f16 font-sfmedium'>Khách hàng</Text>
               <View className='mt-3'>
                 <Dropdown
                   style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -97,7 +97,7 @@ const BottomOrderFilterSheet = forwardRef((props, ref) => {
             
             {/* Thời gian */}
             <View className='mt-6'>
-              <Text className='text-f16 font-nunito'>Thời gian</Text>
+              <Text className='text-f16 font-sfmedium'>Thời gian</Text>
               <View className='flex-row gap-x-4 mt-3'>
                 <View className='flex-1'>
                   
@@ -162,7 +162,7 @@ const BottomOrderFilterSheet = forwardRef((props, ref) => {
             <View className='flex-row mt-6 gap-x-4'>
               <View className='flex-1'>
                 <View>
-                  <Text className='text-f16 font-nunito'>Thanh toán</Text>
+                  <Text className='text-f16 font-sfmedium'>Thanh toán</Text>
                   <View className='mt-3'>
                     <Dropdown
                       style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -191,7 +191,7 @@ const BottomOrderFilterSheet = forwardRef((props, ref) => {
 
               <View className='flex-1'>
                 <View>
-                  <Text className='text-f16 font-nunito'>Nguồn đơn hàng</Text>
+                  <Text className='text-f16 font-sfmedium'>Nguồn đơn hàng</Text>
                   <View className='mt-3'>
                     <Dropdown
                       style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -222,7 +222,7 @@ const BottomOrderFilterSheet = forwardRef((props, ref) => {
 
             <View className='mt-5'>
                 <View>
-                  <Text className='text-f16 font-nunito'>Phương thức thanh toán</Text>
+                  <Text className='text-f16 font-sfmedium'>Phương thức thanh toán</Text>
                   <View className='mt-3'>
                     <Dropdown
                       style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -251,7 +251,7 @@ const BottomOrderFilterSheet = forwardRef((props, ref) => {
 
             <View className='mt-5'>
                 <View>
-                  <Text className='text-f16 font-nunito'>Xuất VAT</Text>
+                  <Text className='text-f16 font-sfmedium'>Xuất VAT</Text>
                   <View className='mt-3'>
                     <Dropdown
                       style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}

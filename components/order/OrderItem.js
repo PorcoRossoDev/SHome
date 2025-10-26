@@ -48,11 +48,15 @@ const OrderItem = ({ props }) => {
                     <Text className='text-f16 font-sfregular'>361A Lê Văn Sỹ</Text>
                 </View>
             </View>
-            <View className='flex-row items-start'>
-                <HeroSolid.PencilSquareIcon size={17} color={'#CECECE'} />
-                <Text className="ml-3 text-f16 leading-7 font-sfregular">
-                    <Text className="font-bold text-f16 font-sfbold">Ghi chú: </Text>
-                    *** Khách Viết Chênh VAT số tiền: 9.969.100đ
+            <View className='relative px-4'>
+                <HeroSolid.PencilSquareIcon
+                    size={17}
+                    color={'#CECECE'}
+                    style={{ position: 'absolute', top: 4, left: 0 }}
+                />
+                <Text className="pl-4 text-f16 leading-7 font-sfregular">
+                    <Text className="font-bold font-sfbold">Ghi chú: </Text>
+                    *** Khách Viết Chênh VAT số tiền: 9.969.100đ do admin xử lý
                 </Text>
             </View>
             <View className='flex-row flex-wrap mt-3'>

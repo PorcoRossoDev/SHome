@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import { PieChart } from 'react-native-gifted-charts';
 // import { PieChart } from 'react-native-svg-charts';
 import { useState } from "react";
@@ -40,13 +40,31 @@ const SalesPieChart = () => {
     //     { label: "Black List/Chặn", value: 10, color: "#C94747", gradientColor: "#A83B3B" }, // đỏ đất
     // ];
 
+    // const pieData = [
+    //     { label: "Hà Nội", value: 20, color: "#FFF0F0", gradientColor: "#FFD6D6" },
+    //     { label: "Hồ Chí Minh", value: 22, color: "#FFD6D6", gradientColor: "#FFB3B3" },
+    //     { label: "Tỉnh/Công ty", value: 16, color: "#FFB3B3", gradientColor: "#FF8C8C" },
+    //     { label: "Không có tiềm năng", value: 18, color: "#FF8C8C", gradientColor: "#F26A6A" },
+    //     { label: "Sàn TMĐT", value: 10, color: "#F26A6A", gradientColor: "#E45555" },
+    //     { label: "Black List/Chặn", value: 10, color: "#D94A4A", gradientColor: "#C13C3C" },
+    // ];
+
+    // const pieData = [
+    // { label: "Hà Nội", value: 20, color: "#FFB3B3", gradientColor: "#FF8080" },
+    // { label: "Hồ Chí Minh", value: 22, color: "#FF8080", gradientColor: "#FF6666" },
+    // { label: "Tỉnh/Công ty", value: 16, color: "#FF6666", gradientColor: "#FF4D4D" },
+    // { label: "Không có tiềm năng", value: 18, color: "#FF4D4D", gradientColor: "#E63946" },
+    // { label: "Sàn TMĐT", value: 10, color: "#E63946", gradientColor: "#CC2E35" },
+    // { label: "Black List/Chặn", value: 10, color: "#CC2E35", gradientColor: "#B02525" },
+    // ];
+
     const pieData = [
-        { label: "Hà Nội", value: 20, color: "#FFF0F0", gradientColor: "#FFD6D6" },
-        { label: "Hồ Chí Minh", value: 22, color: "#FFD6D6", gradientColor: "#FFB3B3" },
-        { label: "Tỉnh/Công ty", value: 16, color: "#FFB3B3", gradientColor: "#FF8C8C" },
-        { label: "Không có tiềm năng", value: 18, color: "#FF8C8C", gradientColor: "#F26A6A" },
-        { label: "Sàn TMĐT", value: 10, color: "#F26A6A", gradientColor: "#E45555" },
-        { label: "Black List/Chặn", value: 10, color: "#D94A4A", gradientColor: "#C13C3C" },
+    { label: "Hà Nội", value: 20, color: "#FFD6D6" }, // đỏ hồng nhạt
+    { label: "Hồ Chí Minh", value: 22, color: "#FFB3B3" }, // đỏ nhạt tươi
+    { label: "Tỉnh/Công ty", value: 16, color: "#FF8A80" }, // đỏ sáng
+    { label: "Không có tiềm năng", value: 18, color: "#F44336" }, // đỏ tiêu chuẩn
+    { label: "Sàn TMĐT", value: 10, color: "#D32F2F" }, // đỏ đậm
+    { label: "Black List/Chặn", value: 10, color: "#9A0007" }, // đỏ đô
     ];
 
     const renderDot = (color) => (
@@ -54,10 +72,19 @@ const SalesPieChart = () => {
     );
 
     const renderLegendItem = ({ label, color, value }) => (
-        <View key={label} className='w-1/2 px-3 mt-4'>
-            <View className="flex-row items-center">
-                <Text className="text-f13 font-sfmedium text-gray-700">{`${label}`}</Text>
-                <View className="w-[1px] h-3 bg-gray-300 mx-2" />
+        // <View key={label} className='w-1/2 px-3 mt-4'>
+        //     <View className="flex-row items-center">
+        //         <Text className="text-f13 font-sfmedium text-gray-700">{`${label}`}</Text>
+        //         <View className="w-[1px] h-3 bg-gray-300 mx-2" />
+        //         <Text className="text-f13 text-gray-700">{`${value}%`}</Text>
+        //     </View>
+        //     <ProgressBar progress={value} color={color} />
+        // </View>
+
+        <View key={label} className={`w-1/2 px-3 relative mt-5 ${Platform.OS === 'android' ? 'mt-4' : 'mt-6'}`}>
+            <View className={`flex-row items-center ${Platform.OS === 'ios' ? 'mb-1' : 'mt-0'}`}>
+                <Text className="text-f13 font-sfregular">{`${label}`}</Text>
+                <View className="w-[1px] h-4 bg-gray-300 mx-2" />
                 <Text className="text-f13 text-gray-700">{`${value}%`}</Text>
             </View>
             <ProgressBar progress={value} color={color} />
@@ -179,7 +206,7 @@ const SalesPieChart = () => {
                                 radius={100}
                                 innerRadius={65}
                                 sectionSpace={5}               // 👈 tạo khoảng cách giữa các phần
-                                strokeWidth={1}              // 👈 tạo đường viền nhẹ giữa phần và nền
+                                strokeWidth={5}              // 👈 tạo đường viền nhẹ giữa phần và nền
                                 strokeColor="#fff"
                                 showGradient                   // 👈 làm mượt màu các lát
                                 isAnimated

@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HeaderOrderCancelled from '../../../components/order/HeaderOrderCancelled';
+import HeaderOrderCancelled from '../../../components/order/HeaderOrder';
 import { OrderAddStack, OrderFilterStack, OrderListStack, OrderOverviewStack, OrderPenddingStack } from './stack';
 
 const Stack = createNativeStackNavigator();

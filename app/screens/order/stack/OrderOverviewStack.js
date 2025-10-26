@@ -21,7 +21,7 @@ const OrderOverviewStack = ({ navigation }) => {
                 <HeroSolid.PlusIcon size={25} color={'white'} />
               </View>
             </View>
-            <Text className='text-f16 mt-4 font-medium'>Tạo đơn hàng</Text>
+            <Text className='text-f16 mt-4 font-sfmedium'>Tạo đơn hàng</Text>
           </TouchableOpacity>
         </View>
 
@@ -43,10 +43,10 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('OrderPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentListIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3 font-sfregular text-f16'>Đơn hàng cần xử ý</Text>
+              <Text className='pl-3 font-sfregular text-f15'>Đơn hàng cần xử ý</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f14'>219</Text>
+                <Text className='text-f12'>219</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
@@ -55,10 +55,10 @@ const OrderOverviewStack = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('OrderCancelledStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentCheckIcon size={30} color={'#6b7280'} />
-              <Text className='pl-3 font-sfregular text-f16'>Đơn hàng huỷ</Text>
+              <Text className='pl-3 font-sfregular text-f15'>Đơn hàng huỷ</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f14'>0</Text>
+                <Text className='text-f12'>0</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
@@ -70,7 +70,7 @@ const OrderOverviewStack = ({ navigation }) => {
               <Text className='pl-3 font-sfregular text-f16'>Phiếu trả hàng</Text>
             </View>
             <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f14'>50</Text>
+                <Text className='text-f12'>50</Text>
                 <Text className='ml-2'>
                     <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
                 </Text>
