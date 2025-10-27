@@ -2,7 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 
-const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', background = '', close = false, plus = false}) => {
+const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', navigateTo = {}, navigation, background = '', close = false, plus = false}) => {
   const sets = { solid: HeroSolid, outline: HeroOutline };
   const IconComponent = sets[variant]?.[icon];
 
@@ -10,8 +10,21 @@ const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'soli
     console.warn(`Icon "${icon}" không tồn tại trong react-native-heroicons/${variant}`);
   }
 
+  const handlePress = (navigateTo) => {
+    if (navigateTo && navigateTo.name) {
+      navigation.navigate(navigateTo.name, {
+        screen: navigateTo.screen,
+      });
+    } else {
+      console.warn('navigateTo không được cung cấp đúng định dạng');
+    }
+  }
+
   return (
-    <TouchableOpacity className="flex-1 items-center justify-center mb-4">
+    <TouchableOpacity 
+      className="flex-1 items-center justify-center mb-4"
+      onPress={handlePress.bind(this, navigateTo??{})}
+      >
       <View className={`relative w-[55%] aspect-square justify-center items-center rounded-full mb-2`} style={{ backgroundColor: background }}>
         {IconComponent ? (
           <IconComponent size={size} color={color} />

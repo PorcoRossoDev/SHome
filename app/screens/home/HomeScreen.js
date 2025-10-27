@@ -1,4 +1,5 @@
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
+import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, NativeModules, Platform, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
@@ -14,6 +15,7 @@ import { ActionItem, BottomSheetActions, OrderNavigation } from '../../../compon
 const HomeScreen = () => {
     const { width } = Dimensions.get('window');
     const sideSpacing = 16;
+    const navigation = useNavigation();
 
     /*=== START: Tab - Biểu đồ ===*/
     const [index, setIndex] = useState(0);
@@ -37,16 +39,16 @@ const HomeScreen = () => {
     }, []);
 
     const actionList = [
-        { id: '1', name: 'Thêm sản phẩm', icon: 'FolderIcon' , background: '#4ade80' },
-        { id: '2', name: 'Tạo đơn hàng', icon: 'ShoppingCartIcon' , background: '#facc15' },
-        { id: '3', name: 'Quản lý nhân viên', icon: 'UserGroupIcon' , background: '#facc15' },
-        { id: '4', name: 'Tạo phiếu chi', icon: 'ClipboardIcon' , background: '#4ade80' },
-        { id: '5', name: 'Báo cáo doanh thu', icon: 'ChartPieIcon' , background: '#2563eb' },
-        { id: '6', name: 'Quản lý kho', icon: 'FolderIcon' , background: '#4ade80' },
-        { id: '7', name: 'Quản lý giao hàng', icon: 'FolderIcon' , background: '#4ade80' },
-        { id: '8', name: 'Tạo phiếu kiểm hàng', icon: 'FolderIcon' , background: '#2563eb' },
-        { id: '9', name: 'Số quỹ', icon: 'FolderIcon' , background: '#2563eb' },
-        { id: 'all', name: 'Xem thêm', icon: 'FolderPlusIcon' , background: '#4ade80' },
+        { id: '1', name: 'Thêm sản phẩm', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
+        { id: '2', name: 'Tạo đơn hàng', icon: 'ShoppingCartIcon', navigateTo: {name: 'Order', screen: 'OrderAddStack'}, background: '#facc15' },
+        { id: '3', name: 'Quản lý nhân viên', icon: 'UserGroupIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#facc15' },
+        { id: '4', name: 'Tạo phiếu chi', icon: 'ClipboardIcon', navigateTo: {name: 'Disbursement', screen: 'DisbursementOverviewStack'}, background: '#4ade80' },
+        { id: '5', name: 'Báo cáo doanh thu', icon: 'ChartPieIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },
+        { id: '6', name: 'Quản lý kho', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
+        { id: '7', name: 'Quản lý giao hàng', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
+        { id: '8', name: 'Tạo phiếu kiểm hàng', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },
+        { id: '9', name: 'Số quỹ', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },
+        { id: 'all', name: 'Xem thêm', icon: 'FolderPlusIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
     ]
     const [activeActions, setActiveActions] = useState(['1', '2', '3', '4', '5', '6', 'all']);
     const actionListActive = actionList.filter(item => activeActions.includes(item.id));
@@ -215,7 +217,7 @@ const HomeScreen = () => {
                                     <Text className='text-blue-600 text-f15 font-sfmedium'>Tuỳ chỉnh</Text>
                                 </TouchableOpacity>
                             </View>
-                            <View 
+                            <View
                                 className='mt-3'
                                 style={{
                                     backgroundColor: "white",
@@ -233,7 +235,7 @@ const HomeScreen = () => {
                                 <View className="flex-row flex-wrap mt-6">
                                     {actionListActive.map((item, index) => (
                                         <View key={index} className="w-1/4">
-                                            <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} />
+                                            <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} navigateTo={item.navigateTo} navigation={navigation} background={item.background} />
                                         </View>
                                     ))}
                                 </View>
@@ -248,7 +250,7 @@ const HomeScreen = () => {
 
                 </View>
             </ScrollView>
-            <BottomSheetActions ref={bottomSheetRef} onClose={closeSheet} actionList={actionList} activeActions={activeActions} />
+            <BottomSheetActions ref={bottomSheetRef} onClose={closeSheet} actionList={actionList} activeActions={activeActions}/>
         </View>
     );
 }

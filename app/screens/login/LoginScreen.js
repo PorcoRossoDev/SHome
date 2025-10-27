@@ -72,7 +72,7 @@ const LoginScreen = ({ onLogin }) => {
                     {/* Logo */}
                     <Image
                         source={logo}
-                        className='w-full h-[120px] mb-10'
+                        className='w-full h-[100px] mb-10'
                         resizeMode="contain"
                     />
                     {/* Form */}

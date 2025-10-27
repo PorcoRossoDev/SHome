@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { useState } from 'react';
-import LoginScreen from '../screens/login/LoginScreen';
+import { LoginScreen } from '../screens';
 import AppNavigation from './AppNavigator';
 
 export default function RootNavigator() {
