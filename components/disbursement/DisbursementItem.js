@@ -27,8 +27,8 @@ const DisbursementItem = ({ props }) => {
                 {/* Bên phải */}
                 <View className="flex-1 justify-end items-end">
                     <Text className='font-sfmedium text-f17'>69.000 đ</Text>
-                    <Text className={`font-sfregular text-f12 ${Platform.OS == 'ios' ? 'my-1' : ''} border border-orange-300 bg-orange-100 px-1.5 py-1 rounded-md text-orange-500`}>Tạo phiếu chi</Text>
-                    <Text className='font-sfregular text-f15 text-gray-700'>Phạm Phương Thuý</Text>
+                        <Text className={`font-sfregular text-f12 ${Platform.OS == 'ios' ? 'my-1' : ''} border border-orange-300 bg-orange-100 px-1.5 py-1 rounded-md text-orange-400`} style={{includeFontPadding: false,}}>Tạo phiếu chi</Text>
+                        <Text className='font-sfregular text-f15 text-gray-700 mt-0.5'>Phạm Phương Thuý</Text>
                 </View>
             </View>
         </View>

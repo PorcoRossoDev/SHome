@@ -4,7 +4,7 @@ import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 import BottomOrderFilterSheet from './BottomOrderFilterSheet';
 
-const HeaderOrderCancelled = ({ title, navigation, route }) => {
+const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layoutOrderPendding = false }) => {
 
   const bottomSheetRef = useRef(null);
 
@@ -47,8 +47,10 @@ const HeaderOrderCancelled = ({ title, navigation, route }) => {
           </Text>
         </TouchableOpacity>
         <View className='flex-row items-center'>
-          <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full' onPress={() => alert('Tìm kiếm')}>
-            <HeroOutline.Squares2X2Icon size={20} color={'#333'} />
+          <TouchableOpacity 
+            className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full' 
+            onPress={onToggleLayout}>
+            <HeroOutline.Squares2X2Icon size={19} color={'#333'} />
           </TouchableOpacity>
           <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full ml-2' onPress={() => alert('Tìm kiếm')}>
             <HeroSolid.EllipsisVerticalIcon size={23} color={'#333'} />

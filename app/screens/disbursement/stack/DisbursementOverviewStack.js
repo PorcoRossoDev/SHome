@@ -33,20 +33,20 @@ const DisbursementOverview = () => {
                             <Text className='text-f16 font-sfmedium text-center'>Ngân sách với Thực tế</Text>
                             <View className='mt-5'>
                                 <View className='flex-row justify-between items-center'>
-                                    <Text className='text-f15 font-sfregular'>Ngân sách được duyệt</Text>
+                                    <Text className='text-f15 font-sfregular text-gray-700'>Ngân sách được duyệt</Text>
                                     <Text className='text-f15 font-sfmedium'>7.987.855</Text>
                                 </View>
                                 <View className='flex-row justify-between items-center mt-3'>
-                                    <Text className='text-f15 font-sfregular'>Tổng đã đạt chi tiêu</Text>
+                                    <Text className='text-f15 font-sfregular text-gray-700'>Tổng đã đạt chi tiêu</Text>
                                     <Text className='text-f15 font-sfbold text-red-600'>7.987.855</Text>
                                 </View>
                                 <View className='flex-row justify-between items-center mt-3'>
-                                    <Text className='text-f15 font-sfregular'>Ngân sách được duyệt còn lại</Text>
+                                    <Text className='text-f15 font-sfregular text-gray-700'>Ngân sách được duyệt còn lại</Text>
                                     <Text className='text-f15 font-sfbold text-red-600'>7.987.855</Text>
                                 </View>
                                 <View className='h-1 bg-red-400 mt-3 rounded-xl'></View>
                                 <View className='mt-3 justify-center items-center'>
-                                    <Text className='text-f13 text-center font-sfregular'>
+                                    <Text className='text-f13 text-center font-sfregular text-gray-700'>
                                         75% ngân sách đã được sử dụng
                                         <Text className='font-sfbold text-red-600'> (Vượt quá 1045%)</Text>
                                     </Text>

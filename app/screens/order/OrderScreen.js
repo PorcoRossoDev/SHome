@@ -1,11 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useState } from 'react';
 import HeaderOrderCancelled from '../../../components/order/HeaderOrder';
 import { OrderAddStack, OrderFilterStack, OrderListStack, OrderOverviewStack, OrderPenddingStack } from './stack';
 
 const Stack = createNativeStackNavigator();
 const OrderScreen = () => {
   const navigation = useNavigation();
+  const [layoutOrderPendding, setlayoutOrderPendding] = useState(false)
+  const [layoutOrder, setlayoutOrder] = useState(false)
+
   return (
     <Stack.Navigator
     screenOptions={{
@@ -21,7 +25,14 @@ const OrderScreen = () => {
         name="OrderListStack"
         component={OrderListStack}
         options={({navigation, route}) => ({
-          header: () => <HeaderOrderCancelled title={'Danh sách đơn hàng'} navigation={navigation} />,
+          header: () => <HeaderOrderCancelled 
+            title={'Danh sách đơn hàng'} 
+            layoutOrder={route.params?.layoutOrder ?? false}
+              onToggleLayout={() => {
+                const current = route.params?.layoutOrder ?? false
+                navigation.setParams({ layoutOrder: !current })
+              }}
+            navigation={navigation} />,
         })}
       />
       <Stack.Screen
@@ -56,7 +67,14 @@ const OrderScreen = () => {
         name="OrderPenddingStack"
         component={OrderPenddingStack}
         options={({navigation, route}) => ({
-          header: () => <HeaderOrderCancelled title={'Đơn hàng cần xử lý'} navigation={navigation} />,
+          header: () => <HeaderOrderCancelled 
+            title={'Đơn hàng cần xử lý'} 
+            layoutOrderPendding={route.params?.layoutOrderPendding ?? false}
+              onToggleLayout={() => {
+                const current = route.params?.layoutOrderPendding ?? false
+                navigation.setParams({ layoutOrderPendding: !current })
+              }}
+            navigation={navigation} />,
         })}
       />
       <Stack.Screen
