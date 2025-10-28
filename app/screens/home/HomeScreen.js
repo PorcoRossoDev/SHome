@@ -7,6 +7,7 @@ import { BellIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SalesPieChart from '../../../components/charts/SalesPieChart';
+import SalesPieChart1 from '../../../components/charts/SalesPieChart1';
 
 
 
@@ -200,7 +201,7 @@ const HomeScreen = () => {
                             <SalesPieChart />
                         )}
                         {index === 1 && (
-                            <SalesPieChart />
+                            <SalesPieChart1 />
                         )}
                         {index === 2 && (
                             <SalesPieChart />

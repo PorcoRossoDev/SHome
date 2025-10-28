@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Dropdown } from 'react-native-element-dropdown';
 
 
-import ProgressBar from '../../components/common/ProgressBar';
+import ProgressBar from '../common/ProgressBar';
 
 
 // import Svg, { Circle } from 'react-native-svg';

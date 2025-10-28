@@ -6,7 +6,7 @@ const screenWidth = Dimensions.get('window').width;
 
 // Dữ liệu
 const pieData = [
-  { label: 'Hà Nội', value: 54.5, color: '#009FFF', gradientColor: '#006DFF', focused:true },
+  { label: 'Hà Nội', value: 54.5, color: '#009FFF', gradientColor: '#006DFF' },
   { label: 'Hồ Chí Minh', value: 24.5, color: '#93FCF8', gradientColor: '#3BE9DE' },
   { label: 'Tỉnh/Công ty', value: 0, color: '#BDB2FA', gradientColor: '#8F80F3' },
   { label: 'Sàn TMĐT', value: 14, color: '#FFA5BA', gradientColor: '#FF7F97' },
@@ -24,7 +24,7 @@ const renderLegendItem = ({ item }) => (
   </View>
 );
 
-const SalesPieChart = () => {
+const SalesPieChart1 = () => {
   const chartData = pieData.map(item => ({
     value: item.value,
     color: item.color,
@@ -35,7 +35,20 @@ const SalesPieChart = () => {
   const focusedItem = pieData.find(item => item.focused) || pieData[0];
 
   return (
-    <View className='flex-1 w-full h-full'>
+    <View 
+    style={{
+        backgroundColor: "white",
+        borderRadius: 10,
+        // paddingVertical: 16,
+        // Shadow cho iOS
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        // Shadow cho Android
+        elevation: 6,
+    }}
+    className='flex-1 w-full h-full bg-white px-5'>
       <Text className='font-bold pt-8 text-f17'>Doanh thu bán hàng chi tiết trong năm</Text>
       <View className='flex-row'>
         {/* Biểu đồ */}
@@ -67,7 +80,7 @@ const SalesPieChart = () => {
             />
         </View>
       </View>
-      <TouchableOpacity className='flex-row items-center justify-between mt-7 '>
+      <TouchableOpacity className='flex-row items-center justify-between mt-7 hidden'>
         <Text className='font-medium text-f17'>Danh sách đơn hàng hôm nay</Text>
         <ChevronRightIcon size={18} color="#000" />
       </TouchableOpacity>
@@ -75,4 +88,4 @@ const SalesPieChart = () => {
   );
 };
 
-export default SalesPieChart;
+export default SalesPieChart1;
