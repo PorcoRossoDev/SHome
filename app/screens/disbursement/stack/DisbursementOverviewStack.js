@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
-import BarChartOrder from '../../../../components/order/BarChartOrder';
+import DisbursementLineChart from '../../../../components/disbursement/DisbursementLineChart';
 
 
 const DisbursementOverview = () => {
@@ -26,7 +26,7 @@ const DisbursementOverview = () => {
                     <View className='w-full px-5'>
                         {/* Biểu đồ */}
                         <View className='pt-8 mb-7'>
-                            <BarChartOrder />
+                            <DisbursementLineChart />
                         </View>
 
                         <View className='mt-6'>
@@ -44,7 +44,7 @@ const DisbursementOverview = () => {
                                     <Text className='text-f15 font-sfregular text-gray-700'>Ngân sách được duyệt còn lại</Text>
                                     <Text className='text-f15 font-sfbold text-red-600'>7.987.855</Text>
                                 </View>
-                                <View className='h-1 bg-red-400 mt-3 rounded-xl'></View>
+                                <View className='h-1 bg-red-400 mt-3 rounded-3xl'></View>
                                 <View className='mt-3 justify-center items-center'>
                                     <Text className='text-f13 text-center font-sfregular text-gray-700'>
                                         75% ngân sách đã được sử dụng
@@ -56,7 +56,7 @@ const DisbursementOverview = () => {
 
                         <View className='mt-10'>
                             <Text className='uppercase text-f14 font-sfregular'>Danh sách phiếu chi</Text>
-                            <View className='mt-3 px-3 pt-4' 
+                            <View className='mt-3 px-3 pt-4'
                                 style={{
                                     backgroundColor: "white",
                                     borderRadius: 10,
@@ -72,8 +72,8 @@ const DisbursementOverview = () => {
                                 >
                                 <TouchableOpacity 
                                     onPress={() =>
-                                        navigation.navigate('Order', {
-                                        screen: 'OrderListStack',
+                                        navigation.navigate('Disbursement', {
+                                        screen: 'DisbursementListStack',
                                         })
                                     }
                                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}

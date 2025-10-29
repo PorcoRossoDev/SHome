@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HeaderPolicy from '../../../components/policy/HeaderPolicy';
-import { PolicyListStack } from './stack';
+import { PolicyJobListStack, PolicyListStack } from './stack';
 
 
 const Stack = createNativeStackNavigator();
@@ -13,28 +13,13 @@ const PolicyScreen = () => {
       headerTitleAlign: 'center',
     }}
     >
-      {/* <Stack.Screen
-        name="PolicyListStack"
-        component={PolicyListStack}
-        options={ ({navigation}) => ({ 
-          title: 'Đơn hàng', 
-          headerBackVisible: false,
-          headerLeft: () => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('ProductOverviewStack')}
-              className="">
-              <HeroOutline.ArrowLeftIcon size={22} color="#000" />
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('ProductOverviewStack')}
-              className="">
-              <HeroOutline.PlusIcon size={22} color="blue" />
-            </TouchableOpacity>
-          )
+      <Stack.Screen
+        name="PolicyJobListStack"
+        component={PolicyJobListStack}
+        options={({navigation, route}) => ({
+          header: () => <HeaderPolicy title={'Danh sách chính sách giá công việc'} navigation={navigation} />,
         })}
-      /> */}
+      />
       <Stack.Screen
         name="PolicyListStack"
         component={PolicyListStack}
@@ -42,6 +27,7 @@ const PolicyScreen = () => {
           header: () => <HeaderPolicy title={'Danh sách chính sách giá'} navigation={navigation} />,
         })}
       />
+      
     </Stack.Navigator>
   );
 };

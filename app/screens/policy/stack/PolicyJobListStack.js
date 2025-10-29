@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import PolicyPriceItem from '../../../../components/policy/PolicyPriceItem';
 
-const PolicyListStack = ({ navigation }) => {
+const PolicyJobListStack = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => setModalVisible(true);
@@ -13,6 +13,7 @@ const PolicyListStack = ({ navigation }) => {
       <ScrollView className='px-4 bg-white flex-1 relative'>
         <View className='mt-6'>
           <View className='mt-4'>
+            <PolicyPriceItem openModal={openModal} />
             <PolicyPriceItem openModal={openModal} />
           </View>
         </View>
@@ -71,4 +72,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PolicyListStack;
+export default PolicyJobListStack;

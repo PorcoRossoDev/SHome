@@ -4,7 +4,7 @@ import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 // import BottomOrderFilterSheet from './BottomOrderFilterSheet';
 
-const HeaderPolicy = ({ title, navigation, route }) => {
+const HeaderSalesSource = ({ title, navigation, route }) => {
 
   const bottomSheetRef = useRef(null);
 
@@ -81,4 +81,4 @@ const HeaderPolicy = ({ title, navigation, route }) => {
   );
 }
 
-export default HeaderPolicy
+export default HeaderSalesSource

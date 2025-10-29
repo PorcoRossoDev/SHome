@@ -1,6 +1,5 @@
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, NativeModules, Platform, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import { BellIcon } from 'react-native-heroicons/solid';
@@ -112,7 +111,7 @@ const HomeScreen = () => {
                 }}
                 ></LinearGradient> */}
 
-                <LinearGradient
+                {/* <LinearGradient
                     colors={[
                         '#f85b5f',
                         '#e74448',
@@ -137,9 +136,9 @@ const HomeScreen = () => {
                         paddingTop:
                         Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
                     }}
-                    />
+                    /> */}
 
-            <View className='py-3 px-5 flex flex-row justify-between relative z-50' style={{paddingTop: paddingHeader}}>
+            <View className='pt-3 px-5 pb-5 flex flex-row justify-between relative z-50 bg-[#c9252b]' style={{paddingTop: paddingHeader}}>
                 <Text className='text-white font-sfbold text-f20'>Scent Home</Text>
                 <TouchableOpacity className='relative'>
                     <BellIcon color='white' width='25' height='25' />
@@ -148,10 +147,10 @@ const HomeScreen = () => {
                         >10</Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView className='relative z-50 mt-3'>
+            <ScrollView className='relative z-50 mt-5'>
                 <View className=''>
 
-                    <View className='mb-4 px-5'>
+                    <View className='mb-4 px-5 hidden'>
                         <View className='bg-gray-100 rounded-xl p-0.5'>
                             {Platform.OS === 'ios' ? (
                                 <SegmentedControl
@@ -196,7 +195,7 @@ const HomeScreen = () => {
                         </View>
                     </View>
 
-                    <View className="flex-1 px-5">
+                    <View className="flex-1 px-5 mt-1">
                         {index === 0 && (
                             <SalesPieChart />
                         )}

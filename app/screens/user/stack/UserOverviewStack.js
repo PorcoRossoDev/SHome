@@ -1,5 +1,6 @@
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
+import UserLineChart from '../../../../components/user/UserLineChart';
 import UserNavigation from '../../../../components/user/UserNavigation';
 
 const UserOverviewStack = ({ navigation }) => {
@@ -20,14 +21,15 @@ const UserOverviewStack = ({ navigation }) => {
                 <HeroSolid.PlusIcon size={25} color={'white'} />
               </View>
             </View>
-            <Text className='text-f16 mt-4 font-sfregular'>Tạo khách hàng</Text>
+            <Text className='text-f16 mt-4 font-sfmedium'>Tạo khách hàng</Text>
           </TouchableOpacity>
         </View>
 
         <View className='bg-white pb-6'>
 
           {/* Biểu đồ */}
-          <View className='pt-5 mb-7 px-4'>
+          <View className='pt-8 mb-7 px-4'>
+            <UserLineChart />
           </View>
 
           {/* Danh sách đơn hàng */}

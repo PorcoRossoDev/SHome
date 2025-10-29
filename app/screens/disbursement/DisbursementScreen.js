@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
 import HeaderDisbursement from '../../../components/disbursement/HeaderDisbursement';
-import { DisbursemenCanclledStack, DisbursementAddStack, DisbursementOverviewStack, DisbursementPenddingStack } from './stack';
+import { DisbursemenCanclledStack, DisbursementAddStack, DisbursementListStack, DisbursementOverviewStack, DisbursementPenddingStack } from './stack';
 
 const Stack = createNativeStackNavigator();
 const DisbursementScreen = () => {
@@ -52,7 +52,21 @@ const DisbursementScreen = () => {
             onToggleLayout={() => {
               const current = route.params?.layoutCanclled ?? false
               navigation.setParams({ layoutCanclled: !current })
-              console.log(current)
+            }}
+            navigation={navigation}
+          />,
+        })}
+      />
+      <Stack.Screen
+        name="DisbursementListStack"
+        component={DisbursementListStack}
+        options={({ navigation, route }) => ({
+          header: () => <HeaderDisbursement
+            title={'Danh sách phiếu chi'}
+            layoutList={route.params?.layoutList ?? false}
+            onToggleLayout={() => {
+              const current = route.params?.layoutList ?? false
+              navigation.setParams({ layoutList: !current })
             }}
             navigation={navigation}
           />,

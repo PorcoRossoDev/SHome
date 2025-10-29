@@ -75,7 +75,13 @@ const OrtherSettingStack = () => {
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
                     </TouchableOpacity>
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    <TouchableOpacity 
+                        onPress={() => (
+                            navigation.navigate('Policy', {
+                            screen: 'PolicyJobListStack',
+                            })
+                        )}
+                        className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><BuildingOfficeIcon size={20} color={'#2563eb'} /></View>
                             <Text className='ml-2 font-sfregular text-f15'>Chính sách giá công việc</Text>
@@ -83,7 +89,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -104,7 +110,13 @@ const OrtherSettingStack = () => {
                     elevation: 6,
                 }}
                 >
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    <TouchableOpacity 
+                        onPress={() => (
+                            navigation.navigate('SalesSource', {
+                            screen: 'SalesSourceListStack',
+                            })
+                        )}
+                        className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><BuildingStorefrontIcon size={20} color={'#2563eb'} /></View>
                             <Text className='ml-2 font-sfregular text-f15'>Nguồn</Text>
@@ -112,7 +124,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><UserGroupIcon size={20} color={'#2563eb'} /></View>
