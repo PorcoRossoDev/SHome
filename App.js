@@ -51,7 +51,7 @@ export default function App() {
               backgroundColor={'transparent'}
               barStyle={'light-content'}
             /> */}
-            <SafeAreaView edges={currentRoute === 'Home' ? ['bottom'] : ['bottom', 'top']} style={{ flex: 1, backgroundColor: '#fff' }}>
+            <SafeAreaView edges={currentRoute === 'Home' || currentRoute == 'ReportOverviewStack' ? ['bottom'] : ['bottom', 'top']} style={{ flex: 1, backgroundColor: '#fff' }}>
               <NavigationContainer
                 ref={navigationRef}
                 onStateChange={(state) => {

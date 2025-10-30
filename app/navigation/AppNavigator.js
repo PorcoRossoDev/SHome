@@ -7,7 +7,7 @@ import {
     ShoppingBagIcon,
     UserGroupIcon
 } from 'react-native-heroicons/outline';
-import { DisbursementScreen, HomeScreen, OrderScreen, OrtherScreen, PolicyScreen, ProductScreen, SalesSourceScreen, UserScreen } from '../screens';
+import { DisbursementScreen, HomeScreen, OrderScreen, OrtherScreen, PolicyScreen, ProductScreen, ReportScreen, SalesSourceScreen, UserScreen } from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +21,7 @@ const tabs = [
     { name: 'Disbursement', component: DisbursementScreen, icon: ListBulletIcon, hidden: true, label: 'Phiếu chi' },
     { name: 'Policy', component: PolicyScreen, icon: ListBulletIcon, hidden: true, label: 'Chính sách giá' },
     { name: 'SalesSource', component: SalesSourceScreen, icon: ListBulletIcon, hidden: true, label: 'Nguồn' },
+    { name: 'Report', component: ReportScreen, icon: ListBulletIcon, hidden: true, label: 'Báo cáo' },
 ];
 
 const AppNavigation = () => {

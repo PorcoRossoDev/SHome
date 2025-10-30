@@ -43,7 +43,7 @@ const HomeScreen = () => {
         { id: '2', name: 'Tạo đơn hàng', icon: 'ShoppingCartIcon', navigateTo: {name: 'Order', screen: 'OrderAddStack'}, background: '#facc15' },
         { id: '3', name: 'Quản lý nhân viên', icon: 'UserGroupIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#facc15' },
         { id: '4', name: 'Tạo phiếu chi', icon: 'ClipboardIcon', navigateTo: {name: 'Disbursement', screen: 'DisbursementOverviewStack'}, background: '#4ade80' },
-        { id: '5', name: 'Báo cáo doanh thu', icon: 'ChartPieIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },
+        { id: '5', name: 'Báo cáo doanh thu', icon: 'ChartPieIcon', navigateTo: {name: 'Report', screen: 'ReportOverviewStack'}, background: '#2563eb' },
         { id: '6', name: 'Quản lý kho', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
         { id: '7', name: 'Quản lý giao hàng', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
         { id: '8', name: 'Tạo phiếu kiểm hàng', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },

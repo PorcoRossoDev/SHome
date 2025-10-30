@@ -27,7 +27,7 @@ const LoginScreen = ({ onLogin }) => {
                 backgroundColor="transparent"
                 barStyle="light-content"
             />
-            <LinearGradient
+            {/* <LinearGradient
                     colors={[
                         '#f85b5f',
                         '#e74448',
@@ -52,7 +52,32 @@ const LoginScreen = ({ onLogin }) => {
                         paddingTop:
                         Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
                     }}
-                    />
+                    /> */}
+            <LinearGradient
+                colors={[
+                    '#b71c1c', // đậm nhất
+                    '#d32f2f',
+                    '#e53935',
+                    '#f85b5f',
+                    '#ff8a80',
+                    'rgba(255,255,255,0.6)',
+                    '#ffffff',
+                ]}
+                locations={[0, 0.2, 0.35, 0.5, 0.7, 0.85, 1]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 600,
+                    zIndex: 10,
+                    paddingTop:
+                        Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
+                }}
+            />
+
             <Text className='text-white font-sfbold text-[25px] z-50 uppercase w-full text-center mb-10'>Đăng nhập</Text>
             <View className='px-5 w-full relative z-50'>
                 <View

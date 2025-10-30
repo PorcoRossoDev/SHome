@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import ColorPicker, { HueSlider, Panel1 } from 'reanimated-color-picker';
 import SalesSourceItem from '../../../../components/salesSource/SalesSourceItem';
 
 
@@ -63,16 +61,6 @@ const SalesSourceListStack = ({ navigation }) => {
                       className='border-b border-gray-200 py-2 font-sfregular text-f15 flex-1'
                     />
                   </View>
-                  <GestureHandlerRootView style={{ marginTop: 20 }}>
-                      <ColorPicker
-                        value={selectedColor}
-                        onComplete={onSelectColor}
-                        style={{ width: '100%' }}
-                      >
-                        <Panel1 />
-                        <HueSlider />
-                      </ColorPicker>
-                      </GestureHandlerRootView>
                   {/* {colorPickerVisible && (
                     <GestureHandlerRootView style={{ marginTop: 20 }}>
                       <ColorPicker
