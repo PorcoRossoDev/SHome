@@ -6,7 +6,7 @@ const OrderNavigation = () => {
     const navigation = useNavigation();
     return (
         <View className=''>
-            <Text className='uppercase text-f14 font-sfregular'>Danh sách đơn hàng</Text>
+            <Text className='uppercase text-f15 font-sfregular'>Danh sách đơn hàng</Text>
             <View className='mt-3 px-3 pt-4' 
                 style={{
                     backgroundColor: "white",

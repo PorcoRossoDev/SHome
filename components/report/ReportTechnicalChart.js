@@ -107,7 +107,7 @@ const ReportTechnicalChart = () => {
                     className="rounded-xl px-5 pt-3 bg-white"
                 >
                     <View className='mb-4 mt-3'>
-                        <Text className="font-sfbold text-f16 uppercase">
+                        <Text className="font-sfmedium text-f15 uppercase">
                             Doanh thu theo phân loại
                         </Text>
                     </View>
@@ -149,7 +149,7 @@ const ReportTechnicalChart = () => {
 
             <View className='mt-7 bg-white'>
                 <Text className='uppercase text-f14 font-sfregular'>Báo cáo kỹ thuật theo phân loại</Text>
-                <View className='mt-3 px-3 pt-4' 
+                <View className='mt-4 px-3 pt-4' 
                     style={{
                         backgroundColor: "white",
                         borderRadius: 10,

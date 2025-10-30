@@ -2,11 +2,12 @@ import SegmentedControl from '@react-native-segmented-control/segmented-control'
 import { useNavigation } from '@react-navigation/native';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, NativeModules, Platform, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import { BellIcon } from 'react-native-heroicons/solid';
+import { BellIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SalesPieChart from '../../../components/charts/SalesPieChart';
 import SalesPieChart1 from '../../../components/charts/SalesPieChart1';
+import SalesPieChartAside from '../../../components/charts/SalesPieChartAside';
 
 
 
@@ -150,7 +151,7 @@ const HomeScreen = () => {
             <ScrollView className='relative z-50 mt-5'>
                 <View className=''>
 
-                    <View className='mb-4 px-5 hidden'>
+                    <View className='mb-4 px-5 '>
                         <View className='bg-gray-100 rounded-xl p-0.5'>
                             {Platform.OS === 'ios' ? (
                                 <SegmentedControl
@@ -203,8 +204,31 @@ const HomeScreen = () => {
                             <SalesPieChart1 />
                         )}
                         {index === 2 && (
-                            <SalesPieChart />
+                            <SalesPieChartAside />
                         )}
+                    </View>
+
+                    <View className='px-5'>
+                        <TouchableOpacity
+                        className='flex-row justify-between py-4 px-5 mb-4 mt-3'
+                        style={{
+                            backgroundColor: "white",
+                            borderRadius: 10,
+                            // paddingVertical: 16,
+                            // Shadow cho iOS
+                            shadowColor: "#000",
+                            shadowOffset: { width: 0, height: 4 },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 6,
+                            // Shadow cho Android
+                            elevation: 6,
+                        }}
+                        >
+                            <Text className='font-sfregular text-f15'>Danh sách đơn hàng hôm nay</Text>
+                            <View>
+                                <ChevronRightIcon size={19} color={'#000'} />
+                            </View>
+                        </TouchableOpacity>
                     </View>
 
                     <View className='bg-gray-50 px-5'>
@@ -212,7 +236,7 @@ const HomeScreen = () => {
                         {/* Thao tác nhanh */}
                         <View className=''>
                             <View className='flex flex-row justify-between mt-4'>
-                                <Text className='uppercase font-sfmedium text-f14'>Thao tác nhanh</Text>
+                                <Text className='uppercase font-sfregular text-f15'>Thao tác nhanh</Text>
                                 <TouchableOpacity onPress={openSheet}>
                                     <Text className='text-blue-600 text-f15 font-sfmedium'>Tuỳ chỉnh</Text>
                                 </TouchableOpacity>

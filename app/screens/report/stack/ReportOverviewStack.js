@@ -45,7 +45,7 @@ const ReportOverviewStack = () => {
     if (Platform.OS === 'ios') {
       const { StatusBarManager } = NativeModules;
       StatusBarManager.getHeight((statusBarFrameData) => {
-        setPaddingHeader(statusBarFrameData.height + 20);
+        setPaddingHeader(statusBarFrameData.height);
       });
     }
   }, []);
@@ -87,23 +87,30 @@ const ReportOverviewStack = () => {
         </TouchableOpacity>
         <Text className='text-white font-sfbold text-f20 relative z-90'>Báo cáo</Text>
       </View>
-      <ScrollView className='relative z-50 mt-3'>
+      <ScrollView className='relative z-50 mt-0'>
         <View className=''>
 
           <View className='mb-4 px-5'>
-            <View className='bg-gray-50 rounded-xl p-0.5'>
+            <View className='bg-red-400 rounded-md p-0.5'>
               {Platform.OS === 'ios' ? (
                 <SegmentedControl
-                  values={segments.map(s => s.label)}
+                  values={segments.map(s => s.label.toUpperCase())}
                   selectedIndex={selectedIndex}
                   onChange={(event) => {
                     const newIndex = event.nativeEvent.selectedSegmentIndex;
                     setIndex(segments[newIndex].value);
                   }}
+                  activeFontStyle={{ color: '#000' }}
                   fontStyle={{
                     fontSize: 14,
+                    color: '#fff',
+                    textTransform: 'uppercase'
                   }}
-                  appearance="light"
+                  style={{
+                    height: 40, // ⬆️ tăng chiều cao tổng
+                    // marginHorizontal: 20,
+                    textTransform: 'uppercase'
+                  }}
                 />
               ) : (
                 <SegmentedButtons
