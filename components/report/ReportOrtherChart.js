@@ -5,7 +5,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 import { BarChart } from "react-native-gifted-charts";
 import * as HeroSolid from "react-native-heroicons/solid";
 
-const ReportTechnicalChart = () => {
+const ReportOrtherChart = () => {
     const navigation = useNavigation();
     const data = [
         { label: 'Hà Nội', value: 42 },
@@ -149,7 +149,7 @@ const ReportTechnicalChart = () => {
             
 
             <View className='pt-7 bg-white px-5'>
-                <Text className='uppercase text-f14 font-sfregular'>Báo cáo kỹ thuật theo phân loại</Text>
+                <Text className='uppercase text-f14 font-sfregular'>Báo cáo khác theo phân loại</Text>
                 <View className='mt-4 px-3 pt-4' 
                     style={{
                         backgroundColor: "white",
@@ -201,7 +201,7 @@ const ReportTechnicalChart = () => {
                                 <HeroSolid.CheckCircleIcon size={20} color={'#16a34a'} />
                             </View>
                             <View className='pl-3'>
-                                <Text className='font-sfregular text-f16'>Tổng thu đơn hàng</Text>
+                                <Text className='font-sfregular text-f16'>Tổng hoá đơn VAT</Text>
                                 <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                             </View>
                         </View>
@@ -225,7 +225,7 @@ const ReportTechnicalChart = () => {
                                 <HeroSolid.CreditCardIcon size={20} color={'#ca8a04'} />
                             </View>
                             <View className='pl-3'>
-                                <Text className='font-sfregular text-f16'>Tổng thu công việc</Text>
+                                <Text className='font-sfregular text-f16'>Tổng dịch vụ</Text>
                                 <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                             </View>
                         </View>
@@ -249,7 +249,7 @@ const ReportTechnicalChart = () => {
                                 <HeroSolid.ClockIcon size={20} color={'#9333ea'} />
                             </View>
                             <View className='pl-3'>
-                                <Text className='font-sfregular text-f16'>Tổng nhân viên</Text>
+                                <Text className='font-sfregular text-f16'>Tổng trả hoa hồng</Text>
                                 <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                             </View>
                         </View>
@@ -313,27 +313,27 @@ const ReportTechnicalChart = () => {
                 </View>
                 <View className='flex-row mt-6'>
                     <View className='w-1/3'>
-                        <Text className='font-sfregular text-f14 text-gray-500'>Doanh thu</Text>
+                        <Text className='font-sfregular text-f14 text-gray-500'>Doanh thu (trừ DV)</Text>
                         <Text className='font-sfbold text-blue-700 mt-1 text-f16'>1.400.000</Text>
                     </View>
                     <View className='w-1/3 relative'>
                         <View className='relative'>
                             <View className='h-[90%] w-[0.5px] bg-gray-300 absolute left-0 top-1/2 translate-y-[-50%] z-50' />
                             <View className=''>
-                                <Text className='text-center font-sfregular text-f14 text-gray-500'>Thu đơn hàng</Text>
-                                <Text className='text-center font-sfbold text-green-700 mt-1 text-f16'>900.000</Text>
+                                <Text className='text-center font-sfregular text-f14 text-gray-500'>Tổng dịch vụ</Text>
+                                <Text className='text-center font-sfbold text-green-700 mt-1 text-f16'>1.00%</Text>
                             </View>
                             <View className='h-[90%] w-[0.5px] bg-gray-300 absolute right-0 top-1/2 translate-y-[-50%] z-50' />
                         </View>
                     </View>
                     <View className='w-1/3'>
-                        <Text className='text-right font-sfregular text-f14 text-gray-500'>Thu công việc</Text>
+                        <Text className='text-right font-sfregular text-f14 text-gray-500'>Tổng nhân viên</Text>
                         <Text className='text-right font-sfbold text-yellow-700 mt-1 text-f16'>450.000</Text>
                     </View>
                 </View>
 
                 <View
-                className='mt-5 px-5'
+                className='mt-5 px-5 pt-1'
                 style={{
                     backgroundColor: "white",
                     borderRadius: 10,
@@ -348,35 +348,23 @@ const ReportTechnicalChart = () => {
                 }}
                 >
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('Report',{screen: 'JobCustomerStack'})}
+                    onPress={() => navigation.navigate('Report',{screen: 'ReportOrderStack'})}
                     className='py-3 mb-2 border-b border-gray-200'>
                         <View className='flex-row justify-between'>
-                            <Text className='font-sfmedium text-f16'>Nguyễn Mạnh Chiến</Text>
+                            <Text className='font-sfmedium text-f16'>Trần Văn Xuân - <Text className='text-green-600'>200.000</Text></Text>
                             <View className='flex-row flex-wrap items-center'>
                                 <Text className='text-f13 font-sfmedium'>21</Text>
                                 <Text className='ml-2'>
                                     <HeroSolid.ChevronRightIcon size={16} color={'#9ca3af'} />
                                 </Text>
-                            </View>
-                        </View>
-                        <View className='flex-row justify-between mt-1'>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Thu đơn hàng</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Thu công việc</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Tổng thu</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity className='py-3 mb-2 border-b border-gray-200'>
+                    <TouchableOpacity 
+                    onPress={() => navigation.navigate('Report',{screen: 'ReportOrderStack'})}
+                    className='py-3 mb-2'>
                         <View className='flex-row justify-between'>
-                            <Text className='font-sfmedium text-f16'>Tuấn Anh</Text>
+                            <Text className='font-sfmedium text-f16'>Tuấn Anh - <Text className='text-green-600'>200.000</Text></Text>
                             <View className='flex-row flex-wrap items-center'>
                                 <Text className='text-f13 font-sfmedium'>21</Text>
                                 <Text className='ml-2'>
@@ -384,45 +372,7 @@ const ReportTechnicalChart = () => {
                                 </Text>
                             </View>
                         </View>
-                        <View className='flex-row justify-between mt-1'>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Thu đơn hàng</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Thu công việc</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Tổng thu</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity className='py-3 mb-2 '>
-                        <View className='flex-row justify-between'>
-                            <Text className='font-sfmedium text-f16'>Huy Huân</Text>
-                            <View className='flex-row flex-wrap items-center'>
-                                <Text className='text-f13 font-sfmedium'>21</Text>
-                                <Text className='ml-2'>
-                                    <HeroSolid.ChevronRightIcon size={16} color={'#9ca3af'} />
-                                </Text>
-                            </View>
-                        </View>
-                        <View className='flex-row justify-between mt-1'>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Thu đơn hàng</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Thu công việc</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                            <View>
-                                <Text className='text-gray-500 font-sfregular text-f15'>Tổng thu</Text>
-                                <Text className='font-sfmedium text-center text-f14'>0</Text>
-                            </View>
-                        </View>
+                        
                     </TouchableOpacity>
                 </View>
             </View>
@@ -445,4 +395,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ReportTechnicalChart;
+export default ReportOrtherChart;

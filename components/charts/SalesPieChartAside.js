@@ -68,7 +68,7 @@ const SalesPieChartAside = () => {
                 // Shadow cho iOS
                 shadowColor: "#000",
                 shadowOffset: { width: 0, height: 4 },
-                shadowOpacity: 0.1,
+                shadowOpacity: 0.05,
                 shadowRadius: 6,
                 // Shadow cho Android
                 elevation: 6,
@@ -122,9 +122,9 @@ const SalesPieChartAside = () => {
                         />
                     </View>
                 </View>
-                <View className='mt-3 flex-row gap-x-6'>
+                <View className='mt-3 flex-row gap-x-8'>
                     {/* Biểu đồ */}
-                    <View className="items-center mb-1">
+                    <View className="items-center mb-1 w-1/2">
                         <View className=''>
 
                             <PieChart

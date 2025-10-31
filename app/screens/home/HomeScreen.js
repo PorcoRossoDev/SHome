@@ -5,8 +5,6 @@ import { Dimensions, NativeModules, Platform, ScrollView, StatusBar, Text, Touch
 import { BellIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import SalesPieChart from '../../../components/charts/SalesPieChart';
-import SalesPieChart1 from '../../../components/charts/SalesPieChart1';
 import SalesPieChartAside from '../../../components/charts/SalesPieChartAside';
 
 
@@ -151,7 +149,7 @@ const HomeScreen = () => {
             <ScrollView className='relative z-50 mt-5'>
                 <View className=''>
 
-                    <View className='mb-4 px-5 '>
+                    <View className='mb-4 px-5 hidden'>
                         <View className='bg-gray-100 rounded-xl p-0.5'>
                             {Platform.OS === 'ios' ? (
                                 <SegmentedControl
@@ -198,19 +196,19 @@ const HomeScreen = () => {
 
                     <View className="flex-1 px-5 mt-1">
                         {index === 0 && (
-                            <SalesPieChart />
+                            <SalesPieChartAside />
                         )}
                         {index === 1 && (
-                            <SalesPieChart1 />
+                            <SalesPieChartAside />
                         )}
                         {index === 2 && (
                             <SalesPieChartAside />
                         )}
                     </View>
 
-                    <View className='px-5'>
+                    <View className='px-5 mb-3 mt-2'>
                         <TouchableOpacity
-                        className='flex-row justify-between py-4 px-5 mb-4 mt-3'
+                        className='flex-row justify-between py-4 px-5'
                         style={{
                             backgroundColor: "white",
                             borderRadius: 10,
@@ -218,7 +216,7 @@ const HomeScreen = () => {
                             // Shadow cho iOS
                             shadowColor: "#000",
                             shadowOffset: { width: 0, height: 4 },
-                            shadowOpacity: 0.1,
+                            shadowOpacity: 0.05,
                             shadowRadius: 6,
                             // Shadow cho Android
                             elevation: 6,
@@ -250,7 +248,7 @@ const HomeScreen = () => {
                                     // Shadow cho iOS
                                     shadowColor: "#000",
                                     shadowOffset: { width: 0, height: 4 },
-                                    shadowOpacity: 0.1,
+                                    shadowOpacity: 0.05,
                                     shadowRadius: 6,
                                     // Shadow cho Android
                                     elevation: 6,

@@ -15,7 +15,7 @@ const OrderNavigation = () => {
                     // Shadow cho iOS
                     shadowColor: "#000",
                     shadowOffset: { width: 0, height: 4 },
-                    shadowOpacity: 0.1,
+                    shadowOpacity: 0.05,
                     shadowRadius: 6,
                     // Shadow cho Android
                     elevation: 6,

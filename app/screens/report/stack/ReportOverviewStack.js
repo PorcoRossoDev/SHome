@@ -6,9 +6,9 @@ import { Dimensions, NativeModules, Platform, ScrollView, StatusBar, Text, Touch
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import ReportBusinessChart from '../../../../components/report/ReportBusinessChart';
+import ReportOrtherChart from '../../../../components/report/ReportOrtherChart';
 import ReportTechnicalChart from '../../../../components/report/ReportTechnicalChart';
-
-
 
 const ReportOverviewStack = () => {
   const { width } = Dimensions.get('window');
@@ -54,7 +54,7 @@ const ReportOverviewStack = () => {
 
   return (
     <View className='flex-1 bg-gray-50 relative'>
-      <LinearGradient
+      {/* <LinearGradient
         colors={[
           '#b71c1c', // đậm nhất
           '#d32f2f',
@@ -77,7 +77,33 @@ const ReportOverviewStack = () => {
           paddingTop:
             Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
         }}
+      /> */}
+
+      <LinearGradient
+        colors={[
+          '#b71c1c', // đậm nhất
+          '#d32f2f',
+          '#e53935',
+          '#f85b5f',
+          '#ff8a80',
+          'rgba(255,255,255,0.6)', // trắng mờ
+          '#ffffff',               // trắng hẳn
+        ]}
+        locations={[0, 0.25, 0.45, 0.65, 0.8, 0.95, 1]} // 👈 fade trắng chỉ chiếm 5% cuối
+        start={{ x: 0, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 300, // hoặc 350 nếu muốn tổng thể ngắn hơn
+          zIndex: 10,
+          paddingTop:
+            Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
+        }}
       />
+
 
       <View className='pt-3 px-5 pb-5 justify-center items-center relative z-50 bg-[#c9252b]_' style={{ marginTop: paddingHeader }}>
         <TouchableOpacity 
@@ -146,15 +172,15 @@ const ReportOverviewStack = () => {
             </View>
           </View>
 
-          <View className="flex-1 px-5 mt-1">
+          <View className="flex-1 mt-1">
             {index === 0 && (
-              <ReportTechnicalChart />
+              <ReportBusinessChart />
             )}
             {index === 1 && (
               <ReportTechnicalChart />
             )}
             {index === 2 && (
-              <ReportTechnicalChart />
+              <ReportOrtherChart />
             )}
           </View>
 
