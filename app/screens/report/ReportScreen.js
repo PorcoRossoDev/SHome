@@ -4,8 +4,6 @@ import { TouchableOpacity } from "react-native";
 import * as HeroOutline from "react-native-heroicons/outline";
 import { ReportCustomerStack, ReportOrderStack, ReportOverviewStack } from './stack';
 
-
-
 const Stack = createNativeStackNavigator();
 const ReportScreen = () => {
   const navigation = useNavigation();

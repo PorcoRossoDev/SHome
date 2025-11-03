@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { NativeModules, Platform, ScrollView, StatusBar, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import JobItemOrder from '../../../../components/job/JobItemOrder';
+import ReportItemOrder from '../../../../components/report/ReportItemOrder';
 
 
 const ReportOrderStack = ({ navigation }) => {
@@ -64,35 +64,21 @@ const ReportOrderStack = ({ navigation }) => {
           <View
             className='py-3'>
             <View className='flex-row justify-between'>
-              <Text className='font-sfmedium text-f16'>Nguyễn Mạnh Chiến</Text>
+              <Text className='font-sfmedium text-f16'>Nguyễn Mạnh Chiến - <Text className='text-green-600 font-sfmedium'>480.000</Text></Text>
               <View className='flex-row flex-wrap items-center'>
-                <Text className='text-f16 font-sfmedium'>21 công việc</Text>
-              </View>
-            </View>
-            <View className='flex-row justify-between mt-1'>
-              <View>
-                <Text className='text-gray-500 font-sfregular text-f15 mt-1'>Thu đơn hàng</Text>
-                <Text className='font-sfmedium text-center text-f14 mt-1'>950.000</Text>
-              </View>
-              <View>
-                <Text className='text-gray-500 font-sfregular text-f15 mt-1'>Thu công việc</Text>
-                <Text className='font-sfmedium text-center text-f14 mt-1'>450.000</Text>
-              </View>
-              <View>
-                <Text className='text-gray-500 font-sfregular text-f15 text-right mt-1'>Tổng thu</Text>
-                <Text className='font-sfmedium text-center text-f14 text-green-600 mt-1'>1.400.000</Text>
+                <Text className='text-f16 font-sfmedium'>21 đơn hàng</Text>
               </View>
             </View>
           </View>
         </View>
         <View className='mt-6'>
-          <JobItemOrder />
-          <JobItemOrder />
-          <JobItemOrder />
-          <JobItemOrder />
-          <JobItemOrder />
-          <JobItemOrder />
-          <JobItemOrder />
+          <ReportItemOrder />
+          <ReportItemOrder />
+          <ReportItemOrder />
+          <ReportItemOrder />
+          <ReportItemOrder />
+          <ReportItemOrder />
+          <ReportItemOrder />
         </View>
       </ScrollView>
     </View>

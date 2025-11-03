@@ -348,7 +348,7 @@ const ReportTechnicalChart = () => {
                 }}
                 >
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('Report',{screen: 'JobCustomerStack'})}
+                    onPress={() => navigation.navigate('Report',{screen: 'ReportCustomerStack'})}
                     className='py-3 mb-2 border-b border-gray-200'>
                         <View className='flex-row justify-between'>
                             <Text className='font-sfmedium text-f16'>Nguyễn Mạnh Chiến</Text>

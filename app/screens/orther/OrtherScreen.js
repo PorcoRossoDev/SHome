@@ -1,6 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { OrtherSettingStack } from './stack';
+import { TouchableOpacity } from 'react-native';
+import * as HeroOutline from "react-native-heroicons/outline";
+import { ActivityStack, OrtherSettingStack, SettingStoreStack } from './stack';
+
 
 const Stack = createNativeStackNavigator();
 const OrtherScreen = () => {
@@ -16,13 +19,33 @@ const OrtherScreen = () => {
         component={OrtherSettingStack}
         options={{ title: 'Cài đặt', headerBackVisible: false, }}
       />
-      {/* <Stack.Screen
-        name="OrderListStack"
-        component={OrderListStack}
-        options={({navigation, route}) => ({
-          header: () => <HeaderOrderCancelled title={'Danh sách đơn hàng'} navigation={navigation} />,
+      <Stack.Screen
+        name="ActivityStack"
+        component={ActivityStack}
+        options={{ title: '', headerBackVisible: false, }}
+      />
+      <Stack.Screen
+        name="SettingStoreStack"
+        component={SettingStoreStack}
+        options={ ({navigation}) => ({ 
+          title: 'Thông tin cửa hàng', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.XMarkIcon size={22} color="#000" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.CheckIcon size={22} color="#000" />
+            </TouchableOpacity>
+          )
         })}
-      /> */}
+      />
     </Stack.Navigator>
   );
 }

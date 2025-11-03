@@ -47,9 +47,10 @@ const HomeScreen = () => {
         { id: '7', name: 'Quản lý giao hàng', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
         { id: '8', name: 'Tạo phiếu kiểm hàng', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },
         { id: '9', name: 'Số quỹ', icon: 'FolderIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#2563eb' },
+        { id: '10', name: 'Công việc', icon: 'FolderIcon', navigateTo: {name: 'Job', screen: 'JobOverviewStack'}, background: '#2563eb' },
         { id: 'all', name: 'Xem thêm', icon: 'FolderPlusIcon', navigateTo: {name: 'Product', screen: 'ProductAddStack'}, background: '#4ade80' },
     ]
-    const [activeActions, setActiveActions] = useState(['1', '2', '3', '4', '5', '6', 'all']);
+    const [activeActions, setActiveActions] = useState(['1', '2', '3', '4', '5', '6', '10', 'all']);
     const actionListActive = actionList.filter(item => activeActions.includes(item.id));
     /*=== END: Modal - Thao tác nhanh ===*/
 

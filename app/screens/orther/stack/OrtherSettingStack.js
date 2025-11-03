@@ -33,7 +33,7 @@ const OrtherSettingStack = () => {
                     elevation: 6,
                 }}
                 >
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    <TouchableOpacity onPress={() => navigation.navigate('SettingStoreStack')} className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><BuildingStorefrontIcon size={20} color={'#2563eb'} /></View>
                             <Text className='ml-2 font-sfregular text-f15'>Thông tin cửa hàng</Text>
@@ -41,7 +41,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><UserGroupIcon size={20} color={'#2563eb'} /></View>

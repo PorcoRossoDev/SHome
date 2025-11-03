@@ -177,7 +177,7 @@ const ReportOrtherChart = () => {
                                 <HeroSolid.ShoppingCartIcon size={20} color={'#2563eb'} />
                             </View>
                             <View className='pl-3'>
-                                <Text className='font-sfregular text-f16'>Tổng doanh thu</Text>
+                                <Text className='font-sfregular text-f16'>Tổng đơn hàng</Text>
                                 <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                             </View>
                         </View>
@@ -201,7 +201,7 @@ const ReportOrtherChart = () => {
                                 <HeroSolid.CheckCircleIcon size={20} color={'#16a34a'} />
                             </View>
                             <View className='pl-3'>
-                                <Text className='font-sfregular text-f16'>Tổng hoá đơn VAT</Text>
+                                <Text className='font-sfregular text-f16'>Tổng doanh thu</Text>
                                 <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                             </View>
                         </View>
@@ -249,7 +249,7 @@ const ReportOrtherChart = () => {
                                 <HeroSolid.ClockIcon size={20} color={'#9333ea'} />
                             </View>
                             <View className='pl-3'>
-                                <Text className='font-sfregular text-f16'>Tổng trả hoa hồng</Text>
+                                <Text className='font-sfregular text-f16'>Tổng nhân viên</Text>
                                 <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                             </View>
                         </View>

@@ -2,7 +2,8 @@ import SegmentedControl from '@react-native-segmented-control/segmented-control'
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { NativeModules, Platform, ScrollView, StatusBar, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import JobItem from '../../../../components/job/JobItem';
+import ReportItemCustomer from '../../../../components/report/ReportItemCustomer';
+import ReportItemOrder from '../../../../components/report/ReportItemOrder';
 
 
 
@@ -29,7 +30,6 @@ const ReportCustomerStack = ({ navigation }) => {
   const closeSheet = useCallback(() => {
     bottomSheetRef.current?.dismiss();
   }, []);
-
 
   const [paddingHeader, setPaddingHeader] = useState(
     Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 50
@@ -89,7 +89,7 @@ const ReportCustomerStack = ({ navigation }) => {
           </View>
         </View>
         <View className='mb-4 mt-7'>
-          <View className='bg-red-400 rounded-xl p-0.5'>
+          <View className='bg-gray-200 rounded-xl p-0.5'>
             {Platform.OS === 'ios' ? (
               <SegmentedControl
                 values={segments.map(s => s.label.toUpperCase())}
@@ -101,7 +101,7 @@ const ReportCustomerStack = ({ navigation }) => {
                 activeFontStyle={{ color: '#000' }}
                 fontStyle={{
                   fontSize: 14,
-                  color: '#fff',
+                  color: '#000',
                   textTransform: 'uppercase'
                 }}
                 style={{
@@ -146,24 +146,20 @@ const ReportCustomerStack = ({ navigation }) => {
         <View className='mt-3'>
           {index === 0 && (
             <>
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
+              <ReportItemCustomer />
+              <ReportItemCustomer />
+              <ReportItemCustomer />
+              <ReportItemCustomer />
+              <ReportItemCustomer />
             </>
           )}
           {index === 1 && (
             <>
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
-              <JobItem />
+              <ReportItemOrder />
+              <ReportItemOrder />
+              <ReportItemOrder />
+              <ReportItemOrder />
+              <ReportItemOrder />
             </>
           )}
         </View>
