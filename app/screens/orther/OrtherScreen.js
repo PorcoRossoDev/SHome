@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
-import { ActivityStack, OrtherSettingStack, SettingStoreStack } from './stack';
+import { ActivityStack, OrtherSettingStack, PaymentStack, SettingStoreStack, TagStack } from './stack';
 
 
 const Stack = createNativeStackNavigator();
@@ -42,6 +42,50 @@ const OrtherScreen = () => {
               onPress={() => navigation.navigate('ProductOverviewStack')}
               className="">
               <HeroOutline.CheckIcon size={22} color="#000" />
+            </TouchableOpacity>
+          )
+        })}
+      />
+      <Stack.Screen
+        name="TagStack"
+        component={TagStack}
+        options={ ({navigation}) => ({ 
+          title: 'Danh sách Hashtag', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.XMarkIcon size={22} color="#000" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.CheckIcon size={22} color="#000" />
+            </TouchableOpacity>
+          )
+        })}
+      />
+      <Stack.Screen
+        name="PaymentStack"
+        component={PaymentStack}
+        options={ ({navigation}) => ({ 
+          title: 'Hình thức thanh toán', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.XMarkIcon size={22} color="#000" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.PlusIcon size={22} color="#000" />
             </TouchableOpacity>
           )
         })}

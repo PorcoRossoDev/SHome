@@ -51,7 +51,9 @@ const OrtherSettingStack = () => {
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
                     </View>
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    <TouchableOpacity
+                    onPress={()=>{navigation.navigate('PaymentStack')}} 
+                    className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><CreditCardIcon size={20} color={'#2563eb'}/></View>
                             <Text className='ml-2 font-sfregular text-f15'>Hình thức thanh toán</Text>
@@ -59,7 +61,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <TouchableOpacity 
                         onPress={() => (
                             navigation.navigate('Policy', {
@@ -155,7 +157,13 @@ const OrtherSettingStack = () => {
                 </View>
             </View>
 
-            <View className='mt-8'>
+            <TouchableOpacity 
+                onPress={() => (
+                    navigation.navigate('Orther', {
+                    screen: 'TagStack',
+                    })
+                )}
+            className='mt-8'>
                 <Text className='font-sfmedium text-f14 uppercase'>Hash Tag</Text>
                 <View className='mt-4'
                 style={{
@@ -182,7 +190,7 @@ const OrtherSettingStack = () => {
                         </View>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         </View>
     </ScrollView>
   );
