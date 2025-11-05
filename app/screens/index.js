@@ -1,3 +1,4 @@
+import CustomerScreen from "./customer/CustomerScreen";
 import DisbursementScreen from "./disbursement/DisbursementScreen";
 import HomeScreen from "./home/HomeScreen";
 import JobScreen from "./job/JobScreen";
@@ -11,7 +12,7 @@ import SalesSourceScreen from './salesSource/SalesSourceScreen';
 import UserScreen from "./user/UserScreen";
 
 export {
-    DisbursementScreen, HomeScreen, JobScreen, LoginScreen, OrderScreen,
+    CustomerScreen, DisbursementScreen, HomeScreen, JobScreen, LoginScreen, OrderScreen,
     OrtherScreen, PolicyScreen, ProductScreen, ReportScreen, SalesSourceScreen, UserScreen
 };
 

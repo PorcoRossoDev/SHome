@@ -8,6 +8,7 @@ import {
     UserGroupIcon
 } from 'react-native-heroicons/outline';
 import {
+    CustomerScreen,
     DisbursementScreen,
     HomeScreen,
     JobScreen,
@@ -26,7 +27,8 @@ const Tab = createBottomTabNavigator();
 const tabs = [
     { name: 'Home', component: HomeScreen, icon: HomeIcon, hidden: false, label: 'Tổng quan' },
     { name: 'Order', component: OrderScreen, icon: ShoppingBagIcon, hidden: false, label: 'Đơn hàng' },
-    { name: 'User', component: UserScreen, icon: UserGroupIcon, hidden: false, label: 'Khách hàng' },
+    { name: 'Customer', component: CustomerScreen, icon: UserGroupIcon, hidden: false, label: 'Khách hàng' },
+    { name: 'User', component: UserScreen, icon: UserGroupIcon, hidden: true, label: 'Nhân viên' },
     { name: 'Product', component: ProductScreen, icon: CubeIcon, hidden: false, label: 'Sản phẩm' },
     { name: 'Orther', component: OrtherScreen, icon: ListBulletIcon, hidden: false, label: 'Thêm' },
     { name: 'Disbursement', component: DisbursementScreen, icon: ListBulletIcon, hidden: true, label: 'Phiếu chi' },

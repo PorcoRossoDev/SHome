@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import PaymentItem from '../../../../components/orther/PaymentItem';
+import CareScheduleItem from '../../../../components/orther/CareScheduleItem';
 
-const PaymentStack = ({ navigation }) => {
+const CareScheduleListStack = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => setModalVisible(true);
@@ -13,11 +13,11 @@ const PaymentStack = ({ navigation }) => {
       <ScrollView className='px-4 bg-white flex-1 relative'>
         <View className='mt-6'>
           <View className='mt-4'>
-            <PaymentItem openModal={openModal} />
-            <PaymentItem openModal={openModal} />
-            <PaymentItem openModal={openModal} />
-            <PaymentItem openModal={openModal} />
-            <PaymentItem openModal={openModal} />
+            <CareScheduleItem openModal={openModal} />
+            <CareScheduleItem openModal={openModal} />
+            <CareScheduleItem openModal={openModal} />
+            <CareScheduleItem openModal={openModal} />
+            <CareScheduleItem openModal={openModal} />
           </View>
         </View>
       </ScrollView>
@@ -31,11 +31,32 @@ const PaymentStack = ({ navigation }) => {
         <View style={styles.backdrop}>
           <View className='bg-white w-[80%] rounded-lg'>
             <View className='px-3 py-3'>
-              <Text className='text-center font-sfbold mb-4 text-f17 mt-2'>Cập nhật hình thức thanh toán</Text>
+              <Text className='text-center font-sfbold mb-4 text-f17 mt-2'>Cập nhật lịch chăm sóc</Text>
                 <View>
+                  <Text className='text-red-600 font-sfregular'>* <Text className='text-gray-500 font-sfregular'>Tên nhóm</Text></Text>
                   <TextInput 
-                    value=''
-                    placeholder='* Tên hình thức'
+                    value='30 ngày'
+                    className='border-b border-gray-200 py-2 font-sfregular text-f15'
+                  />
+                </View>
+                <View className='mt-3'>
+                  <Text className='text-red-600 font-sfregular'>* <Text className='text-gray-500 font-sfregular'>Số ngày xử lý đơn hàng</Text></Text>
+                  <TextInput 
+                    value='30'
+                    className='border-b border-gray-200 py-2 font-sfregular text-f15'
+                  />
+                </View>
+                <View className='mt-3'>
+                  <Text className='text-red-600 font-sfregular'>* <Text className='text-gray-500 font-sfregular'>Mã nhóm</Text></Text>
+                  <TextInput 
+                    value='G30'
+                    className='border-b border-gray-200 py-2 font-sfregular text-f15'
+                  />
+                </View>
+                <View className='mt-3'>
+                  <Text className='text-red-600 font-sfregular'>* <Text className='text-gray-500 font-sfregular'>Mô tả</Text></Text>
+                  <TextInput 
+                    value='Gọi sau 01 tháng'
                     className='border-b border-gray-200 py-2 font-sfregular text-f15'
                   />
                 </View>
@@ -68,4 +89,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PaymentStack;
+export default CareScheduleListStack;

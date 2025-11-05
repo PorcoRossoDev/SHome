@@ -42,7 +42,9 @@ const OrtherSettingStack = () => {
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
                     </TouchableOpacity>
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    <TouchableOpacity 
+                    onPress={()=> (navigation.navigate('User', {screen: 'UserListStack'}))}
+                    className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><UserGroupIcon size={20} color={'#2563eb'} /></View>
                             <Text className='ml-2 font-sfregular text-f15'>Nhân viên và phân quyền</Text>
@@ -50,7 +52,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <TouchableOpacity
                     onPress={()=>{navigation.navigate('PaymentStack')}} 
                     className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
@@ -145,7 +147,9 @@ const OrtherSettingStack = () => {
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
                     </View>
-                    <View className='flex-row justify-between items-center pb-4 border-b border-gray-100'>
+                    <TouchableOpacity
+                    onPress={()=> navigation.navigate('Orther', {screen: 'CareScheduleListStack'})} 
+                    className='flex-row justify-between items-center pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><CircleStackIcon size={20} color={'#2563eb'} /></View>
                             <Text className='ml-2 font-sfregular text-f15'>Lịch chăm sóc</Text>
@@ -153,7 +157,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
