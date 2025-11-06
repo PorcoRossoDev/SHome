@@ -129,7 +129,9 @@ const OrtherSettingStack = () => {
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
                     </TouchableOpacity>
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    <TouchableOpacity 
+                    onPress={()=> navigation.navigate('Orther', {screen: 'TypeStack'})}
+                    className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><UserGroupIcon size={20} color={'#2563eb'} /></View>
                             <Text className='ml-2 font-sfregular text-f15'>Phân loại</Text>
@@ -137,8 +139,10 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
-                    <View className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                    onPress={()=>navigation.navigate('Customer', {screen: 'CustomerGroupStack'})}
+                    className='flex-row justify-between items-center mb-4 pb-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
                             <View><CreditCardIcon size={20} color={'#2563eb'}/></View>
                             <Text className='ml-2 font-sfregular text-f15'>Nhóm khách hàng</Text>
@@ -146,7 +150,7 @@ const OrtherSettingStack = () => {
                         <View>
                             <ChevronRightIcon size={17} color={'#9ca3af'} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <TouchableOpacity
                     onPress={()=> navigation.navigate('Orther', {screen: 'CareScheduleListStack'})} 
                     className='flex-row justify-between items-center pb-4 border-b border-gray-100'>

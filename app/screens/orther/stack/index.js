@@ -4,9 +4,11 @@ import OrtherSettingStack from './OrtherSettingStack';
 import PaymentStack from './PaymentStack';
 import SettingStoreStack from './SettingStoreStack';
 import TagStack from './TagStack';
+import TypeDetailStack from './TypeDetailStack';
+import TypeStack from './TypeStack';
 
 export {
     ActivityStack, CareScheduleListStack, OrtherSettingStack, PaymentStack, SettingStoreStack,
-    TagStack
+    TagStack, TypeDetailStack, TypeStack
 };
 

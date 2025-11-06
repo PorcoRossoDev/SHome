@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
-import { ActivityStack, CareScheduleListStack, OrtherSettingStack, PaymentStack, SettingStoreStack, TagStack } from './stack';
+import { ActivityStack, CareScheduleListStack, OrtherSettingStack, PaymentStack, SettingStoreStack, TagStack, TypeDetailStack, TypeStack } from './stack';
 
 
 const Stack = createNativeStackNavigator();
@@ -99,6 +99,50 @@ const OrtherScreen = () => {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.XMarkIcon size={22} color="#000" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.PlusIcon size={22} color="#000" />
+            </TouchableOpacity>
+          )
+        })}
+      />
+      <Stack.Screen
+        name="TypeStack"
+        component={TypeStack}
+        options={ ({navigation}) => ({ 
+          title: 'Danh sách phân loại', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.XMarkIcon size={22} color="#000" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.PlusIcon size={22} color="#000" />
+            </TouchableOpacity>
+          )
+        })}
+      />
+      <Stack.Screen
+        name="TypeDetailStack"
+        component={TypeDetailStack}
+        options={ ({navigation}) => ({ 
+          title: 'Cập nhật phân loại', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
               className="">
               <HeroOutline.XMarkIcon size={22} color="#000" />
             </TouchableOpacity>

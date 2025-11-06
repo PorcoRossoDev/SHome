@@ -1,9 +1,10 @@
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
+import { FlatList, LayoutAnimation, Platform, ScrollView, Text, TextInput, TouchableOpacity, UIManager, View } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
 import RoleItemCheck from '../../../../components/user/RoleItemCheck';
 
 const RoleDetailStack = ({ navigation }) => {
-  
+
   const roles = [
     {
       id: 0,
@@ -87,118 +88,119 @@ const RoleDetailStack = ({ navigation }) => {
     },
   ];
 
-  const toggleActive = () => {
-    
+  const [roleActive, setRoleActive] = useState([1, 3, 4, 5, 6, 7, 9, 10, 11, 14, 15, 16, 17, 18, 20, 22, 23, 25]);
+  if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+  const toggleActive = (roleID) => {
+    setRoleActive((prev) =>
+      prev.includes(roleID)
+        ? prev.filter((item) => item !== roleID)
+        : [...prev, roleID]
+    );
+  };
+
+   const [expandedItems, setExpandedItems] = useState([0, 2]);
+
+  const toggleExpand = (id) => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpandedItems((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
+  const renderRoleItem = ({ item }) => {
+    const isExpanded = expandedItems.includes(item.id);
+    return (
+      <View
+        className='px-3 mt-4'
+      >
+        <View className='border-b border-gray-300 pb-5'>
+          <View className='flex-row justify-between items-center'>
+            <Text className='text-sfregular'>{item.title}</Text>
+            <TouchableOpacity onPress={() => toggleExpand(item.id)} className='flex-row gap-x-1 items-center'>
+              <Text className='font-sfregular text-gray-500'>{item.group.length} quyền</Text>
+              <View><HeroOutline.ChevronDownIcon size={15} /></View>
+            </TouchableOpacity>
+          </View>
+          <View className=''>
+            {isExpanded && (
+            <FlatList
+              numColumns={2}
+              data={item.group}
+              scrollEnabled={false} // ngăn cuộn bên trong
+              nestedScrollEnabled={true} // bật nested scroll (Android)
+              columnWrapperStyle={{ justifyContent: 'space-between' }}
+              renderItem={(role) => (
+                <RoleItemCheck
+                  toggleActive={() => toggleActive(role.item.id)}
+                  active={roleActive.includes(role.item.id) ? true : false} />
+              )}
+              keyExtractor={role => role.id}
+            />
+            )}
+          </View>
+        </View>
+      </View>
+    )
   }
 
   return (
     <View className='flex-1 bg-white'>
       <ScrollView className='px-4 bg-white flex-1 relative'>
         <View className='mt-6'>
-            <View>
-              <Text className='font-sfmedium text-f15'><Text className='text-red-500'>*</Text> Tên vai trò</Text>
-              <TextInput 
+          <View>
+            <Text className='font-sfmedium text-f15'><Text className='text-red-500'>*</Text> Tên vai trò</Text>
+            <TextInput
               className='border-b h-10 font-sfregular text-f14 border-gray-200'
               placeholder=''
-              />
-            </View>
-            <View className='mt-4'>
-              <Text className='font-sfmedium text-f15'>Team phụ trách</Text>
-              <TextInput 
+            />
+          </View>
+          <View className='mt-4'>
+            <Text className='font-sfmedium text-f15'>Team phụ trách</Text>
+            <TextInput
               className='border-b h-10 font-sfregular text-f14 border-gray-200'
               placeholder=''
-              />
+            />
+          </View>
+          <View className='mt-4'>
+            <View className='flex-row justify-between'>
+              <Text className='font-sfmedium text-f15'>Phân quyền chi tiết</Text>
+              <Text className='font-sfregular px-1 py-1 text-f13 rounded-lg bg-blue-100 border border-blue-300 text-blue-700'>40/119 quyền</Text>
             </View>
-            <View className='mt-4'>
-              <View className='flex-row justify-between'>
-                <Text className='font-sfmedium text-f15'>Phân quyền chi tiết</Text>
-                <Text className='font-sfregular px-1 py-1 text-f13 rounded-lg bg-blue-100 border border-blue-300 text-blue-700'>40/119 quyền</Text>
-              </View>
-              <TextInput 
+            <TextInput
               className='border-b h-10 font-sfregular text-f14 border-gray-200'
               placeholder='Tìm kiếm module hoặc quyền...'
-              />
-            </View>
-            
-            <View
-            className='p-3 mt-5'
-            style={{
-                backgroundColor: "white",
-                borderRadius: 10,
-                // paddingVertical: 16,
-                // Shadow cho iOS
-                shadowColor: "#000",
-                shadowOffset: { width: 0, height: 4 },
-                shadowOpacity: 0.05,
-                shadowRadius: 6,
-                // Shadow cho Android
-                elevation: 6,
-            }}
-            >
-              <View className='flex-row justify-between items-center'>
-                <Text className='text-sfregular'>Nhóm thành viên</Text>
-                <View className='flex-row gap-x-1 items-center'>
-                   <Text className='font-sfregular text-gray-500'>4 quyền</Text>
-                   <View><HeroOutline.ChevronDownIcon size={15} /></View>
-                </View>
-              </View>
-              <View className='flex-row flex-wrap justify-between'>
-                <RoleItemCheck active={false} />
-                <RoleItemCheck active={true} />
-                <RoleItemCheck active={true} />
-                <RoleItemCheck active={false} />
-                <RoleItemCheck active={false} />
-              </View>
-            </View>
-
-            <View className='mt-4'>
-              <Text className='font-sfmedium text-f15 text-gray-500'>Trạng thái</Text>
-              <TextInput 
-              className='border-b h-10 font-sfregular text-f14 border-gray-200'
-              placeholder=''
-              />
-            </View>
-            <View className='mt-4'>
-              <Text className='font-sfmedium text-f15 text-gray-500'>Email</Text>
-              <TextInput 
-              className='border-b h-10 font-sfregular text-f14 border-gray-200'
-              placeholder=''
-              />
-            </View>
-            <View className='mt-4'>
-              <Text className='font-sfmedium text-f15 text-gray-500'>Ngày sinh</Text>
-              <TextInput 
-              className='border-b h-10 font-sfregular text-f14 border-gray-200'
-              placeholder=''
-              />
-            </View>
-            <View className='flex-row justify-between items-center mt-4'>
-              <View className='justify-center flex-col w-1/2 gap-x-3 items-center mt-4'>
-                  <Text>Ảnh đại diện</Text>
-                  <View>
-                    <View className='mt-2 bg-white h-14 w-14 justify-center items-center rounded-lg self-start'>
-                        <Image
-                        className='border border-gray-300 rounded-md'
-                        style={{ width: '100%', height: '100%', borderRadius: 10 }}
-                        />
-                    </View>
-                  </View>
-              </View>
-              <View className='justify-center flex-col w-1/2 gap-x-3 items-center mt-4'>
-                  <Text>Ảnh chữ ký</Text>
-                  <View>
-                    <View className='mt-2 bg-white h-14 w-14 justify-center items-center rounded-lg self-start'>
-                        <Image
-                        className='border border-gray-300 rounded-md'
-                        style={{ width: '100%', height: '100%', borderRadius: 10 }}
-                        />
-                    </View>
-                  </View>
-              </View>
+            />
           </View>
+
+          <View
+            className='mt-4'
+            style={{
+              backgroundColor: "white",
+              borderRadius: 10,
+              // paddingVertical: 16,
+              // Shadow cho iOS
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.05,
+              shadowRadius: 6,
+              // Shadow cho Android
+              elevation: 6,
+            }}
+          >
+            <FlatList
+              data={roles}
+              renderItem={renderRoleItem}
+              scrollEnabled={false} // ngăn cuộn bên trong
+              nestedScrollEnabled={true} // bật nested scroll (Android)
+              keyExtractor={item => item.id}
+            />
+          </View>
+
         </View>
       </ScrollView>
-      <View className='flex-row justify-center gap-x-4 items-center px-5 mb-4'>
+      <View className='flex-row justify-center gap-x-4 items-center px-5 mb-4 mt-4'>
         <TouchableOpacity className='flex-row gap-x-1 w-[40%] h-11 justify-center items-center border-red-300 border rounded-md'>
           <View><HeroOutline.TrashIcon size={20} color={'red'} /></View>
           <Text className='text-red-600'>Xoá</Text>

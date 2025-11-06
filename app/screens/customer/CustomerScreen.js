@@ -1,7 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TouchableOpacity } from 'react-native';
+import * as HeroOutline from "react-native-heroicons/outline";
 import HeaderOrderCancelled from '../../../components/order/HeaderOrder';
-import { CustomerListStack, CustomerOverDueStack, CustomerOverviewStack, CustomerPenddingStack } from './stack';
+import { CustomerGroupStack, CustomerListStack, CustomerOverDueStack, CustomerOverviewStack, CustomerPenddingStack } from './stack';
 
 const Stack = createNativeStackNavigator();
 const Customer = () => {
@@ -50,6 +52,28 @@ const Customer = () => {
         component={CustomerOverDueStack}
         options={({navigation, route}) => ({
           header: () => <HeaderOrderCancelled title={'Khách hàng quá hạn'} navigation={navigation} />,
+        })}
+      />
+      <Stack.Screen
+        name="CustomerGroupStack"
+        component={CustomerGroupStack}
+        options={ ({navigation}) => ({ 
+          title: 'Nhóm khách hàng', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.XMarkIcon size={22} color="#000" />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProductOverviewStack')}
+              className="">
+              <HeroOutline.CheckIcon size={22} color="#000" />
+            </TouchableOpacity>
+          )
         })}
       />
     </Stack.Navigator>

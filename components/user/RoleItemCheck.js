@@ -3,13 +3,13 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
 
 
-const RoleItemCheck = ({ active = false }) => {
+const RoleItemCheck = ({ toggleActive, active = false }) => {
     const navigation = useNavigation()
-    const activeItem = active ? 'border-blue-600 text-blue-700' : ' border-gray-400'
+    const activeItem = active ? 'border-blue-600 text-blue-700' : 'border-gray-400'
     return (
         <TouchableOpacity
-            onPress={() => navigation.navigate('User', { screen: 'UserDetail' })}
-            className={`relative w-[48%] mt-3 border rounded-lg px-3 py-3 overflow-hidden ${active ? 'border-blue-600' : 'border-gray-400'
+            onPress={toggleActive}
+            className={`relative w-[48.5%] mt-3 border rounded-lg px-3 py-3 overflow-hidden ${active ? 'border-blue-600' : 'border-gray-400'
                 }`}
         >
             <Text className={`${active ? 'text-blue-700' : 'text-gray-700'}`}>
@@ -20,7 +20,7 @@ const RoleItemCheck = ({ active = false }) => {
             {active && (
                 <View className="relative">
                     <View
-                        className="absolute w-8 h-8 -bottom-3 -rotate-90 -right-3 bg-slate-500 justify-center items-center"
+                        className="absolute w-8 h-8 -bottom-3 -rotate-90 -right-3 bg-blue-600 justify-center items-center"
                         style={{
                         width: 0,
                         height: 0,
@@ -30,8 +30,8 @@ const RoleItemCheck = ({ active = false }) => {
                         borderTopColor: 'white',
                         }}
                     >
-                        <View className='bg-red-500 w-full h-full absolute bottom-0 right-0 justify-center items-center rotate-90'>
-                            <HeroOutline.CheckIcon size={12} color="red" />
+                        <View className='absolute bottom-0 right-2 justify-center items-center rotate-90'>
+                            <HeroOutline.CheckIcon size={13} color="#fff" />
                         </View>
                     </View>
                 </View>
