@@ -6,6 +6,7 @@ import { BellIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 import { SegmentedButtons } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SalesPieChartAside from '../../../components/charts/SalesPieChartAside';
+import SalesPieChartAside1 from '../../../components/charts/SalesPieChartAside1';
 
 
 
@@ -52,6 +53,13 @@ const HomeScreen = () => {
     ]
     const [activeActions, setActiveActions] = useState(['1', '2', '3', '4', '5', '6', '10', 'all']);
     const actionListActive = actionList.filter(item => activeActions.includes(item.id));
+    const handleActionToggle = (id) => {
+        setActiveActions(prev =>
+            prev.includes(id)
+            ? prev.filter(item => item !== id)
+            : [...prev, id]
+        );
+    };
     /*=== END: Modal - Thao tác nhanh ===*/
 
 
@@ -140,7 +148,7 @@ const HomeScreen = () => {
 
             <View className='pt-3 px-5 pb-5 flex flex-row justify-between relative z-50 bg-[#c9252b]' style={{paddingTop: paddingHeader}}>
                 <Text className='text-white font-sfbold text-f20'>Scent Home</Text>
-                <TouchableOpacity className='relative'>
+                <TouchableOpacity onPress={() => navigation.navigate('Orther',{screen: 'LogStack'})} className='relative'>
                     <BellIcon color='white' width='25' height='25' />
                     <Text 
                         className={`w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute ${Platform.OS == 'ios' ? '-top-[5px]' : 'top-[-7px]'} right-[-5px] bg-yellow-400`}
@@ -200,7 +208,7 @@ const HomeScreen = () => {
                             <SalesPieChartAside />
                         )}
                         {index === 1 && (
-                            <SalesPieChartAside />
+                            <SalesPieChartAside1 />
                         )}
                         {index === 2 && (
                             <SalesPieChartAside />
@@ -210,17 +218,29 @@ const HomeScreen = () => {
                     <View className='px-5 mb-3 mt-2'>
                         <TouchableOpacity
                         className='flex-row justify-between py-4 px-5'
+                        // style={{
+                        //     backgroundColor: "white",
+                        //     borderRadius: 10,
+                        //     // paddingVertical: 16,
+                        //     // Shadow cho iOS
+                        //     shadowColor: "#000",
+                        //     shadowOffset: { width: 0, height: 4 },
+                        //     shadowOpacity: 0.05,
+                        //     shadowRadius: 6,
+                        //     // Shadow cho Android
+                        //     elevation: 6,
+                        // }}
                         style={{
-                            backgroundColor: "white",
+                            backgroundColor: '#fff',
                             borderRadius: 10,
-                            // paddingVertical: 16,
-                            // Shadow cho iOS
-                            shadowColor: "#000",
+                            paddingVertical: 15,
+                            // iOS
+                            shadowColor: '#0e3f7e',           // màu gần giống web
                             shadowOffset: { width: 0, height: 4 },
-                            shadowOpacity: 0.05,
-                            shadowRadius: 6,
-                            // Shadow cho Android
-                            elevation: 6,
+                            shadowOpacity: 0.1,
+                            shadowRadius: 10,
+                            // Android
+                            elevation: 1,
                         }}
                         >
                             <Text className='font-sfregular text-f15'>Danh sách đơn hàng hôm nay</Text>
@@ -235,24 +255,36 @@ const HomeScreen = () => {
                         {/* Thao tác nhanh */}
                         <View className=''>
                             <View className='flex flex-row justify-between mt-4'>
-                                <Text className='uppercase font-sfregular text-f15'>Thao tác nhanh</Text>
+                                <Text className='uppercase font-sfmedium text-f15'>Thao tác nhanh</Text>
                                 <TouchableOpacity onPress={openSheet}>
                                     <Text className='text-blue-600 text-f15 font-sfmedium'>Tuỳ chỉnh</Text>
                                 </TouchableOpacity>
                             </View>
                             <View
                                 className='mt-3'
+                                // style={{
+                                //     backgroundColor: "white",
+                                //     borderRadius: 10,
+                                //     // paddingVertical: 16,
+                                //     // Shadow cho iOS
+                                //     shadowColor: "#000",
+                                //     shadowOffset: { width: 0, height: 4 },
+                                //     shadowOpacity: 0.05,
+                                //     shadowRadius: 6,
+                                //     // Shadow cho Android
+                                //     elevation: 6,
+                                // }}
                                 style={{
-                                    backgroundColor: "white",
+                                    backgroundColor: '#fff',
                                     borderRadius: 10,
-                                    // paddingVertical: 16,
-                                    // Shadow cho iOS
-                                    shadowColor: "#000",
+                                    // paddingVertical: 15,
+                                    // iOS
+                                    shadowColor: '#0e3f7e',           // màu gần giống web
                                     shadowOffset: { width: 0, height: 4 },
-                                    shadowOpacity: 0.05,
-                                    shadowRadius: 6,
-                                    // Shadow cho Android
-                                    elevation: 6,
+                                    shadowOpacity: 0.1,
+                                    shadowRadius: 10,
+                                    // Android
+                                    elevation: 2,
                                 }}
                             >
                                 <View className="flex-row flex-wrap mt-6">
@@ -273,7 +305,7 @@ const HomeScreen = () => {
 
                 </View>
             </ScrollView>
-            <BottomSheetActions ref={bottomSheetRef} onClose={closeSheet} actionList={actionList} activeActions={activeActions}/>
+            <BottomSheetActions ref={bottomSheetRef} onClose={closeSheet} actionList={actionList} activeActions={activeActions} handleActionToggle={handleActionToggle} />
         </View>
     );
 }

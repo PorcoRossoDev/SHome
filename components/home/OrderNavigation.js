@@ -1,24 +1,37 @@
 import { useNavigation } from "@react-navigation/native";
 import { Platform, Text, TouchableOpacity, View } from 'react-native';
+import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 
 const OrderNavigation = () => {
     const navigation = useNavigation();
     return (
         <View className=''>
-            <Text className='uppercase text-f15 font-sfregular'>Danh sách đơn hàng</Text>
+            <Text className='uppercase text-f15 font-sfmedium'>Danh sách đơn hàng</Text>
             <View className='mt-3 px-3 pt-4' 
+                // style={{
+                //     backgroundColor: "white",
+                //     borderRadius: 10,
+                //     // paddingVertical: 16,
+                //     // Shadow cho iOS
+                //     shadowColor: "#000",
+                //     shadowOffset: { width: 0, height: 4 },
+                //     shadowOpacity: 0.05,
+                //     shadowRadius: 6,
+                //     // Shadow cho Android
+                //     elevation: 6,
+                // }}
                 style={{
-                    backgroundColor: "white",
+                    backgroundColor: '#fff',
                     borderRadius: 10,
-                    // paddingVertical: 16,
-                    // Shadow cho iOS
-                    shadowColor: "#000",
+                    // paddingVertical: 15,
+                    // iOS
+                    shadowColor: '#0e3f7e',           // màu gần giống web
                     shadowOffset: { width: 0, height: 4 },
-                    shadowOpacity: 0.05,
-                    shadowRadius: 6,
-                    // Shadow cho Android
-                    elevation: 6,
+                    shadowOpacity: 0.1,
+                    shadowRadius: 10,
+                    // Android
+                    elevation: 2,
                 }}
                 >
                 <TouchableOpacity 
@@ -30,11 +43,11 @@ const OrderNavigation = () => {
                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                     >
                     <View className='flex-row flex-wrap items-center justify-center'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.ShoppingCartIcon size={22} color={'#1e40af'} />
+                        <View className='rounded-xl h-10 w-10 bg-blue-100 justify-center items-center'>
+                            <HeroOutline.ShoppingCartIcon size={20} color={'#1e40af'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Tổng đơn hàng</Text>
+                            <Text className='font-sfregular text-f15'>Tổng đơn hàng</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -54,11 +67,11 @@ const OrderNavigation = () => {
                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                     >
                     <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.CheckCircleIcon size={22} color={'#1e40af'} />
+                        <View className='rounded-xl h-10 w-10 bg-green-100 justify-center items-center'>
+                            <HeroOutline.CheckCircleIcon size={22} color={'#16a34a'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Hoàn thành</Text>
+                            <Text className='font-sfregular text-f15'>Hoàn thành</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -78,11 +91,11 @@ const OrderNavigation = () => {
                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                     >
                     <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.CreditCardIcon size={22} color={'#1e40af'} />
+                        <View className='rounded-xl h-10 w-10 bg-purple-100 justify-center items-center'>
+                            <HeroOutline.CreditCardIcon size={20} color={'#9333ea'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Đã Thanh toán</Text>
+                            <Text className='font-sfregular text-f15'>Đã Thanh toán</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -102,11 +115,11 @@ const OrderNavigation = () => {
                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                     >
                     <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.ClockIcon size={22} color={'#1e40af'} />
+                        <View className='rounded-xl h-10 w-10 bg-yellow-100 justify-center items-center'>
+                            <HeroOutline.ClockIcon size={22} color={'#ca8a04'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Chưa Thanh toán</Text>
+                            <Text className='font-sfregular text-f15'>Chưa Thanh toán</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -121,11 +134,11 @@ const OrderNavigation = () => {
                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                     >
                     <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.TruckIcon size={22} color={'#1e40af'} />
+                        <View className='rounded-xl h-10 w-10 bg-blue-100 justify-center items-center'>
+                            <HeroSolid.TruckIcon size={20} color={'#2563eb'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Hẹn giao</Text>
+                            <Text className='font-sfregular text-f15'>Hẹn giao</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>
@@ -137,14 +150,14 @@ const OrderNavigation = () => {
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity 
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
+                    className={`${Platform.OS == "ios" ? 'mb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center`}
                     >
                     <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.ArrowDownTrayIcon size={22} color={'#1e40af'} />
+                        <View className='rounded-xl h-10 w-10 bg-red-100 justify-center items-center'>
+                            <HeroSolid.ArrowDownTrayIcon size={20} color={'#dc2626'} />
                         </View>
                         <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Công nợ</Text>
+                            <Text className='font-sfregular text-f15'>Công nợ</Text>
                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                         </View>
                     </View>

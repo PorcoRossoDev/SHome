@@ -11,14 +11,14 @@ import { Dropdown } from 'react-native-element-dropdown';
 // import Svg, { Circle } from 'react-native-svg';
 
 
-const SalesPieChartAside = () => {
+const SalesPieChartAside1 = () => {
     const pieData = [
-    { label: "Hà Nội", value: 20, color: "#9A0007" }, // đỏ đô
-    { label: "Hồ Chí Minh", value: 22, color: "#D32F2F" }, // đỏ đậm
-    { label: "Tỉnh/Công ty", value: 16, color: "#F44336" }, // đỏ tiêu chuẩn
-    { label: "Không có tiềm năng", value: 18, color: "#FF8A80" }, // đỏ sáng
-    { label: "Sàn TMĐT", value: 10, color: "#FFB3B3" }, // đỏ nhạt tươi
-    { label: "Black List/Chặn", value: 10, color: "#FFD6D6" }, // đỏ hồng nhạt
+        { label: "Hà Nội", value: 20, color: "#9A0007" }, // đỏ đô
+        { label: "Hồ Chí Minh", value: 22, color: "#D32F2F" }, // đỏ đậm
+        { label: "Tỉnh/Công ty", value: 16, color: "#F44336" }, // đỏ tiêu chuẩn
+        { label: "Không có tiềm năng", value: 18, color: "#FF8A80" }, // đỏ sáng
+        { label: "Sàn TMĐT", value: 10, color: "#FFB3B3" }, // đỏ nhạt tươi
+        { label: "Black List/Chặn", value: 10, color: "#FFD6D6" }, // đỏ hồng nhạt
     ];
 
     const renderDot = (color) => (
@@ -141,22 +141,22 @@ const SalesPieChartAside = () => {
 
                             <PieChart
                                 data={pieData}
-                                donut
+                                // donut
                                 radius={100}
-                                innerRadius={65}
+                                // innerRadius={65}
                                 sectionSpace={5}               // 👈 tạo khoảng cách giữa các phần
-                                strokeWidth={5}              // 👈 tạo đường viền nhẹ giữa phần và nền
+                                strokeWidth={0}              // 👈 tạo đường viền nhẹ giữa phần và nền
                                 strokeColor="#fff"
                                 showGradient                   // 👈 làm mượt màu các lát
                                 isAnimated
                                 animationDuration={400}
                                 innerCircleColor="#fff"
-                                centerLabelComponent={() => (
-                                    <View className="items-center">
-                                        <Text className="text-[19px] font-bold">47%</Text>
-                                        <Text className="text-[14px] text-gray-500">Excellent</Text>
-                                    </View>
-                                )}
+                                // centerLabelComponent={() => (
+                                //     <View className="items-center">
+                                //         <Text className="text-[19px] font-bold">47%</Text>
+                                //         <Text className="text-[14px] text-gray-500">Excellent</Text>
+                                //     </View>
+                                // )}
                             />
 
                         </View>
@@ -189,4 +189,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SalesPieChartAside;
+export default SalesPieChartAside1;

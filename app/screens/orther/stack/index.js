@@ -1,5 +1,6 @@
 import ActivityStack from './ActivityStack';
 import CareScheduleListStack from './CareScheduleListStack';
+import LogStack from './LogStack';
 import OrtherSettingStack from './OrtherSettingStack';
 import PaymentStack from './PaymentStack';
 import SettingStoreStack from './SettingStoreStack';
@@ -8,7 +9,7 @@ import TypeDetailStack from './TypeDetailStack';
 import TypeStack from './TypeStack';
 
 export {
-    ActivityStack, CareScheduleListStack, OrtherSettingStack, PaymentStack, SettingStoreStack,
+    ActivityStack, CareScheduleListStack, LogStack, OrtherSettingStack, PaymentStack, SettingStoreStack,
     TagStack, TypeDetailStack, TypeStack
 };
 

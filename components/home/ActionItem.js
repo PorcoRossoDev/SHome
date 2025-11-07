@@ -2,7 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 
-const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', navigateTo = {}, navigation, background = '', close = false, plus = false}) => {
+const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'solid', navigateTo = {}, navigation, background = '', close = false, plus = false, actionButton}) => {
   const sets = { solid: HeroSolid, outline: HeroOutline };
   const IconComponent = sets[variant]?.[icon];
 
@@ -23,7 +23,7 @@ const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'soli
   return (
     <TouchableOpacity 
       className="flex-1 items-center justify-center mb-4"
-      onPress={handlePress.bind(this, navigateTo??{})}
+      onPress={actionButton ? actionButton : handlePress.bind(this, navigateTo??{})}
       >
       <View className={`relative w-[55%] aspect-square justify-center items-center rounded-full mb-2`} style={{ backgroundColor: background }}>
         {IconComponent ? (
@@ -33,16 +33,16 @@ const ActionItem = ({ name, id, icon, size = 23, color = '#fff', variant = 'soli
         )}
         {
             close == true ? (
-            <TouchableOpacity className='bg-red-500 rounded-full w-5 h-5 flex-1 justify-center items-center absolute top-[-3px] left-[-3px]'>
+            <View className='bg-red-500 rounded-full w-5 h-5 flex-1 justify-center items-center absolute top-[-3px] left-[-3px]'>
                 <HeroSolid.XMarkIcon size={12} color={color} />
-            </TouchableOpacity>
+            </View>
             ) : (<></>)
         }
         {
             plus == true ? (
-            <TouchableOpacity className='bg-green-600 rounded-full w-5 h-5 flex-1 justify-center items-center absolute top-[-3px] left-[-3px]'>
+            <View className='bg-green-600 rounded-full w-5 h-5 flex-1 justify-center items-center absolute top-[-3px] left-[-3px]'>
                 <HeroSolid.PlusIcon size={12} color={color} />
-            </TouchableOpacity>
+            </View>
             ) : (<></>)
         }
       </View>

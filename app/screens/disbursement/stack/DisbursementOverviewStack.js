@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import * as HeroSolid from "react-native-heroicons/solid";
+import * as HeroOutline from "react-native-heroicons/outline";
 import DisbursementLineChart from '../../../../components/disbursement/DisbursementLineChart';
 
 
@@ -15,7 +15,7 @@ const DisbursementOverview = () => {
                     <TouchableOpacity onPress={() => navigation.navigate('OrderAddStack')} className='justify-center text-center'>
                         <View className='justify-center items-center'>
                             <View className='w-[50px] h-[50px] justify-center items-center bg-blue-600 rounded-full'>
-                                <HeroSolid.PlusIcon size={25} color={'white'} />
+                                <HeroOutline.PlusIcon size={25} color={'white'} />
                             </View>
                         </View>
                         <Text className='text-f16 mt-4 font-sfmedium'>Tạo phiếu chi</Text>
@@ -58,16 +58,16 @@ const DisbursementOverview = () => {
                             <Text className='uppercase text-f14 font-sfregular'>Danh sách phiếu chi</Text>
                             <View className='mt-3 px-3 pt-4'
                                 style={{
-                                    backgroundColor: "white",
+                                    backgroundColor: '#fff',
                                     borderRadius: 10,
-                                    // paddingVertical: 16,
-                                    // Shadow cho iOS
-                                    shadowColor: "#000",
+                                    // paddingVertical: 15,
+                                    // iOS
+                                    shadowColor: '#0e3f7e',           // màu gần giống web
                                     shadowOffset: { width: 0, height: 4 },
                                     shadowOpacity: 0.1,
-                                    shadowRadius: 6,
-                                    // Shadow cho Android
-                                    elevation: 6,
+                                    shadowRadius: 10,
+                                    // Android
+                                    elevation: 2,
                                 }}
                                 >
                                 <TouchableOpacity 
@@ -79,18 +79,18 @@ const DisbursementOverview = () => {
                                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                                     >
                                     <View className='flex-row flex-wrap items-center justify-center'>
-                                        <View className='rounded-xl w-10 justify-center items-center'>
-                                            <HeroSolid.ShoppingCartIcon size={22} color={'#1e40af'} />
+                                        <View className='rounded-xl h-10 w-10 bg-blue-100 justify-center items-center'>
+                                            <HeroOutline.ShoppingCartIcon size={20} color={'#2563eb'} />
                                         </View>
                                         <View className='pl-3'>
-                                            <Text className='font-sfregular text-f16'>Tổng phiếu chi</Text>
+                                            <Text className='font-sfregular text-f15'>Tổng phiếu chi</Text>
                                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                                         </View>
                                     </View>
                                     <View className='flex-row flex-wrap items-center'>
                                         <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>117</Text>
                                         <Text className='ml-2'>
-                                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                            <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                                         </Text>
                                     </View>
                                 </TouchableOpacity>
@@ -103,18 +103,18 @@ const DisbursementOverview = () => {
                                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                                     >
                                     <View className='flex-row flex-wrap'>
-                                        <View className='rounded-xl w-10 justify-center items-center'>
-                                            <HeroSolid.CheckCircleIcon size={22} color={'#1e40af'} />
+                                        <View className='rounded-xl h-10 w-10 bg-green-100 justify-center items-center'>
+                                            <HeroOutline.CheckCircleIcon size={22} color={'#16a34a'} />
                                         </View>
                                         <View className='pl-3'>
-                                            <Text className='font-sfregular text-f16'>Tiền thực thu</Text>
+                                            <Text className='font-sfregular text-f15'>Tiền thực thu</Text>
                                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                                         </View>
                                     </View>
                                     <View className='flex-row flex-wrap items-center'>
                                         <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>90</Text>
                                         <Text className='ml-2'>
-                                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                            <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                                         </Text>
                                     </View>
                                 </TouchableOpacity>
@@ -127,18 +127,18 @@ const DisbursementOverview = () => {
                                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                                     >
                                     <View className='flex-row flex-wrap'>
-                                        <View className='rounded-xl w-10 justify-center items-center'>
-                                            <HeroSolid.CreditCardIcon size={22} color={'#1e40af'} />
+                                        <View className='rounded-xl h-10 w-10 bg-purple-100 justify-center items-center'>
+                                            <HeroOutline.CreditCardIcon size={20} color={'#9333ea'} />
                                         </View>
                                         <View className='pl-3'>
-                                            <Text className='font-sfregular text-f16'>Ngân sách được duyệt</Text>
+                                            <Text className='font-sfregular text-f15'>Ngân sách được duyệt</Text>
                                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                                         </View>
                                     </View>
                                     <View className='flex-row flex-wrap items-center'>
                                         <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>88</Text>
                                         <Text className='ml-2'>
-                                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                            <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                                         </Text>
                                     </View>
                                 </TouchableOpacity>
@@ -151,18 +151,18 @@ const DisbursementOverview = () => {
                                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                                     >
                                     <View className='flex-row flex-wrap'>
-                                        <View className='rounded-xl w-10 justify-center items-center'>
-                                            <HeroSolid.ClockIcon size={22} color={'#1e40af'} />
+                                        <View className='rounded-xl h-10 w-10 bg-blue-100 justify-center items-center'>
+                                            <HeroOutline.ClockIcon size={20} color={'#2563eb'} />
                                         </View>
                                         <View className='pl-3'>
-                                            <Text className='font-sfregular text-f16'>Đã chi tiêu</Text>
+                                            <Text className='font-sfregular text-f15'>Đã chi tiêu</Text>
                                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                                         </View>
                                     </View>
                                     <View className='flex-row flex-wrap items-center'>
                                         <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>21</Text>
                                         <Text className='ml-2'>
-                                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                            <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                                         </Text>
                                     </View>
                                 </TouchableOpacity>
@@ -170,18 +170,18 @@ const DisbursementOverview = () => {
                                     className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
                                     >
                                     <View className='flex-row flex-wrap'>
-                                        <View className='rounded-xl w-10 justify-center items-center'>
-                                            <HeroSolid.TruckIcon size={22} color={'#1e40af'} />
+                                        <View className='rounded-xl h-10 w-10 bg-red-100 justify-center items-center'>
+                                            <HeroOutline.TruckIcon size={22} color={'#dc2626'} />
                                         </View>
                                         <View className='pl-3'>
-                                            <Text className='font-sfregular text-f16'>Đợi duyệt</Text>
+                                            <Text className='font-sfregular text-f15'>Đợi duyệt</Text>
                                             <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
                                         </View>
                                     </View>
                                     <View className='flex-row flex-wrap items-center'>
                                         <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>17</Text>
                                         <Text className='ml-2'>
-                                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                            <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                                         </Text>
                                     </View>
                                 </TouchableOpacity>
@@ -195,25 +195,25 @@ const DisbursementOverview = () => {
                 <View className='bg-white mt-7 flex-1 w-full px-4 mb-6'>
                     <TouchableOpacity onPress={() => navigation.navigate('DisbursementPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
-                            <HeroSolid.ClipboardDocumentListIcon size={30} color={'#6b7280'} />
+                            <HeroOutline.ClipboardDocumentListIcon size={27} color={'#6b7280'} />
                             <Text className='pl-3 font-sfregular text-f15'>Phiếu chi cần xử lý</Text>
                         </View>
                         <View className='flex-row flex-wrap items-center'>
                             <Text className='text-f12'>219</Text>
                             <Text className='ml-2'>
-                                <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                             </Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('DisbursemenCanclledStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
                         <View className='flex-row items-center'>
-                            <HeroSolid.ClipboardDocumentCheckIcon size={30} color={'#6b7280'} />
+                            <HeroOutline.ClipboardDocumentCheckIcon size={27} color={'#6b7280'} />
                             <Text className='pl-3 font-sfregular text-f15'>Phiếu chi đã huỷ</Text>
                         </View>
                         <View className='flex-row flex-wrap items-center'>
                             <Text className='text-f12'>0</Text>
                             <Text className='ml-2'>
-                                <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
+                                <HeroOutline.ChevronRightIcon size={17} color={'#9ca3af'} />
                             </Text>
                         </View>
                     </TouchableOpacity>

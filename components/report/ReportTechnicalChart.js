@@ -152,16 +152,16 @@ const ReportTechnicalChart = () => {
                 <Text className='uppercase text-f14 font-sfregular'>Báo cáo kỹ thuật theo phân loại</Text>
                 <View className='mt-4 px-3 pt-4' 
                     style={{
-                        backgroundColor: "white",
+                        backgroundColor: '#fff',
                         borderRadius: 10,
-                        // paddingVertical: 16,
-                        // Shadow cho iOS
-                        shadowColor: "#000",
+                        // paddingVertical: 15,
+                        // iOS
+                        shadowColor: '#0e3f7e',           // màu gần giống web
                         shadowOffset: { width: 0, height: 4 },
                         shadowOpacity: 0.1,
-                        shadowRadius: 6,
-                        // Shadow cho Android
-                        elevation: 6,
+                        shadowRadius: 10,
+                        // Android
+                        elevation: 2,
                     }}
                     >
                     <TouchableOpacity 
@@ -242,7 +242,7 @@ const ReportTechnicalChart = () => {
                             screen: 'UnpaidOrdersStack',
                             })
                         }
-                        className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
+                        className={`${Platform.OS == "ios" ? 'mb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center`}
                         >
                         <View className='flex-row flex-wrap'>
                             <View className='rounded-xl w-10 h-10 bg-purple-100 justify-center items-center'>
