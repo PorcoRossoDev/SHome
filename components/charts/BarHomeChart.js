@@ -31,7 +31,7 @@ const BarHomeChart = () => {
         shadowColor: "#000",
         shadowOpacity: 0.1,
         shadowOffset: { width: 0, height: 4 },
-        shadowRadius: 8,
+        shadowRadius: 10,
         elevation: 3,
       }}
     >
@@ -96,14 +96,7 @@ const BarHomeChart = () => {
       {/* Legend - chú giải */}
       {/* Legend - chú giải dạng ngang */}
       <View
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: 16,
-          gap: 16, // chỉ hoạt động trên RN mới, nếu không thì dùng marginRight
-        }}
+        className='flex-row flex-wrap justify-center items-center mt-4 gap-4 px-3'
       >
         {barData.map((item, index) => (
           <View

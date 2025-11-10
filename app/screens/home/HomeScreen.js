@@ -2,14 +2,14 @@ import SegmentedControl from "@react-native-segmented-control/segmented-control"
 import { useNavigation } from "@react-navigation/native";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-    Dimensions,
-    NativeModules,
-    Platform,
-    ScrollView,
-    StatusBar,
-    Text,
-    TouchableOpacity,
-    View,
+  Dimensions,
+  NativeModules,
+  Platform,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { BellIcon, ChevronRightIcon } from "react-native-heroicons/solid";
 import { SegmentedButtons } from "react-native-paper";
@@ -19,9 +19,9 @@ import SalesPieChartAside from "../../../components/charts/SalesPieChartAside";
 import SalesPieChartAside1 from "../../../components/charts/SalesPieChartAside1";
 
 import {
-    ActionItem,
-    BottomSheetActions,
-    OrderNavigation,
+  ActionItem,
+  BottomSheetActions,
+  OrderNavigation,
 } from "../../../components/home";
 
 const HomeScreen = () => {
@@ -163,7 +163,7 @@ const HomeScreen = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-gray-50">
       <StatusBar
         translucent
         backgroundColor="transparent"

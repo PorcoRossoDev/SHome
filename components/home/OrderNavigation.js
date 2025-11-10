@@ -60,6 +60,7 @@ export default function OrderListScreen() {
       </Text>
 
       <FlatList
+        scrollEnabled={false}
         data={orders}
         keyExtractor={(item, index) => index}
         renderItem={({ item }) => {
