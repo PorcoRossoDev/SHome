@@ -9,7 +9,7 @@ import { ActionItem } from '../home/index';
 
 // forwardRef cho phép parent gọi ref.present()
 const BottomSheetActions = forwardRef((props, ref) => {
-  const { snapPoints = ['70%'], onClose, actionList, activeActions } = props;
+  const { snapPoints = ['70%'], onClose, actionList, activeActions, handleActionToggle } = props;
   const actionListActive = actionList.filter(item => activeActions.includes(item.id));
   const actionListNotActive = actionList.filter(item => !activeActions.includes(item.id));
 
@@ -51,7 +51,7 @@ const BottomSheetActions = forwardRef((props, ref) => {
           <View className="flex-row flex-wrap mt-6">
               {actionListActive.map((item, index) => (
                   <View key={index} className="w-1/4">
-                      <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} close={true} />
+                      <ActionItem actionButton={()=>handleActionToggle(item.id)} name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} close={true} />
                   </View>
               ))}
           </View>
@@ -61,7 +61,7 @@ const BottomSheetActions = forwardRef((props, ref) => {
           <View className="flex-row flex-wrap mt-6">
               {actionListNotActive.map((item, index) => (
                   <View key={index} className="w-1/4">
-                      <ActionItem name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} plus={true} />
+                      <ActionItem actionButton={()=>handleActionToggle(item.id)} name={item.name} icon={item.icon} variant={item?.variant ?? 'solid'} background={item.background} plus={true} />
                   </View>
               ))}
           </View>

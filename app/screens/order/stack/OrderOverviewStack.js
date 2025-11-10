@@ -10,8 +10,8 @@ const OrderOverviewStack = ({ navigation }) => {
   }
 
   return (
-    <ScrollView>
-      <View className='justify-center items-center bg-gray-200'>
+    <ScrollView className='bg-gray-50'>
+      <View className='justify-center items-center'>
 
         {/* Tạo đơn hàng */}
         <View className='w-[85%] py-10 mt-10 justify-center items-center bg-white rounded-t-2xl'>
@@ -25,7 +25,7 @@ const OrderOverviewStack = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <View className='bg-white pb-6'>
+        <View className='pb-6'>
 
           {/* Biểu đồ */}
           <View className='pt-5 mb-7 px-4'>
@@ -33,13 +33,13 @@ const OrderOverviewStack = ({ navigation }) => {
           </View>
 
           {/* Danh sách đơn hàng */}
-          <View className='px-4 mt-2'>
+          <View className='mt-2'>
             <OrderNavigation />
           </View>
         </View>
 
         {/* Đơn hàng */}
-        <View className='bg-white mt-7 flex-1 w-full px-4 mb-6'>
+        <View className='bg-white mt-7 flex-1 w-full px-4 mb-6 hidden'>
           <TouchableOpacity onPress={() => navigation.navigate('OrderPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentListIcon size={30} color={'#6b7280'} />

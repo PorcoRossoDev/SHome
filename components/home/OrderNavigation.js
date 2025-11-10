@@ -1,163 +1,113 @@
-import { useNavigation } from "@react-navigation/native";
-import { Platform, Text, TouchableOpacity, View } from 'react-native';
-import * as HeroSolid from "react-native-heroicons/solid";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import * as HeroOutline from "react-native-heroicons/outline";
 
-const OrderNavigation = () => {
-    const navigation = useNavigation();
-    return (
-        <View className=''>
-            <Text className='uppercase text-f15 font-sfregular'>Danh sách đơn hàng</Text>
-            <View className='mt-3 px-3 pt-4' 
+const orders = [
+  {
+    id: "1",
+    title: "Tổng đơn hàng",
+    value: "225.435.678 ₫",
+    count: 117,
+    color: "bg-blue-500",
+    icon: HeroOutline.ShoppingCartIcon,
+  },
+  {
+    id: "2",
+    title: "Hoàn thành",
+    value: "225.435.678 ₫",
+    count: 90,
+    color: "bg-green-500",
+    icon: HeroOutline.CheckCircleIcon,
+  },
+  {
+    id: "3",
+    title: "Đã thanh toán",
+    value: "225.435.678 ₫",
+    count: 88,
+    color: "bg-purple-500",
+    icon: HeroOutline.CreditCardIcon,
+  },
+  {
+    id: "4",
+    title: "Chưa thanh toán",
+    value: "225.435.678 ₫",
+    count: 21,
+    color: "bg-yellow-400",
+    icon: HeroOutline.ClockIcon,
+  },
+  {
+    id: "5",
+    title: "Hẹn giao",
+    value: "225.435.678 ₫",
+    count: 17,
+    color: "bg-sky-400",
+    icon: HeroOutline.TruckIcon,
+  },
+  {
+    id: "6",
+    title: "Công nợ",
+    value: "225.435.678 ₫",
+    count: 0,
+    color: "bg-red-400",
+    icon: HeroOutline.ArrowDownCircleIcon,
+  },
+];
+
+export default function OrderListScreen() {
+  return (
+    <View className="flex-1 px-5 pt-0">
+      <Text className="text-xl font-sfmedium text-gray-800 mb-4">
+        Danh Sách Đơn Hàng
+      </Text>
+
+      <FlatList
+        scrollEnabled={false}
+        data={orders}
+        keyExtractor={(item, index) => index}
+        renderItem={({ item }) => {
+          const Icon = item.icon;
+          return (
+            <TouchableOpacity
+              activeOpacity={0.9}
+              className="mb-3"
+            >
+              <View
+                className="flex-row items-center bg-white p-4 rounded-3xl"
                 style={{
-                    backgroundColor: "white",
-                    borderRadius: 10,
-                    // paddingVertical: 16,
-                    // Shadow cho iOS
-                    shadowColor: "#000",
-                    shadowOffset: { width: 0, height: 4 },
-                    shadowOpacity: 0.05,
-                    shadowRadius: 6,
-                    // Shadow cho Android
-                    elevation: 6,
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 8 },
+                  shadowOpacity: 0.03,
+                  shadowRadius: 12,
+                  elevation: 6,
                 }}
+              >
+                {/* Icon */}
+                <View
+                  className={`w-12 h-12 rounded-full ${item.color} items-center justify-center mr-4`}
                 >
-                <TouchableOpacity 
-                    onPress={() =>
-                        navigation.navigate('Order', {
-                        screen: 'OrderListStack',
-                        })
-                    }
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
-                    >
-                    <View className='flex-row flex-wrap items-center justify-center'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.ShoppingCartIcon size={22} color={'#1e40af'} />
-                        </View>
-                        <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Tổng đơn hàng</Text>
-                            <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
-                        </View>
-                    </View>
-                    <View className='flex-row flex-wrap items-center'>
-                        <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>117</Text>
-                        <Text className='ml-2'>
-                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    onPress={() =>
-                        navigation.navigate('Order', {
-                        screen: 'OrderSuccessStack',
-                        })
-                    }
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
-                    >
-                    <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.CheckCircleIcon size={22} color={'#1e40af'} />
-                        </View>
-                        <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Hoàn thành</Text>
-                            <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
-                        </View>
-                    </View>
-                    <View className='flex-row flex-wrap items-center'>
-                        <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>90</Text>
-                        <Text className='ml-2'>
-                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    onPress={() =>
-                        navigation.navigate('Order', {
-                        screen: 'OrderPaymentSuccessStack',
-                        })
-                    }
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
-                    >
-                    <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.CreditCardIcon size={22} color={'#1e40af'} />
-                        </View>
-                        <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Đã Thanh toán</Text>
-                            <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
-                        </View>
-                    </View>
-                    <View className='flex-row flex-wrap items-center'>
-                        <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>88</Text>
-                        <Text className='ml-2'>
-                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    onPress={() =>
-                        navigation.navigate('Order', {
-                        screen: 'UnpaidOrdersStack',
-                        })
-                    }
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
-                    >
-                    <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.ClockIcon size={22} color={'#1e40af'} />
-                        </View>
-                        <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Chưa Thanh toán</Text>
-                            <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
-                        </View>
-                    </View>
-                    <View className='flex-row flex-wrap items-center'>
-                        <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>21</Text>
-                        <Text className='ml-2'>
-                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
-                    >
-                    <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.TruckIcon size={22} color={'#1e40af'} />
-                        </View>
-                        <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Hẹn giao</Text>
-                            <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
-                        </View>
-                    </View>
-                    <View className='flex-row flex-wrap items-center'>
-                        <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>17</Text>
-                        <Text className='ml-2'>
-                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    className={`${Platform.OS == "ios" ? 'mb-4 pb-4' : 'mb-3 pb-3'} flex-row flex-wrap justify-between w-full items-center border-b border-gray-100`}
-                    >
-                    <View className='flex-row flex-wrap'>
-                        <View className='rounded-xl w-10 justify-center items-center'>
-                            <HeroSolid.ArrowDownTrayIcon size={22} color={'#1e40af'} />
-                        </View>
-                        <View className='pl-3'>
-                            <Text className='font-sfregular text-f16'>Công nợ</Text>
-                            <Text className={`text-gray-500 font-sfregular text-f13 ${Platform.OS == 'android' ? '-mt-1.5' : 'mt-1'}`}>225.435.678</Text>
-                        </View>
-                    </View>
-                    <View className='flex-row flex-wrap items-center'>
-                        <Text className='bg-gray-100 rounded-2xl px-2 py-2 text-f11'>0</Text>
-                        <Text className='ml-2'>
-                            <HeroSolid.ChevronRightIcon size={17} color={'#9ca3af'} />
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
-}
+                  <Icon size={22} color="white" strokeWidth={2} />
+                </View>
 
-export default OrderNavigation
+                {/* Text */}
+                <View className="flex-1">
+                  <Text className="text-lg font-sfmedium text-gray-800">
+                    {item.title}
+                  </Text>
+                  <Text className="text-gray-500">{item.value}</Text>
+                </View>
+
+                {/* Badge */}
+                <View
+                  className={`px-3 py-1 rounded-full ${item.color} bg-opacity-20`}
+                >
+                  <Text className="text-white text-sm font-sfmedium">
+                    {item.count}
+                  </Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    </View>
+  );
+}
