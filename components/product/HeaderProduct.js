@@ -43,12 +43,12 @@ const HeaderProduct = ({ title, navigation, route }) => {
       >
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={{ color: '#0089FF', fontWeight: '600' }}>
-            <HeroSolid.ArrowLeftIcon size={25} />
+            <HeroSolid.ArrowLeftIcon size={22} />
           </Text>
         </TouchableOpacity>
         <View className='flex-row items-center'>
           <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full' onPress={() => alert('Tìm kiếm')}>
-            <HeroOutline.Squares2X2Icon size={25} color={'#333'} />
+            <HeroOutline.Squares2X2Icon size={22} color={'#333'} />
           </TouchableOpacity>
           <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full ml-2' onPress={() => alert('Tìm kiếm')}>
             <HeroSolid.EllipsisVerticalIcon size={25} color={'#333'} />

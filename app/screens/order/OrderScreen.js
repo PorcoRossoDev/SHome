@@ -1,6 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
+import * as HeroOutline from "react-native-heroicons/outline";
 import HeaderOrderCancelled from '../../../components/order/HeaderOrder';
 import { OrderAddStack, OrderFilterStack, OrderListStack, OrderOverviewStack, OrderPenddingStack } from './stack';
 
@@ -19,7 +21,17 @@ const OrderScreen = () => {
       <Stack.Screen
         name="OrderOverviewStack"
         component={OrderOverviewStack}
-        options={{ title: 'Đơn hàng', headerBackVisible: false, }}
+        options={ ({navigation}) => ({ 
+          title: 'Tạo sản phẩm', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              className="">
+              <HeroOutline.ArrowLeftIcon size={20} color="#000" />
+            </TouchableOpacity>
+          )
+        })}
       />
       <Stack.Screen
         name="OrderListStack"

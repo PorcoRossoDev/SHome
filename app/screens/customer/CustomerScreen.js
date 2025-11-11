@@ -17,7 +17,17 @@ const Customer = () => {
       <Stack.Screen
         name="CustomerOverviewStack"
         component={CustomerOverviewStack}
-        options={{ title: 'Khách hàng', headerBackVisible: false, navigation:navigation }}
+        options={ ({navigation}) => ({ 
+          title: 'Khách hàng', 
+          headerBackVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              className="">
+              <HeroOutline.ArrowLeftIcon size={20} color="#000" />
+            </TouchableOpacity>
+          )
+        })}
       />
       <Stack.Screen
         name="CustomerListStack"
