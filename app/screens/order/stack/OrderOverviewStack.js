@@ -10,36 +10,38 @@ const OrderOverviewStack = ({ navigation }) => {
   }
 
   return (
-    <ScrollView className='bg-gray-50'>
-      <View className='justify-center items-center'>
-
-        {/* Tạo đơn hàng */}
-        <View className='w-[85%] py-10 mt-10 justify-center items-center bg-white rounded-t-2xl'>
-          <TouchableOpacity onPress={() => navigation.navigate('OrderAddStack')} className='justify-center text-center'>
-            <View className='justify-center items-center'>
-              <View className='w-[50px] h-[50px] justify-center items-center bg-blue-600 rounded-full'>
-                <HeroSolid.PlusIcon size={25} color={'white'} />
+    <ScrollView className='flex-1'>
+      <View className=''>
+        <View className='justify-center bg-gray-100 items-center'>
+          {/* Tạo đơn hàng */}
+          <View className='w-[85%] py-10 mt-10 justify-center items-center bg-white rounded-t-2xl'>
+            <TouchableOpacity onPress={() => navigation.navigate('OrderAddStack')} className='justify-center text-center'>
+              <View className='justify-center items-center'>
+                <View className='w-[50px] h-[50px] justify-center items-center bg-blue-600 rounded-full'>
+                  <HeroSolid.PlusIcon size={25} color={'white'} />
+                </View>
               </View>
-            </View>
-            <Text className='text-f16 mt-4 font-sfmedium'>Tạo đơn hàng</Text>
-          </TouchableOpacity>
+              <Text className='text-f16 mt-4 font-sfmedium'>Tạo đơn hàng</Text>
+            </TouchableOpacity>
+          </View>
         </View>
+        
 
-        <View className='pb-6'>
+        <View className='pb-6 bg-gray-100'>
 
           {/* Biểu đồ */}
-          <View className='pt-5 mb-7 px-4'>
+          <View className='pt-5 mb-7 px-4 bg-white'>
             <BarChartOrder />
           </View>
 
           {/* Danh sách đơn hàng */}
-          <View className='mt-2'>
+          <View className=''>
             <OrderNavigation />
           </View>
         </View>
 
         {/* Đơn hàng */}
-        <View className='bg-white mt-7 flex-1 w-full px-4 mb-6 hidden'>
+        <View className='bg-white px-5 mb-3'>
           <TouchableOpacity onPress={() => navigation.navigate('OrderPenddingStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ClipboardDocumentListIcon size={30} color={'#6b7280'} />

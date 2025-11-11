@@ -1,23 +1,20 @@
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
 import { useNavigation } from "@react-navigation/native";
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Platform, StyleSheet, Text, View } from "react-native";
+import { Dropdown } from 'react-native-element-dropdown';
+
 import {
   Dimensions,
   NativeModules,
-  Platform,
   ScrollView,
   StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
+  TouchableOpacity
 } from "react-native";
 import { BellIcon, ChevronRightIcon } from "react-native-heroicons/solid";
 import { SegmentedButtons } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BarHomeChart from "../../../components/charts/BarHomeChart";
-import SalesPieChartAside from "../../../components/charts/SalesPieChartAside";
-import SalesPieChartAside1 from "../../../components/charts/SalesPieChartAside1";
-
 import {
   ActionItem,
   BottomSheetActions,
@@ -31,6 +28,13 @@ const HomeScreen = () => {
 
   /*=== START: Tab - Biểu đồ ===*/
   const [index, setIndex] = useState(0);
+  const times = [
+    { label: 'Năm nay', value: '0' },
+    { label: '6 Tháng', value: '1' },
+    { label: 'Tháng này', value: '2' },
+  ];
+  const [isFocus, setIsFocus] = useState(false);
+  const [selected, setSelected] = useState("");
   const segments = [
     { value: 0, label: "Doanh thu" },
     { value: 1, label: "Nguồn khách" },
@@ -160,7 +164,60 @@ const HomeScreen = () => {
     }
   }, []);
 
+  const [visible, setVisible] = React.useState(false);
   const insets = useSafeAreaInsets();
+
+  const DropDownChart = () => {
+    return (
+      <Dropdown
+        style={styles.dropdown}
+        data={segments}
+        labelField="label"
+        valueField="value"
+        placeholder="Chọn mục"
+        value={0}
+        onChange={item => setIndex(item.value)}
+        renderLeftIcon={() => (
+          <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.selectedText}
+          >
+            {segments.find(s => s.value === index)?.label}
+          </Text>
+        )}
+        renderItem={(item) => (
+          <View style={{ paddingVertical: 8, paddingHorizontal: 10 }}>
+            <Text
+              numberOfLines={1}
+              ellipsizeMode="tail"
+              style={{
+                fontSize: 14,
+                color: '#111',
+                fontFamily: 'SF-Pro-Display-Regular',
+              }}
+            >
+              {item.label}
+            </Text>
+          </View>
+        )}
+      />
+    )
+  }
+
+  const HeaderBar = ({ title = 'Doanh thu bán hàng', time = '17:30 20/01/2025' }) => {
+    return (
+      <View className='flex-row justify-between mb-3 px-4'>
+        <View className="">
+          <Text className="text-[20px] font-sfmedium">{title}</Text>
+          <Text className="text-gray-500 mt-1 text-[12px]">
+            Cập nhật lúc {time}
+          </Text>
+        </View>
+        <View className='w-[30%]' ><DropDownChart /></View>
+      </View>
+    )
+  }
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -169,66 +226,6 @@ const HomeScreen = () => {
         backgroundColor="transparent"
         barStyle="light-content"
       />
-      {/* <LinearGradient
-                colors={['#245de9', '#2d65ec', '#356cef', '#3e74f2', '#467bf4']}
-                start={{ x: 0, y: 1 }}
-                end={{ x: 1, y: 0 }}
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 300,
-                    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
-
-                    // paddingTop: 100,
-                    // paddingHorizontal: 20,
-                    zIndex: 10,
-                }}
-            >
-            </LinearGradient> */}
-
-      {/* <LinearGradient
-                colors={['#f85b5f', '#e74448', '#d32f2f', '#c9252b', '#a51f25']}
-                start={{ x: 0, y: 1 }}
-                end={{ x: 1, y: 0 }}
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 300,
-                    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
-                    zIndex: 10,
-                }}
-                ></LinearGradient> */}
-
-      {/* <LinearGradient
-                    colors={[
-                        '#f85b5f',
-                        '#e74448',
-                        '#d32f2f',
-                        '#c9252b',
-                        'rgba(255,255,255,0.1)',
-                        'rgba(255,255,255,0.3)',
-                        'rgba(255,255,255,0.6)',
-                        'rgba(255,255,255,0.8)',
-                        '#ffffff',
-                    ]}
-                    locations={[0, 0.15, 0.25, 0.35, 0.55, 0.7, 0.8, 0.9, 1]}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 0, y: 1 }}
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: 900, // 👉 tăng chiều cao gradient để phần trắng dài hơn
-                        zIndex: 10,
-                        paddingTop:
-                        Platform.OS === 'android' ? StatusBar.currentHeight : insets.top,
-                    }}
-                    /> */}
 
       <View
         className="pt-3 px-5 pb-5 flex flex-row justify-between relative z-50 bg-[#c9252b]"
@@ -241,9 +238,8 @@ const HomeScreen = () => {
         >
           <BellIcon color="white" width="25" height="25" />
           <Text
-            className={`w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute ${
-              Platform.OS == "ios" ? "-top-[5px]" : "top-[-7px]"
-            } right-[-5px] bg-yellow-400`}
+            className={`w-5 h-5 text-center leading-5 text-white rounded-full font-bold text-f10 absolute ${Platform.OS == "ios" ? "-top-[5px]" : "top-[-7px]"
+              } right-[-5px] bg-yellow-400`}
           >
             10
           </Text>
@@ -297,27 +293,28 @@ const HomeScreen = () => {
             </View>
           </View>
 
-          <View className="flex-1 px-5 mt-1">
-            {index === 0 && <BarHomeChart />}
-            {index === 1 && <SalesPieChartAside1 />}
-            {index === 2 && <SalesPieChartAside />}
+          <View className='flex-1 px-5 mt-1'>
+            <View className=""
+              style={{
+                backgroundColor: "#fff",
+                borderRadius: 16,
+                paddingVertical: 16,
+                marginBottom: 20,
+                shadowColor: "#000",
+                shadowOpacity: 0.1,
+                shadowOffset: { width: 0, height: 4 },
+                shadowRadius: 10,
+                elevation: 3,
+              }}>
+              {index === 0 && <><HeaderBar title={'Doanh thu bán hàng'} time={'09:19 18/07/2025'} /><BarHomeChart /></>}
+              {index === 1 && <><HeaderBar title={'Nguồn khách trong năm'} time={'17:30 20/01/2025'} /><BarHomeChart /></>}
+              {index === 2 && <><HeaderBar title={'Phân bố công việc'} time={'04:30 10/01/2025'} /><BarHomeChart /></>}
+            </View>
           </View>
 
           <View className="px-5 mb-3 mt-2">
             <TouchableOpacity
               className="flex-row justify-between py-4 px-5"
-              // style={{
-              //     backgroundColor: "white",
-              //     borderRadius: 10,
-              //     // paddingVertical: 16,
-              //     // Shadow cho iOS
-              //     shadowColor: "#000",
-              //     shadowOffset: { width: 0, height: 4 },
-              //     shadowOpacity: 0.05,
-              //     shadowRadius: 6,
-              //     // Shadow cho Android
-              //     elevation: 6,
-              // }}
               style={{
                 backgroundColor: "#fff",
                 borderRadius: 10,
@@ -425,5 +422,26 @@ const HomeScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  dropdown: {
+    height: 40,
+    borderColor: 'gray',
+    backgroundColor: '#f3f4f6',
+    // borderWidth: 0.5,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    fontFamily: 'sfbold',
+  },
+  selectedText: {
+    fontSize: 14,
+    color: '#000',
+    width: '90%', // cắt khi dài quá
+  },
+  selectedTextStyle: {
+    fontSize: 14,
+    color: '#374151',
+  },
+});
 
 export default HomeScreen;

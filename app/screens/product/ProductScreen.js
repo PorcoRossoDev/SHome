@@ -26,7 +26,7 @@ const ProductScreen = () => {
         name="ProductAddStack"
         component={ProductAddStack}
         options={ ({navigation}) => ({ 
-          title: 'Đơn hàng', 
+          title: 'Tạo sản phẩm', 
           headerBackVisible: false,
           headerLeft: () => (
             <TouchableOpacity

@@ -22,20 +22,8 @@ const BarHomeChart = () => {
   const maxValue = Math.max(...barData.map((b) => b.value));
 
   return (
-    <View
-      style={{
-        backgroundColor: "#fff",
-        borderRadius: 16,
-        paddingVertical: 16,
-        marginBottom: 20,
-        shadowColor: "#000",
-        shadowOpacity: 0.1,
-        shadowOffset: { width: 0, height: 4 },
-        shadowRadius: 10,
-        elevation: 3,
-      }}
-    >
-      <View className="mb-3 px-4">
+    <View>
+      <View className="mb-3 px-4 hidden">
         <Text className="text-[20px] font-sfmedium">Doanh thu bán hàng</Text>
         <Text className="text-gray-500 mt-1 text-[12px]">
           Cập nhật lúc 17:30 20/01/2025

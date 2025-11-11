@@ -43,7 +43,7 @@ const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layout
       >
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={{ color: '#0089FF', fontWeight: '600' }}>
-            <HeroSolid.ArrowLeftIcon size={25} />
+            <HeroSolid.ArrowLeftIcon size={20} />
           </Text>
         </TouchableOpacity>
         <View className='flex-row items-center'>
