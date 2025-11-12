@@ -39,7 +39,7 @@ const BarChartOrder = () => {
   const chartWidth = screenWidth - 36; // trừ padding
 
   return (
-    <View className=''>
+    <View className='pb-6'>
       <Text className='text-f16 font-sfmedium text-center'>Tăng trưởng đơn hàng trong tháng này</Text>
       <View style={{ overflow: 'visible', width: '100%' }}>
         <BarChart

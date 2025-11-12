@@ -147,7 +147,7 @@ const RoleDetailStack = ({ navigation }) => {
 
   return (
     <View className='flex-1 bg-white'>
-      <ScrollView className='px-4 bg-white flex-1 relative'>
+      <ScrollView className='px-5 bg-white flex-1 relative'>
         <View className='mt-6'>
           <View>
             <Text className='font-sfmedium text-f15'><Text className='text-red-500'>*</Text> Tên vai trò</Text>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Text, View } from "react-native";
+import { Dimensions, Platform, Text, View } from "react-native";
 import Svg, { Rect, Text as SvgText } from "react-native-svg";
 
 const BarHomeChart = () => {
@@ -17,7 +17,7 @@ const BarHomeChart = () => {
   ];
 
   const numberOfBars = barData.length;
-  const spacing = 20;
+  const spacing = 15;
   const barWidth = (screenWidth - spacing * (numberOfBars + 3)) / numberOfBars;
   const maxValue = Math.max(...barData.map((b) => b.value));
 
@@ -59,46 +59,24 @@ const BarHomeChart = () => {
               >
                 {item.value}%
               </SvgText>
-
-              {/* Label tên thành phố - Chính */}
-              {/* <SvgText
-                x={x + barWidth / 2}
-                y={chartHeight - 20}
-                fontSize="12"
-                fill="#000"
-                textAnchor="middle"
-              >
-                <TSpan x={x + barWidth / 2} dy="0">
-                  {item.label.split(" ")[0]}
-                </TSpan>
-                {item.label.split(" ")[1] && (
-                  <TSpan x={x + barWidth / 2} dy="14">
-                    {item.label.split(" ")[1]}
-                  </TSpan>
-                )}
-              </SvgText> */}
             </React.Fragment>
           );
         })}
       </Svg>
       {/* Legend - chú giải */}
-      {/* Legend - chú giải dạng ngang */}
       <View
-        className='flex-row flex-wrap justify-center items-center mt-4 gap-4 px-3'
+        className={`flex-row flex-wrap justify-center items-center mt-4 gap-4 ${Platform.OS=='android'?'gap-y-1':''} px-3`}
       >
         {barData.map((item, index) => (
           <View
             key={index}
-            style={{ flexDirection: "row", alignItems: "center" }}
+            className='flex-row items-center'
           >
             <View
               style={{
-                width: 10,
-                height: 10,
-                borderRadius: 5,
                 backgroundColor: item.color,
-                marginRight: 6,
               }}
+              className='w-[10px] h-[10px] rounded-full mr-[6px]'
             />
             <Text style={{ color: "#374151", fontSize: 13 }}>{item.label}</Text>
           </View>

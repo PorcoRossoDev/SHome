@@ -209,7 +209,7 @@ const HomeScreen = () => {
     return (
       <View className='flex-row justify-between mb-3 px-4'>
         <View className="">
-          <Text className="text-[20px] font-sfmedium">{title}</Text>
+          <Text className={`text-[20px] font-sfmedium ${Platform.OS=='android'?'leading-6':''}`}>{title}</Text>
           <Text className="text-gray-500 mt-1 text-[12px]">
             Cập nhật lúc {time}
           </Text>
@@ -294,18 +294,26 @@ const HomeScreen = () => {
           </View>
 
           <View className='flex-1 px-5 mt-1'>
-            <View className=""
+            <View className="bg-white py-4 rounded-xl"
+              // style={{
+              //   backgroundColor: "#fff",
+              //   borderRadius: 16,
+              //   paddingVertical: 16,
+              //   marginBottom: 20,
+              //   shadowColor: "#000",
+              //   shadowOpacity: 0.1,
+              //   shadowOffset: { width: 0, height: 4 },
+              //   shadowRadius: 10,
+              //   elevation: 1,
+              // }}
               style={{
-                backgroundColor: "#fff",
-                borderRadius: 16,
-                paddingVertical: 16,
-                marginBottom: 20,
-                shadowColor: "#000",
-                shadowOpacity: 0.1,
-                shadowOffset: { width: 0, height: 4 },
-                shadowRadius: 10,
-                elevation: 3,
-              }}>
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 3 },
+                shadowOpacity: 0.07,
+                shadowRadius: 16,
+                elevation: 1,
+              }}
+              >
               {index === 0 && <><HeaderBar title={'Doanh thu bán hàng'} time={'09:19 18/07/2025'} /><BarHomeChart /></>}
               {index === 1 && <><HeaderBar title={'Nguồn khách trong năm'} time={'17:30 20/01/2025'} /><BarHomeChart /></>}
               {index === 2 && <><HeaderBar title={'Phân bố công việc'} time={'04:30 10/01/2025'} /><BarHomeChart /></>}
@@ -314,17 +322,12 @@ const HomeScreen = () => {
 
           <View className="px-5 mb-3 mt-2">
             <TouchableOpacity
-              className="flex-row justify-between py-4 px-5"
+              className="flex-row justify-between py-4 px-5 mt-4 bg-white rounded-xl"
               style={{
-                backgroundColor: "#fff",
-                borderRadius: 10,
-                paddingVertical: 15,
-                // iOS
-                shadowColor: "#0e3f7e", // màu gần giống web
-                shadowOffset: { width: 0, height: 4 },
-                shadowOpacity: 0.1,
-                shadowRadius: 10,
-                // Android
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 3 },
+                shadowOpacity: 0.07,
+                shadowRadius: 16,
                 elevation: 1,
               }}
             >
@@ -342,40 +345,16 @@ const HomeScreen = () => {
             <View className="px-5">
               <View
                 className="mt-3"
-                // style={{
-                //     backgroundColor: "white",
-                //     borderRadius: 10,
-                //     // paddingVertical: 16,
-                //     // Shadow cho iOS
-                //     shadowColor: "#000",
-                //     shadowOffset: { width: 0, height: 4 },
-                //     shadowOpacity: 0.05,
-                //     shadowRadius: 6,
-                //     // Shadow cho Android
-                //     elevation: 6,
-                // }}
-
-                // style={{
-                //     backgroundColor: '#fff',
-                //     borderRadius: 10,
-                //     // paddingVertical: 15,
-                //     // iOS
-                //     shadowColor: '#0e3f7e',           // màu gần giống web
-                //     shadowOffset: { width: 0, height: 4 },
-                //     shadowOpacity: 0.1,
-                //     shadowRadius: 10,
-                //     // Android
-                //     elevation: 2,
-                // }}
-
                 style={{
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 4 },
-                  shadowOpacity: 0.08,
-                  shadowRadius: 10,
-                  elevation: 4,
-                  backgroundColor: "#FFFFFF",
+                  backgroundColor: "#fff",
                   borderRadius: 16,
+                  // paddingVertical: 16,
+                  marginBottom: 20,
+                  shadowColor: "#000",
+                  shadowOpacity: 0.1,
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowRadius: 10,
+                  elevation: 1,
                 }}
               >
                 <View className="flex flex-row justify-between mt-6 px-5">
@@ -407,7 +386,7 @@ const HomeScreen = () => {
           </View>
 
           {/* Danh sách đơn hàng */}
-          <View className="mt-7 mb-5 ">
+          <View className="mt-4 mb-5 ">
             <OrderNavigation />
           </View>
         </View>

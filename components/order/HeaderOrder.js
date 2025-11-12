@@ -1,10 +1,10 @@
 import { useCallback, useRef } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 import BottomOrderFilterSheet from './BottomOrderFilterSheet';
 
-const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layoutOrderPendding = false }) => {
+const HeaderOrder = ({ title, navigation, route, onToggleLayout, layoutOrderPendding = false }) => {
 
   const bottomSheetRef = useRef(null);
 
@@ -21,25 +21,16 @@ const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layout
       style={{
         backgroundColor: "white",
         borderRadius: 5,
-        //paddingVertical: 16,
-        // Shadow cho iOS
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.1,
         shadowRadius: 2,
-        // Shadow cho Android
         elevation: 2,
       }}
     >
       {/* Phần trên của header */}
       <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingHorizontal: 16,
-          marginBottom: 8,
-        }}
+        className='flex-row justify-between items-center px-4 mb-2'
       >
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={{ color: '#0089FF', fontWeight: '600' }}>
@@ -47,8 +38,8 @@ const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layout
           </Text>
         </TouchableOpacity>
         <View className='flex-row items-center'>
-          <TouchableOpacity 
-            className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full' 
+          <TouchableOpacity
+            className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full'
             onPress={onToggleLayout}>
             <HeroOutline.Squares2X2Icon size={19} color={'#333'} />
           </TouchableOpacity>
@@ -64,7 +55,7 @@ const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layout
       </Text>
 
       {/* Tìm kiếm */}
-      <View className='px-4 mt-5'>
+      <View className={`px-4 ${Platform.OS=='android'?'mt-2':'mt-4'}`}>
         <View className='border border-gray-100 rounded-3xl p-3 mb-4 relative flex-row flex-wrap items-center bg-gray-100'>
           <HeroOutline.MagnifyingGlassIcon className='relative top-[10px]' size={18} color={'#6b7280'} />
           <TextInput
@@ -92,4 +83,4 @@ const HeaderOrderCancelled = ({ title, navigation, route, onToggleLayout, layout
   );
 }
 
-export default HeaderOrderCancelled
+export default HeaderOrder

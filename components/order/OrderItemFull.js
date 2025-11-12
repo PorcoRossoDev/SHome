@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
 
 const OrderItemFull = ({ props }) => {
@@ -29,8 +29,8 @@ const OrderItemFull = ({ props }) => {
                     <View className="bg-red-500 px-3 py-1 rounded-lg">
                         <Text className="text-white font-sfbold text-f14 font-bold" style={{includeFontPadding: false,}}>Xuất kho</Text>
                     </View>
-                    <Text className="text-f13 font-sfregular text-right mt-2 text-gray-400">13:39 24/09/2025</Text>
-                    <Text className="text-right text-f16 font-sfbold mt-1" style={{includeFontPadding: false,}}>Tuấn Anh</Text>
+                    <Text className={`text-f13 font-sfregular text-right ${Platform.OS=='android'?'mt-1':'mt-2'} text-gray-400`}>13:39 24/09/2025</Text>
+                    <Text className={`text-right text-f16 font-sfbold ${Platform.OS=='android'?'':'mt-1'}`} style={{includeFontPadding: false,}}>Tuấn Anh</Text>
                 </View>
             </View>
             <View className='flex-row items-center'>
@@ -42,7 +42,7 @@ const OrderItemFull = ({ props }) => {
                     </Text>
                 </View>
             </View>
-            <View className='flex-row items-center my-2.5'>
+            <View className={`flex-row items-center ${Platform.OS=='android'?'mt-1':'my-2.5'}`}>
                 <HeroSolid.MapPinIcon size={17} color={'#CECECE'} />
                 <View className='ml-3'>
                     <Text className='text-f16 font-sfregular'>361A Lê Văn Sỹ</Text>

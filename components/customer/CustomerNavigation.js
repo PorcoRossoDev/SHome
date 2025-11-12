@@ -77,7 +77,7 @@ const CustomerNavigation = () => {
                         shadowOffset: { width: 0, height: 8 },
                         shadowOpacity: 0.03,
                         shadowRadius: 12,
-                        elevation: 6,
+                        elevation: 1,
                     }}
                     >
                     {/* Icon */}

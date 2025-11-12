@@ -16,7 +16,7 @@ const CustomerOverviewStack = ({ navigation }) => {
         {/* Tạo đơn hàng */}
         <View className='justify-center items-center'>
           <View className='w-[85%] py-10 mt-10 justify-center items-center bg-white rounded-t-2xl'>
-            <TouchableOpacity onPress={() => navigation.navigate('CustomerListStack')} className='justify-center text-center'>
+            <TouchableOpacity onPress={() => navigation.navigate('CustomerAddStack')} className='justify-center text-center'>
               <View className='justify-center items-center'>
                 <View className='w-[50px] h-[50px] justify-center items-center bg-blue-600 rounded-full'>
                   <HeroSolid.PlusIcon size={25} color={'white'} />

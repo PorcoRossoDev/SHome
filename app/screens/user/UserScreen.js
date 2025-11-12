@@ -86,7 +86,7 @@ const UserScreen = () => {
             <TouchableOpacity
               onPress={() => navigation.goBack()}
               className="">
-              <HeroOutline.ChevronLeftIcon size={22} color="#000" />
+              <HeroOutline.ArrowLeftIcon size={22} color="#000" />
             </TouchableOpacity>
           ),
         })}
@@ -101,7 +101,7 @@ const UserScreen = () => {
             <TouchableOpacity
               onPress={() => navigation.goBack()}
               className="">
-              <HeroOutline.ChevronLeftIcon size={22} color="#000" />
+              <HeroOutline.ArrowLeftIcon size={22} color="#000" />
             </TouchableOpacity>
           ),
         })}

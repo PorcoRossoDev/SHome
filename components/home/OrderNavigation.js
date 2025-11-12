@@ -1,6 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import * as HeroOutline from "react-native-heroicons/outline";
-
 const orders = [
   {
     id: "1",
@@ -9,6 +9,7 @@ const orders = [
     count: 117,
     color: "bg-blue-500",
     icon: HeroOutline.ShoppingCartIcon,
+    navigation: 'OrderListStack'
   },
   {
     id: "2",
@@ -17,6 +18,7 @@ const orders = [
     count: 90,
     color: "bg-green-500",
     icon: HeroOutline.CheckCircleIcon,
+    navigation: 'OrderListStack'
   },
   {
     id: "3",
@@ -25,6 +27,7 @@ const orders = [
     count: 88,
     color: "bg-purple-500",
     icon: HeroOutline.CreditCardIcon,
+    navigation: 'OrderListStack'
   },
   {
     id: "4",
@@ -33,6 +36,7 @@ const orders = [
     count: 21,
     color: "bg-yellow-400",
     icon: HeroOutline.ClockIcon,
+    navigation: 'OrderListStack'
   },
   {
     id: "5",
@@ -41,6 +45,7 @@ const orders = [
     count: 17,
     color: "bg-sky-400",
     icon: HeroOutline.TruckIcon,
+    navigation: 'OrderListStack'
   },
   {
     id: "6",
@@ -49,12 +54,14 @@ const orders = [
     count: 0,
     color: "bg-red-400",
     icon: HeroOutline.ArrowDownCircleIcon,
+    navigation: 'OrderListStack'
   },
 ];
 
 export default function OrderListScreen() {
+  const navigation = useNavigation();
   return (
-    <View className="flex-1 px-5 pt-0">
+    <View className="px-5 pt-0">
       <Text className="text-xl font-sfmedium text-gray-800 mb-4">
         Danh Sách Đơn Hàng
       </Text>
@@ -69,6 +76,7 @@ export default function OrderListScreen() {
             <TouchableOpacity
               activeOpacity={0.9}
               className="mb-3"
+              onPress={()=>navigation.navigate(item.navigation)}
             >
               <View
                 className="flex-row items-center bg-white p-4 rounded-3xl"
@@ -77,7 +85,7 @@ export default function OrderListScreen() {
                   shadowOffset: { width: 0, height: 8 },
                   shadowOpacity: 0.03,
                   shadowRadius: 12,
-                  elevation: 6,
+                  elevation: 1,
                 }}
               >
                 {/* Icon */}
