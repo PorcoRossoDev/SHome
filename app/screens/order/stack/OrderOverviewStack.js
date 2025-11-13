@@ -66,7 +66,7 @@ const OrderOverviewStack = ({ navigation }) => {
                 </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity className='flex-row justify-between items-center py-4 border-b border-gray-100'>
+          <TouchableOpacity onPress={()=> navigation.navigate('OrderListReturnStack')} className='flex-row justify-between items-center py-4 border-b border-gray-100'>
             <View className='flex-row items-center'>
               <HeroSolid.ReceiptRefundIcon size={30} color={'#6b7280'} />
               <Text className='pl-3 font-sfregular text-f16'>Phiếu trả hàng</Text>
