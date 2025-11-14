@@ -25,12 +25,12 @@ const DynamicInputList = ({ list, setList, placeholder, multiline = false }) => 
                     className={`py-4 border border-[#ccc] px-3 rounded-lg flex-1 ${multiline?'min-h-20':''}`}
                     placeholder={placeholder}
                 />
-                <TouchableOpacity disabled={isSingle} onPress={() => removeItem(item.id)} className='bg-red-50 border border-red-200 rounded-full w-9 h-9 justify-center items-center'>
+                <TouchableOpacity disabled={isSingle} onPress={() => removeItem(item.id)} className='bg-red-50 border border-red-200 rounded-full w-7 h-7 justify-center items-center'>
                     <HeroOutline.MinusIcon size={15} color='#ef4444' />
                 </TouchableOpacity>
                 {index === list.length - 1 && (
-                    <TouchableOpacity onPress={addItem} className='bg-blue-50 border border-blue-200 rounded-full w-10 h-10 justify-center items-center'>
-                    <HeroOutline.PlusIcon size={15} color='#3b82f6' />
+                    <TouchableOpacity onPress={addItem} className='bg-blue-50 border border-blue-200 rounded-full w-7 h-7 justify-center items-center'>
+                      <HeroOutline.PlusIcon size={15} color='#3b82f6' />
                     </TouchableOpacity>
                 )}
             </View>

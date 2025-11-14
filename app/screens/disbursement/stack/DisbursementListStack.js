@@ -6,7 +6,6 @@ import DisbursementItemFull from '../../../../components/disbursement/Disburseme
 const DisbursementListStack = () => {
     const route = useRoute();
     const layoutList = route.params?.layoutList ?? false
-    console.log(layoutList)
     return (
         <ScrollView className='px-4 bg-white'>
             <View className='mt-6'>

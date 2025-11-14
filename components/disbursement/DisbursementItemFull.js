@@ -1,9 +1,11 @@
-import { Platform, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Platform, Text, TouchableOpacity, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
 
 const DisbursementItemFull = ({ props }) => {
+    const navigation = useNavigation()
     return (
-        <View className='bg-white p-4 mb-4'
+        <TouchableOpacity onPress={()=>navigation.navigate('DisbursementDetailStack')} className='bg-white p-4 mb-4'
             style={{
                 backgroundColor: "white",
                 borderRadius: 10,
@@ -33,7 +35,7 @@ const DisbursementItemFull = ({ props }) => {
                     <Text className={`text-f13 font-sfregular text-right ${Platform.OS=='ios'?'mt-2':'mt-1'} text-gray-400`}>13:39 24/09/2025</Text>
                 </View>
             </View>
-            <View className='flex-row items-center mt-2'>
+            <View className={`flex-row items-center ${Platform.OS=='ios'?'mt-2':'mt-1'}`}>
                 <HeroSolid.UserCircleIcon size={19} color={'#CECECE'} />
                 <View className='ml-3'>
                     <Text className='text-f16 font-sfbold'>
@@ -42,7 +44,7 @@ const DisbursementItemFull = ({ props }) => {
                     </Text>
                 </View>
             </View>
-            <View className='flex-row items-center my-2.5'>
+            <View className={`flex-row items-center ${Platform.OS=='ios'?'my-2.5':''}`}>
                 <HeroSolid.MapPinIcon size={17} color={'#CECECE'} />
                <View className='ml-3'>
                     <Text className='text-f16 font-sfbold'>
@@ -70,7 +72,7 @@ const DisbursementItemFull = ({ props }) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

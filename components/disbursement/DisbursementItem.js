@@ -1,8 +1,12 @@
-import { Platform, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Platform, Text, TouchableOpacity, View } from 'react-native';
+
 
 const DisbursementItem = ({ props }) => {
+    const navigation = useNavigation()
+
     return (
-        <View className='bg-white p-4 mb-4'
+        <TouchableOpacity onPress={()=>navigation.navigate('DisbursementDetailStack')} className='bg-white p-4 mb-4'
             style={{
                 backgroundColor: "white",
                 borderRadius: 10,
@@ -31,7 +35,7 @@ const DisbursementItem = ({ props }) => {
                         <Text className='font-sfregular text-f15 text-gray-700 mt-0.5'>Phạm Phương Thuý</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
