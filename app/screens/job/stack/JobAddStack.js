@@ -1,100 +1,211 @@
-import { useNavigation } from '@react-navigation/native';
-import * as ImagePicker from 'expo-image-picker';
+import format from 'date-fns/format';
 import { useState } from 'react';
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Dropdown } from 'react-native-element-dropdown';
+import { CalendarIcon, ChevronDownIcon, DocumentIcon } from "react-native-heroicons/outline";
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-const JobAddStack = () => {
+export default function JobAddStack() {
+  const [focusField, setFocusField] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isPickerVisible, setPickerVisible] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-  const navigation = useNavigation()
+  const [formData, setFormData] = useState({
+    sellBy: null,
+    type: null,
+    handleBy: null,
+    calendar: null
+  });
 
-  const [image, setImage] = useState(null);
-  const [contentTxt, SetContentTxt] = useState(null)
+  const calendar = [
+    { label: 'Một lần', value: '0' },
+    { label: 'Hàng tuần', value: '1' },
+    { label: 'Hàng tháng', value: '2' },
+    { label: 'Tuỳ chỉnh', value: 'custom' },
+  ];
 
-  const pickImage = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      // aspect: [4, 3],
-      quality: 1,
-    })
+  // Sản phẩm được thêm
+  const [productAdd, setProductAdd] = useState([]);
+  const sellBy = [{ label: 'Admin', value: '0' }];
+  const handleBy = [{ label: 'Dev', value: '0' }];
+  const type = [{ label: 'Black list/Chặn', value: '0' }, { label: 'Không tiềm năng', value: '1' }, { label: 'Sàn TMĐT', value: '2' }];
 
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
-    }
+  // Dropdowns
+  const renderDropdown = (key, label, data, placeholder = 'Chọn...', hiddenText = false) => {
+    return (
+      <View className='mb-5'>
+        {!hiddenText && (
+          <Text className="font-sfregular text-[15px] mb-2 text-gray-700">
+            <Text className="text-red-600">*</Text> {label}
+          </Text>
+        )}
+
+        <Dropdown
+          style={[
+            styles.dropdown,
+            focusField === key && { borderColor: '#3b82f6' },
+          ]}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
+          data={data}
+          search
+          maxHeight={150}
+          labelField="label"
+          valueField="value"
+          placeholder={placeholder}
+          searchPlaceholder={`Tìm ${label.toLowerCase()}...`}
+          value={formData[key]}
+          onFocus={() => setFocusField(key)}
+          onBlur={() => setFocusField(null)}
+          onChange={(item) => {
+            setFormData((prev) => ({ ...prev, [key]: item.value }));
+            setFocusField(null);
+          }}
+        />
+      </View>
+    );
+  };
+
+  const removeProduct = (id) => {
+    setProductAdd(prev => {
+      return prev.filter(item => item.id !== id);
+    });
   }
 
   return (
-    <View className='flex-1'>
-      <ScrollView className='flex-1 px-4'>
-          <View className=''>
-            <View className='mt-6 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Tên công việc</Text>
-              <TextInput 
-                className='border-b h-10 font-sfregular text-f14 border-gray-200'
-                placeholder='Nhập tên công việc'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
-            <View className='mt-6 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Giá công việc</Text>
-              <TextInput 
-                className='border-b h-10 font-sfregular text-f14 border-gray-200'
-                placeholder='Nhập giá công việc'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Ghi chú công việc</Text>
-              <TextInput 
-                className='border-b h-20 border-gray-200'
-                placeholder='Nhập ghi chú công việc'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
+    <View className='flex-1 bg-white'>
+      <ScrollView className="px-5 mb-5">
+        <View className="mt-7">
 
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Phân loại</Text>
-              <TextInput 
-                className='border-b h-10 border-gray-200 font-sfregular text-f14'
-                placeholder='Chọn phân loại'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Tạo bởi</Text>
-              <TextInput 
-                className='border-b h-10 border-gray-200 font-sfregular text-f14'
-                placeholder='Tìm kiếm người tạo'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Xử lý bởi</Text>
-              <TextInput 
-                className='border-b h-10 border-gray-200 font-sfregular text-f14'
-                placeholder='Tìm kiếm người xử lý'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Lập lịch công việc</Text>
-              <TextInput 
-                className='border-b h-10 border-gray-200 font-sfregular text-f14'
-                placeholder='Một lần'
-                placeholderTextColor={'#ddd'}
+          {/* Tên công việc */}
+          <View className=''>
+            <Text className="text-[15px] mb-2 text-gray-700 font-sfregular">
+              <Text className="text-red-600 ">*</Text> Tên công việc
+            </Text>
+            <View className='flex-row gap-x-2 mb-4'>
+              <TextInput
+                value=''
+                className='py-4 border border-[#ccc] px-3 rounded-lg flex-1'
+                placeholder='Nhập tên công việc'
               />
             </View>
           </View>
+          
+          {/* Gía công việc */}
+          <View className=''>
+            <Text className="text-[15px] mb-2 text-gray-700 font-sfregular">
+              <Text className="text-red-600 ">*</Text> Giá công việc
+            </Text>
+            <View className='flex-row gap-x-2 mb-4'>
+              <TextInput
+                value=''
+                className='py-4 border border-[#ccc] px-3 rounded-lg flex-1'
+                placeholder='Nhập giá công việc'
+              />
+            </View>
+          </View>
+
+          {renderDropdown('type', 'Phân loại', sellBy, 'Chọn...')}
+          {renderDropdown('sellBy', 'Tạo bởi', sellBy, 'Chọn...')}
+          {renderDropdown('handleBy', 'Xử lý bởi', sellBy, 'Chọn...')}
+
+          {/* Loại lập lịch */}
+          <View className='mt-3'>
+            <Text className="font-sfregular text-[15px] mb-2 text-gray-700">
+              <Text className="text-red-600 font-sfregular">*</Text> Loại lập lịch
+            </Text>
+            {renderDropdown('calendar', 'Loại lập lịch', calendar, 'Chọn', true)}
+          </View>
+  
+          {/* Ngày lập lịch tuỳ chỉnh */}
+          {
+            formData.calendar == 'custom' && (
+              <View className='mb-3'>
+                <Text className="font-sfregular text-[15px] mb-2 text-gray-700">
+                  <Text className="text-red-600">*</Text> Ngày lập lịch tuỳ chỉnh
+                </Text>
+                <TouchableOpacity onPress={() => setPickerVisible(true)}>
+                  <View className="flex-row items-center relative">
+                    <View className="w-[50px] justify-center bg-gray-100 rounded-l-lg h-full items-center flex-row">
+                      <CalendarIcon size={20} />
+                    </View>
+                    <TextInput
+                      editable={false}
+                      className="border border-gray-200 py-4 flex-1 px-3 rounded-r-lg text-[14px]"
+                      value={format(selectedDate, 'dd-MM-yyyy')}
+                      style={{ letterSpacing: 1.5 }}
+                    />
+                    <View className="absolute right-2">
+                      <ChevronDownIcon size={15} />
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            )
+          }
+
+          {/* Ghi chú */}
+          <View className=''>
+            <Text className="text-[15px] mb-2 text-gray-700 font-sfregular">
+              <Text className="text-red-600 ">*</Text> Ghi chú
+            </Text>
+            <TextInput
+                placeholder="Nhập ghi chú..."
+                className="border border-gray-300 rounded-xl p-3 h-24 mb-4"
+                multiline
+              />
+          </View>
+
+          <View className=''>
+            <DateTimePickerModal
+              isVisible={isPickerVisible}
+              mode="date"
+              display="inline"
+              date={selectedDate}
+              onConfirm={(date) => {
+                setSelectedDate(date);
+                setPickerVisible(false);
+              }}
+              onCancel={() => setPickerVisible(false)}
+            // pickerContainerStyleIOS={{ width: '100%', alignSelf: 'center' }}
+            />
+          </View>
+
+        </View>
       </ScrollView>
-      <View className='px-4 flex-row my-5 gap-x-2'>
-          <TouchableOpacity 
-            onPress={() => navigation.navigate('ProductOverviewStack')}
-            className='flex-1 justify-center items-center h-12 rounded-lg bg-blue-500'>
-            <Text className='text-white text-f16 font-sfregular'>Tạo công việc</Text>
-          </TouchableOpacity>
+      <View className='px-5 mb-5'>
+          <View className='justify-center items-center bg-blue-500 rounded-lg'>
+            <TouchableOpacity className='px-3 py-3 flex-row items-center gap-x-1 w-auto'>
+              <View><DocumentIcon size='18' color='#fff' /></View>
+              <Text className='text-white font-sfmedium text-base capitalize'>Tạo đơn hàng</Text>
+            </TouchableOpacity>
+          </View>
       </View>
     </View>
   );
 }
 
-export default JobAddStack;
+const styles = StyleSheet.create({
+  dropdown: {
+    paddingVertical: 12,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  placeholderStyle: {
+    fontSize: 14,
+    color: '#999',
+  },
+  selectedTextStyle: {
+    fontSize: 14,
+    color: '#000',
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 14,
+  },
+});
