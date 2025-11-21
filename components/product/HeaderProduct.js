@@ -1,7 +1,8 @@
-import { useCallback, useRef } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useCallback, useRef, useState } from 'react';
+import { Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
+
 // import BottomOrderFilterSheet from './BottomOrderFilterSheet';
 
 const HeaderProduct = ({ title, navigation, route }) => {
@@ -15,6 +16,24 @@ const HeaderProduct = ({ title, navigation, route }) => {
   const closeSheet = useCallback(() => {
     bottomSheetRef.current?.dismiss();
   }, []);
+
+  // Modal
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => setModalVisible(true);
+  const closeModal = () => setModalVisible(false);
+
+  // Danh sách menu
+  const menuItems = [
+    { id: 1, title: 'Loại sản phẩm', screen: 'Product', navigate: 'ProductCategoryStack'  },
+    { id: 2, title: 'Nhãn hiệu', screen: 'Product', navigate: 'ProductBrandStack'  },
+    { id: 4, title: 'Thuộc tính', screen: 'Product', navigate: 'AttributeStack'  },
+  ];
+
+  const onMenuPress = (item) => {
+    setModalVisible(false)
+    navigation.navigate(item.screen, {screen: item.navigate})
+  };
 
   return (
     <View className='bg-white'
@@ -47,10 +66,10 @@ const HeaderProduct = ({ title, navigation, route }) => {
           </Text>
         </TouchableOpacity>
         <View className='flex-row items-center'>
-          <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full' onPress={() => alert('Tìm kiếm')}>
-            <HeroOutline.Squares2X2Icon size={22} color={'#333'} />
+          <TouchableOpacity className='hidden bg-gray-200 w-10 h-10 justify-center items-center rounded-full' onPress={() => alert('Tìm kiếm')}>
+            <HeroOutline.Squares2X2Icon size={20} color={'#333'} />
           </TouchableOpacity>
-          <TouchableOpacity className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full ml-2' onPress={() => alert('Tìm kiếm')}>
+          <TouchableOpacity onPress={openModal} className='bg-gray-200 w-10 h-10 justify-center items-center rounded-full ml-2'>
             <HeroSolid.EllipsisVerticalIcon size={25} color={'#333'} />
           </TouchableOpacity>
         </View>
@@ -92,9 +111,51 @@ const HeaderProduct = ({ title, navigation, route }) => {
 
       {/* <BottomOrderFilterSheet ref={bottomSheetRef} onClose={closeSheet} /> */}
 
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={closeModal}
+      >
+        <View style={styles.backdrop}>
+          <View className='bg-white w-[70%] rounded-lg pt-5'  onStartShouldSetResponder={() => true}>
+            <Pressable onPress={closeModal}>
+              <View className="">
+                <Text className="text-center font-sfbold text-f17 mb-4">Chọn hành động</Text>
+                {menuItems.map((item) => (
+                  <TouchableOpacity
+                    key={item.id}
+                    className="py-3 border-b border-gray-200"
+                    onPress={() => onMenuPress(item)}
+                  >
+                    <Text className="text-center text-f15 font-sfregular">{item.title}</Text>
+                  </TouchableOpacity>
+                ))}
+
+                <TouchableOpacity className="mt-4 py-3" onPress={closeModal}>
+                  <Text className="text-center text-blue-600 font-sfmedium">Hủy</Text>
+                </TouchableOpacity>
+              </View>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+
     </View>
 
   );
 }
+
+const styles = StyleSheet.create({
+  backdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)', // 🔥 lớp mờ nền
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backdropTouchable: {
+    ...StyleSheet.absoluteFillObject, // cho phép click ra ngoài để đóng
+  }
+});
 
 export default HeaderProduct

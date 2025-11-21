@@ -69,12 +69,6 @@ export default function JobAddStack() {
     );
   };
 
-  const removeProduct = (id) => {
-    setProductAdd(prev => {
-      return prev.filter(item => item.id !== id);
-    });
-  }
-
   return (
     <View className='flex-1 bg-white'>
       <ScrollView className="px-5 mb-5">

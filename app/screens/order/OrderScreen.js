@@ -5,7 +5,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import * as HeroSolid from "react-native-heroicons/solid";
 import HeaderOrder from '../../../components/order/HeaderOrder';
 
-import { OrderAddStack, OrderFilterStack, OrderListReturnStack, OrderListStack, OrderOverviewStack, OrderPenddingStack, OrderReturnDetailStack } from './stack';
+import { OrderAddStack, OrderDetailStack, OrderFilterStack, OrderListReturnStack, OrderListStack, OrderOverviewStack, OrderPenddingStack, OrderReturnDetailStack } from './stack';
 const Stack = createNativeStackNavigator();
 const OrderScreen = () => {
   const navigation = useNavigation();
@@ -60,6 +60,13 @@ const OrderScreen = () => {
         component={OrderOverviewStack}
         options={({ navigation, route }) => ({
           header: () => <HeaderBar title={'Đơn hàng'} navigation={navigation} />,
+        })}
+      />
+      <Stack.Screen
+        name="OrderDetailStack"
+        component={OrderDetailStack}
+        options={({ navigation, route }) => ({
+          header: () => <HeaderBar title={'Chi tiết đơn hàng'} navigation={navigation} />,
         })}
       />
       <Stack.Screen

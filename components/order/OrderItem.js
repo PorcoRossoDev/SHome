@@ -1,9 +1,11 @@
-import { Image, Platform, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Image, Platform, Text, TouchableOpacity, View } from 'react-native';
 
 const OrderItem = ({ props }) => {
     const zaloIcon = require('../../assets/images/Icon_Zalo.png')
+    const navigation = useNavigation();
     return (
-        <View className='mb-4 pb-4 border-b border-gray-200 flex-row flex-wrap justify-between'>
+        <TouchableOpacity onPress={()=> navigation.navigate('OrderDetailStack')} className='mb-4 pb-4 border-b border-gray-200 flex-row flex-wrap justify-between'>
             <View className='w-[40%]'>
                 <Text className={`font-sfbold text-f17 ${Platform.OS=='android'?'leading-6':'leading-7'}`}>230925-128</Text>
                 <Text className={`font-sfregular text-gray-500 text-f14 ${Platform.OS=='android'?'leading-7':'leading-7'}`}>Chị Trang</Text>
@@ -33,7 +35,7 @@ const OrderItem = ({ props }) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

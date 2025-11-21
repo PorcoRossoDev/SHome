@@ -1,13 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Dropdown } from 'react-native-element-dropdown';
 import * as HeroOutline from "react-native-heroicons/outline";
 import * as HeroSolid from "react-native-heroicons/solid";
 
 const ProductAddStack = () => {
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
+  const [focusField, setFocusField] = useState(null);
+  
 
   const [image, setImage] = useState(null);
   const [contentTxt, SetContentTxt] = useState(null)
@@ -25,12 +28,55 @@ const ProductAddStack = () => {
     }
   }
 
+  const [formData, setFormData] = useState({
+    category: null, // Danh mục
+  });
+  const category = [{ label: 'Đơn hàng', value: '0' }, { label: 'Phụ kiện', value: '1' }];
+
+  // Dropdowns
+  const renderDropdown = (key, label, data, placeholder = 'Chọn...', hiddenText = false) => {
+    return (
+      <View className='mb-5'>
+        {!hiddenText && (
+          <Text className="font-sfregular text-[15px] mb-2 text-gray-700">
+            <Text className="text-red-600">*</Text> {label}
+          </Text>
+        )}
+
+        <Dropdown
+          style={[
+            styles.dropdown,
+            focusField === key && { borderColor: '#3b82f6' },
+          ]}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
+          data={data}
+          search
+          maxHeight={150}
+          labelField="label"
+          valueField="value"
+          placeholder={placeholder}
+          searchPlaceholder={`Tìm ${label.toLowerCase()}...`}
+          value={formData[key]}
+          onFocus={() => setFocusField(key)}
+          onBlur={() => setFocusField(null)}
+          onChange={(item) => {
+            setFormData((prev) => ({ ...prev, [key]: item.value }));
+            setFocusField(null);
+          }}
+        />
+      </View>
+    );
+  };
+
   return (
-    <View className='flex-1'>
+    <View className='flex-1 bg-white'>
       <ScrollView className='flex-1 px-4'>
           <View className='flex-row gap-x-2 mt-6'>
             <TouchableOpacity
-              className='bg-white h-14 w-14 justify-center items-center rounded-lg self-start' 
+              className='bg-gray-200 h-14 w-14 justify-center items-center rounded-lg self-start' 
               onPress={pickImage}
               >
               <HeroOutline.PhotoIcon size={30} color={'#3b82f6'} />
@@ -51,49 +97,54 @@ const ProductAddStack = () => {
               )
             }
           </View>
-          <View className=''>
-            <View className='mt-6 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Tên sản phẩm</Text>
-              <TextInput 
-                className='border-b h-10 font-sfregular text-f14 border-gray-200'
-                placeholder='Nhập tên sản phẩm'
-                placeholderTextColor={'#ddd'}
-              />
+          <View className='mt-4'>
+
+            {/* Tiêu đề */}
+            <View className=''>
+              <Text className="text-[15px] mb-2 text-gray-700 font-sfregular">
+                <Text className="text-red-600 ">*</Text> Tên sản phẩm
+              </Text>
+              <View className='flex-row gap-x-2 mb-4'>
+                <TextInput
+                  value=''
+                  className='py-4 border border-[#ccc] px-3 rounded-lg flex-1'
+                  placeholder='Nhập tên sản phẩm'
+                />
+              </View>
+            </View>
+            
+            {/* Danh mục */}
+            {renderDropdown('category', 'Danh mục', category, 'Chọn...')}
+
+            {/* Giá sản phẩm */}
+            <View className=''>
+              <Text className="text-[15px] mb-2 text-gray-700 font-sfregular">
+                <Text className="text-red-600 ">*</Text> Giá bán lẻ
+              </Text>
+              <View className='flex-row gap-x-2 mb-4'>
+                <TextInput
+                  value=''
+                  className='py-4 border border-[#ccc] px-3 rounded-lg flex-1'
+                  placeholder='0'
+                />
+              </View>
             </View>
 
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Danh mục</Text>
-              <TextInput 
-                className='border-b h-10 border-gray-200 font-sfregular text-f14'
-                placeholder='Tìm kiếm hoặc thêm mới danh mục'
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Giá bán lẻ</Text>
-              <TextInput 
-                className='border-b h-10 border-gray-200 font-sfregular text-f14'
-                placeholder='0'
-                placeholderTextColor={'#ddd'}
-              />
+            {/* Ghi chú */}
+            <View className=''>
+              <Text className="text-[15px] mb-2 text-gray-700 font-sfregular">
+                <Text className="text-red-600 ">*</Text> Ghi chú
+              </Text>
+              <TextInput
+                  placeholder="Nhập ghi chú..."
+                  className="border border-gray-300 rounded-xl p-3 h-24 mb-4"
+                  multiline
+                />
             </View>
 
-            <View className='mt-4 p-4 bg-white rounded-lg'>
-              <Text className='text-f16 font-sfbold'>Mô tả</Text>
-              <TextInput 
-                className='border-b h-20 border-gray-200'
-                placeholder=''
-                placeholderTextColor={'#ddd'}
-              />
-            </View>
           </View>
       </ScrollView>
       <View className='px-4 flex-row my-5 gap-x-2'>
-          <TouchableOpacity 
-            onPress={() => navigation.navigate('ProductOverviewStack')}
-            className='w-[40%] justify-center h-12 rounded-lg items-center bg-white'>
-            <Text className='text-f16 font-sfregular'>Huỷ</Text>
-          </TouchableOpacity>
           <TouchableOpacity 
             onPress={() => navigation.navigate('ProductOverviewStack')}
             className='flex-1 justify-center items-center h-12 rounded-lg bg-blue-500'>
@@ -103,5 +154,27 @@ const ProductAddStack = () => {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  dropdown: {
+    paddingVertical: 12,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  placeholderStyle: {
+    fontSize: 14,
+    color: '#999',
+  },
+  selectedTextStyle: {
+    fontSize: 14,
+    color: '#000',
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 14,
+  },
+});
 
 export default ProductAddStack;
